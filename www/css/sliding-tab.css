@@ -1,0 +1,87 @@
+ion-slide {
+    background-color: #f0f0f0;
+}
+
+/*ion-slide:nth-child(2n) {
+    background-color: #fff;
+}*/
+
+.slider {
+    height: 100%;
+}
+
+.slidingTabs {
+    height: 48px;
+    z-index: 10;
+}
+
+.slidingTabs .scroll {
+    height: auto;
+    min-width: 100%;
+}
+
+.slidingTabs ul {
+    background-color: rgb(250, 250, 250);
+    height: 48px;
+    -moz-box-shadow: outset 0 1px 0 0 #5f7aaf;
+    -webkit-box-shadow: outset 0 1px 0 0 #666;
+    box-shadow: 0px 4px 1px 4px #eee;
+    background-color: #FFF;
+    
+}
+
+.slidingTabs ul li {
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    float: left;
+    margin: 0;
+    padding: 0 12px 20px 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #9299A7;
+    -webkit-transition: color .25s ease-in-out;
+    transition: color .25s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.slidingTabs ul li.tab-active {
+    color: #9299A7;
+}
+
+.slidingTabs ul li .ink {
+    display: block;
+    position: absolute;
+    background: #92B737;
+    border-radius: 100%;
+    transform: scale(0);
+}
+
+.slidingTabs ul li .ink.animate {
+    -webkit-animation: ripple 0.65s linear;
+    animation: ripple 0.65s linear;
+}
+
+.slidingTabs .tab-indicator-wrapper {
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-transform: translateY(-2px);
+    position: absolute;
+    
+}
+
+.slidingTabs .tab-indicator-wrapper .tab-indicator {
+    height: 100%;
+    background-color: #92B737;
+    width: 70px;
+    position: relative;
+}
+
+@-webkit-keyframes ripple {
+    100% {
+        opacity: 0;
+        transform: scale(2.5);
+    }
+}

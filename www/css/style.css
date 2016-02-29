@@ -1,0 +1,1610 @@
+/* Empty. Add your own CSS if you like */
+
+/*------------Icons start--------------*/
+@charset "UTF-8";
+
+@font-face {
+  font-family: "font-2";
+  src:url("../fonts/font-2.eot");
+  src:url("../fonts/font-2.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/font-2.woff") format("woff"),
+    url("../fonts/font-2.ttf") format("truetype"),
+    url("../fonts/font-2.svg#font-2") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+body{
+  font-family:Helvetica !important;
+}
+[data-icon]:before {
+  font-family: "font-2" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "font-2" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add:before {
+  content: "a";
+}
+.icon-wall:before {
+  content: "b";
+}
+.icon-add-message:before {
+  content: "d";
+}
+.icon-book:before {
+  content: "e";
+}
+.icon-chat:before {
+  content: "f";
+}
+.icon-chef:before {
+  content: "c";
+}
+.icon-close:before {
+  content: "g";
+}
+.icon-code:before {
+  content: "h";
+}
+.icon-cotraveler:before {
+  content: "j";
+}
+.icon-follow:before {
+  content: "l";
+}
+.icon-home:before {
+  content: "m";
+}
+.icon-instagram:before {
+  content: "n";
+}
+.icon-like:before {
+  content: "o";
+}
+.icon-likefilled:before {
+  content: "p";
+}
+.icon-locator:before {
+  content: "r";
+}
+.icon-map:before {
+  content: "s";
+}
+.icon-message:before {
+  content: "q";
+}
+.icon-pictures:before {
+  content: "t";
+}
+.icon-pin-people:before {
+  content: "v";
+}
+.icon-rating:before {
+  content: "w";
+}
+.icon-search:before {`
+  content: "u";
+}
+.icon-search1:before {
+  content: "x";
+}
+.icon-settings:before {
+  content: "y";
+}
+.icon-timeline:before {
+  content: "i";
+}
+.icon-twitter:before {
+  content: "z";
+}
+.icon-filter:before {
+  content: "k";
+}
+.icon-filter-1:before {
+  content: "A";
+}
+.button .icon {
+	color: #ffffff;
+}
+.bar-header .back-button {
+    background: url("../img/back-bttn.png") no-repeat center left !important;
+    background-size: contain !important;
+    border: 0;
+    height: 21px;
+    position: absolute;
+    width: 21px;
+    margin-top: 3px;
+}
+.signup_header span.back_button {
+    display: inline-block;
+    width: 8%;
+    height: 34px;
+    vertical-align: middle;
+    text-align: center;
+    background-image: url("../img/back_btn.png");
+    background-size: 11px 30px;
+    background-repeat: no-repeat;
+    padding-left: 5px;
+    background-position: 8px 0px;
+}
+.signup_header {
+    padding-top: 20px;
+}
+.or {
+    margin: 10px 0;
+}
+.or span:first-child, .or span:last-child {
+    display: inline-block;
+    width: 45%;
+    height: 0px;
+    border-bottom: 1px solid #7888A0;
+    vertical-align: middle;
+}
+.or span:nth-child(2) {
+    /* margin: 0px 10px; */
+    color: #7888a0;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    width: 9%;
+    font-family: 'Roboto Condensed';
+    font-size: 20px;
+    text-align: center;
+}
+.signup_header span.back_button {
+    display: inline-block;
+    width: 8%;
+    height: 50px;
+    vertical-align: middle;
+    text-align: center;
+}
+.signup_header span.heading {
+    width: 92%;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    display: inline-block;
+    padding-top: 15px;
+}
+.bar-header .button.back-button {
+    opacity: 1;
+}
+.bar .left-buttons .ion-navicon {
+    height: 38px;
+}
+.bar-header .back-button .back-text,
+.bar-header .back-button .icon {
+    display: none;
+}
+.tabs-striped .tab-item.tab-item-active, .tabs-striped .tab-item.active, .tabs-striped .tab-item.activated {
+    margin-top: -2px;
+    border: none;
+    /* border-width: 2px 0 0 0; */
+    /* border-color: #444; */
+}
+.bar .title.title-left{
+  text-align: center;
+}
+
+/*.bar .button.close-button{
+    background-color: transparent;
+    border: navajowhite;
+    font-size: 14px;
+    font-style: normal;
+    font-family: initial;
+    color: #000;
+    font-weight: 500;
+    padding: 2px 20px;
+    }*/
+.bar .button.close-button{
+    color: #f2ba01;
+}
+.bar .button.close-button i{
+    color: #f2ba01;
+}
+.bar .button.post-button{
+     background-color: transparent;
+    
+    font-size: 14px;
+    font-style: normal;
+    /* font-family: initial; */
+    color: #f2ba01;
+    font-weight: 500;
+    padding: 2px 15px;
+    border-radius: 20px;
+    border-color: #f2ba01;
+    border-width: 2px;
+}
+
+/*------ Icons End ----------*/
+/*------Font start-----*/
+@font-face {
+  font-family: "HelveticaStd";
+  src:url("../fonts/HelveticaNeueLTStd-Lt.otf");
+  /*src:url("../fonts/font-2.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/font-2.woff") format("woff"),
+    url("../fonts/font-2.ttf") format("truetype"),
+    url("../fonts/font-2.svg#font-2") format("svg");*/
+  font-weight: normal;
+  font-style: normal;
+
+}
+@font-face {
+  font-family: "HelveticaHeading";
+  src:url("../fonts/HelveticaNeueLTStd-MdCn.otf");
+  /*src:url("../fonts/font-2.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/font-2.woff") format("woff"),
+    url("../fonts/font-2.ttf") format("truetype"),
+    url("../fonts/font-2.svg#font-2") format("svg");*/
+  font-weight: normal;
+  font-style: normal;
+
+}
+body{
+  font-family: "HelveticaStd";
+}
+ion-header-bar{
+  font-family: "HelveticaHeading"
+}
+.HelveticaBody{
+  font-family: "HelveticaStd";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: normal;
+}
+.HelveticaHeading{
+  font-family: "HelveticaHeading";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+}
+
+/*-----font end------*/
+/*------ Main Dashboard Start -----*/
+.myThemeColor{
+  background-color: #3d4552 !important;
+  height: 31px;
+  margin-top: 5px !important;
+  right: 0;
+}
+.myTabStyle > .tabs{
+    background-color: #3d4552;
+}
+.tab-item .icon {
+    margin: 5px 34% 0 28%;
+    height: 100%;
+    color: #FFFFFF;
+    margin-top:-3px !important; 
+}
+.tab-item {
+    opacity: 1;
+}
+.tab-item-active .icon{
+    border-bottom:3px solid #ffffff;
+}
+.bar-header{
+    background-color: #3d4552;
+    height: 50px;
+}
+.bar .title {
+    color: #f2ba01;
+    margin-top: 3px;
+}
+
+/*------ Main Dashboard End -----*/
+/*--------- Profile Start-----------*/
+.profile_header {
+  position: relative;
+}
+.profile_header span.heading {
+    font-size: 20px;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    padding-top: 15px;
+    font-weight: 600;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 88%;
+    top: 14px;
+    left: 0;
+}
+.profile_header span.back_button {
+    display: inline-block;
+    width: 8%;
+    height: 29px;
+    vertical-align: top;
+    text-align: center;
+    background-image: url("../img/back-bttn.png");
+    background-size: 20px 29px;
+    background-repeat: no-repeat;
+    padding-left: 5px;
+    background-position: 8px 0px;
+    margin-top: 9px;
+    position: absolute;
+    top: 8px;
+    left: 0px;
+    margin: 0;
+    padding: 0;
+    z-index: 50;
+}
+.profile_header .transperentBtnHead{
+    display: inline-block;
+        position: absolute;
+    top: 7px;
+    right: 12px;
+}
+.Profile-highlight {
+    margin-top: -14%;
+    position: relative;
+}
+.Profile-highlight ul li {
+    float: left;
+    text-align: center;
+    width: 33%;
+  }
+
+.Profile-highlight ul li label:first-child {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+}
+.Profile-highlight ul li label:last-child {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+}
+label.invite-code {
+    float: right;
+    padding: 2% 4%;
+    color: #8D8DAB;
+    font-size: 12px;
+}
+.profile-content{
+  color: #666;
+  margin: 20px;
+}
+.profile-content p {
+    margin: 20px 0px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-style: normal;
+}
+.profile-content a.item{
+  padding-left: 0px;
+}
+.profile-content .borderBlack{
+  border-bottom: 1px solid #666;
+  width: 100%;
+  height: 1px;
+  margin-top: 5px;
+}
+.profile-links {
+    margin: 0 20px;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.profile-links a:first-child {
+    color: #f2ba01;
+    text-decoration: none;
+    float: left;
+}
+
+.profile-links a:last-child {
+    color: #f2ba01;
+    text-decoration: none;
+    float: right;
+}
+
+/*-------- Profile ends -----------*/
+/*------ Signup start -----*/
+.signup .bar-transparent {
+    background-color: #E0E2E7;
+    border: 0;
+    background-image: none;
+    background-size: 100% 0;
+    color: #000;
+}
+.signup .bar .title {
+    color: #000;
+}
+.signup .button .icon {
+    color: #000;
+} 
+.signup input[type="text"],.basicInfo input[type="text"]{
+    border: 1px solid rgba(102, 102, 102, 0.45);
+    height: 41px;
+    margin-top: 3px;
+    margin-bottom: 15px;
+    background-color: transparent;
+    width: 100%;
+    padding-left: 10px;
+  }
+ .button-facebook {
+    border-radius: 0px;
+    -moz-box-shadow: inset 0 1px 0 0 #5f7aaf;
+    -webkit-box-shadow: inset 0 1px 0 0 #5f7aaf;
+    box-shadow: inset 0 1px 0 0 #5f7aaf;
+    background-color: #2b4170;
+    /* fallback color */
+    
+    background: -moz-linear-gradient(top, #4e6ba5, #2e4886);
+    background: -ms-linear-gradient(top, #4e6ba5, #2e4886);
+    background: -webkit-linear-gradient(top, #4e6ba5, #2e4886);
+    border: 1px solid #375492;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+}
+button.button-facebook.ion-social-facebook:before {
+    content: "\f231";
+    float: left;
+    font-size: 42px;
+}
+.signup .button-signup {
+    border-radius: 2px;
+    -moz-box-shadow: outset 0 1px 0 0 #5f7aaf;
+    -webkit-box-shadow: outset 0 1px 0 0 #666;
+    box-shadow: 0px 4px 1px 4px #eee;
+    background-color: #FFF;
+    background: -moz-linear-gradient(top, #4e6ba5, #2e4886);
+    background: -ms-linear-gradient(top, #4e6ba5, #2e4886);
+    background: -webkit-linear-gradient(top, #FFF, #fff);
+    border: 1px;
+    border-style: outset;
+    color: #666;
+    line-height: 1.13;
+    position: relative;
+    text-align: center;
+    font-size: 20px;
+    width: 90%;
+    text-align: center;
+    margin: 0 5%;
+}
+.signup .bar-transparent{
+
+}
+ .signup .item{
+  color: #666;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+ }
+
+ .signup .sign-up {
+    color: #f2ba01;
+}
+/*------ signup End -----*/
+
+/*------ Main local Home Chef Start -----*/
+
+
+.item-icon-right .icon {
+    right: 10px;
+    color: #5C6652;
+    font-size: 20px;
+}
+ .item p{
+     overflow: hidden;
+    text-overflow: initial;
+    white-space: initial;
+}
+.signup_container{
+  background-image: url("../img/background.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.invite_container{
+  background-color: #222930;
+}
+.home_container .item p{
+  font-size: 14px;
+  line-height: 20px;
+}
+.home_container .item h2 {
+    font-size: 14px;
+    font-weight: bold;
+}
+.home_container .item h3 {
+    margin: 0 0 4px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+/*------ Main local Home Chef End -----*/
+
+/*-------Invite Page Start------*/
+.invite_container .scroll {
+    height: 100%;
+}
+.buddha_icon_container {
+    height: 45%;
+    padding-top:15%;
+}
+.invite_container .buddha_icon_container {
+    height: 60%;
+    padding-top:15%;
+}
+.buddha_icon_container img {
+    margin: 0 auto;
+    display: block;
+    height: 100%
+}
+.invite_box {
+    width: 100%;
+    padding: 10px;
+}
+.invite_box label {
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #7888A0;
+    letter-spacing: 0.5px;
+}
+.invite_box input[type="text"] {
+    margin: 15px 2%;
+    width: 96%;
+    border: 1px solid silver;
+    background-color: transparent;
+    min-height: 40px;
+    text-align: center;
+    1text-transform: uppercase;
+    font-weight: bold;
+}
+.item-input{
+  padding-left:10px;
+}
+.invite_box span {
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    line-height: 20px;
+    color: gray;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.invite_box button {
+    text-transform: uppercase;
+    float: right;
+    color: #7888A0;
+    margin-top: 10%;
+}
+.clearfix:after{
+  content: ""
+  display:block;
+  clear: both;
+}
+.invite_box button {
+    text-transform: uppercase;
+    float: right;
+    color: #7888A0 !important;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 16px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+/*-------Invite Page End--------*/
+/*------ Login start -----*/
+.login .card, .list-inset {
+    overflow: hidden;
+    margin: 0px auto;
+    border-radius: 2px;
+    background-color:transparent;
+}
+.login label.item.item-input{
+  background-color: transparent;
+}
+.button.myTabStyle {
+    background-color: #f2ba01;
+    font-size: 20px;
+    width: 100%;
+    color: #fff;
+    letter-spacing: 1px;
+}
+.bold{
+  float: right;
+    margin-top: 20px;
+    font-weight: 700;
+    color: #3d4553;
+    letter-spacing: 0.7px;
+}
+.invite_container.login .buddha_icon_container {
+    height: 45%;
+    padding-top:15%;
+}
+/*------ Login End -----*/
+/*------ Message start -----*/
+
+.message .item-thumbnail-left > img{
+      background: black;
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+}
+.time{
+    float: right;
+    position: relative;
+    top: -24px;
+    color: #666;
+    font-size: 14px;
+
+}
+
+/*------ message End -----*/
+/*------ the wall filter starts -----*/
+.wallfilter li {
+    border-top: 1px dotted #9299A7;
+    background-color: transparent;
+    border-bottom: 1px dotted #9299A7;
+}
+.wallfilter .checkbox input, .checkbox-icon{
+  float: right;
+  margin-right: -14px;
+}
+.bar-filter{
+  background-color: rgb(61, 69, 83);
+  height: 50px;
+}
+.bar-filter .title{
+  margin-top: 5px; 
+  padding-left: 0 !important;
+}
+.wallfilter .item {
+    border-left: none;
+    border-right: none;
+}
+.wallfilter ul{
+  margin: 20px; 
+  color: #666;
+  font-size: 16px;
+}
+.wallfilter .item-checkbox {
+    padding-left: 0px;
+    font-size: 16px;
+    color: rgb(163, 174, 190);
+  }
+
+button.filter-button {
+    background-color: transparent;
+    border: navajowhite;
+    font-size: 16px;
+    font-style: normal;
+    font-family: 'Roboto Condensed';
+    color: #fff;
+    margin-top: 10px;
+    padding: 0px 10px;
+    
+}
+.button.button-icon.icon-filter{
+    vertical-align: middle;
+    font-size: 26px;
+    line-height: 26px; 
+}
+.add_post {
+    width: 100%;
+    height: 95px;
+    -webkit-box-shadow: 0px 3px 10px -1px rgba(0,0,0,0.64);
+    -moz-box-shadow: 0px 3px 10px -1px rgba(0,0,0,0.64);
+    box-shadow: 0px 3px 10px -1px rgba(0,0,0,0.64);
+}
+.img_box {
+    height: 60px;
+    width: 60px;
+    float: left;
+    margin: 15px;
+}
+.img_box img {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #f2ba01;
+    border-radius: 50%;
+}
+.loginPage{
+  margin-top: 25px;
+}
+.details_box {
+    width: 70%;
+    float: left;
+}
+.details_box label.item.item-input {
+    box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+    padding: 10px 0px 10px 5px;
+}
+.details_box input[type="text"] {
+    padding-left: 5%;
+}
+.post_buttons {
+    padding: 10px 5% 10px 5%;
+}
+.post_buttons span.ion-camera {
+    font-size: 24px;
+    color: #C5C5C5;
+    margin: 0 4%;
+}
+span.ion-ios-location {
+    font-size: 12px;
+    color: #C5C5C5;
+    margin-left: 5%;
+}
+span.ion-ios-location:before {
+    font-size: 24px;
+    margin-right: 5px;
+}
+.theWall.icon-filter:before{
+    vertical-align: middle;
+    font-size: 26px;
+    line-height: 26px;
+}
+
+/* wall Modal code*/
+.wallModal div.add_post {
+    height: 130px;
+    width: 100%;
+    background-color: white;
+    border-bottom: none;
+    top: 44px;
+    position: relative;
+}
+.wallModal .details_box {
+  padding-top: 6px;
+  height: 100%;
+}
+.wallModal .details_box label{
+  height: 100%;
+}
+.wallModal .details_box label textarea{
+  height: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+/*------ The wall filter End -----*/
+/*------ People Near Me Starts -----*/
+.peopleNearMe li.slider-slide-tab.ng-binding {
+    margin: 0 6%;
+    padding: 0px 0px;
+    width: 21%;
+    
+}
+/*------ People Near Me Ends -----*/
+/*------ Fevorite Starts -----*/
+.fevorite li.slider-slide-tab.ng-binding {
+    margin: 0;
+}
+/*------ Fevorite Ends -----*/
+/*-------Login Intro Start------------*/
+.loginInto_btn_container{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 75px;
+}
+.loginInto_btn_container button.button-clear{
+  text-transform: uppercase;
+    float: left;
+    color: #f5a543;
+    font-size: 18px;
+    width: 50%;
+    padding: 0 20px;
+    font-weight: bold;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.loginInto_btn_container button.signup{
+  text-align: left;
+}
+.loginInto_btn_container button.login{
+  text-align: right;
+}
+/*-------Login Intro End------------*/
+/*-------Home Start--------------*/
+.home_container .scroll{
+  height: 100%;
+}
+.home_button_container {
+    height: 50%;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.home_button_container .row  .title{
+    font-size: 16px;
+    line-height: 20px;
+    display: block;
+    color: #606062;
+    font-weight: 400;
+    font-family: Roboto Condensed;
+}
+.home_button_container .button-icon .icon:before{
+    font-size: 40px;
+    color: #606062;
+    display: block;
+    padding-bottom: 10px;
+}
+.home_button_container .row + .row {
+    margin-top: -7%;
+}
+.home_button_container .row{
+   height: 36%;
+}
+.home_button_container a.button-icon{
+  padding: 0;
+}
+.home_button_container .col{
+  text-align: center;
+  padding: 0px;
+}
+/*-------HOme End----------------*/
+
+
+/*------ Notification start -----*/
+.comenters label>img{
+  height: 40px;
+  width: 40px;
+  background-color: #000;
+  border-radius: 5px;
+}
+.comenters label{
+   padding-right: 5px;
+}
+.dark-14{
+  font-size: 14px;
+  color: #000;
+}
+.post-title{
+  font-size: 12px;
+  color: #666;
+}
+.notification .item-thumbnail-left{
+  padding-left:60px;
+  padding-bottom: 5px;
+}
+.notification .item-thumbnail-left [class*="icon-"]:before
+{
+    color: #000;
+    margin-left: -50px;
+    margin-top: 0px;
+    position: absolute;
+    padding: 0px;
+    font-size: 29px;
+}
+
+.notification .item-thumbnail-left [class*="ion-"]:before
+{
+    color: #000;
+    margin-left: -50px;
+    margin-top: 0px;
+    position: absolute;
+    padding: 0px;
+    font-size: 45px;
+}
+.notification .comenters+p {
+    font-size: 12px;
+    margin: 10px 0px;
+    color: black;
+}
+/*------ Notification End -----*/
+/*------Find co traveller -----*/
+.tb_filter.icon-filter:before{
+    vertical-align: middle;
+    font-size: 26px;
+}
+.buttons-right .tb_filter.icon-filter:before {
+    vertical-align: middle;
+    font-size: 26px!important;
+}
+button.tb_search.ion-ios-search {
+    color: white;
+    width: 34px;
+    font-weight: bold;
+    padding-right: 50px;
+}
+.trip_container {
+    background-color: white;
+}
+.trip_container .trip_heading {
+    padding: 5px;
+    margin-bottom: 10px;
+ }
+ .trip_container .trip_name {
+    text-transform: uppercase;
+    font-size: 16px;
+    float: left;
+    width: 85%;
+}
+.trip_container span.small_text {
+    font-size: 12px;
+    padding: 0 5px;
+    text-transform: capitalize;
+    color: #868B93;
+    padding-left: 15px
+}
+.trip_container .trip_icon {
+    font-size: 24px;
+    vertical-align: top;
+    float: left;
+    width: 15%;
+    text-align: right;
+}
+.trip_container .details {
+    padding: 5px;
+    color: gray;
+    font-size: 12px;
+}
+.trip_container .details > div:first-child {
+    display: block;
+    float: left;
+    width: 80%;
+}
+.trip_container .details > div:last-child {
+    float: left;
+    width: 20%;
+    color: black;
+    font-size: 14px;
+    text-align: right;
+}
+.people_count{
+  padding: 5px;
+  color:gray;
+  font-size: 12px;
+}
+.trip_container .picItem {
+    width: 47.5%;
+    float: left;
+    margin-right: 5%;
+    position: relative;
+}
+.pic_container .picItem:last-child{
+  margin-right: 0;
+}
+.trip_container .pic_container {
+    width: 100%;
+    padding: 5px;
+}
+.pic_container img {
+    width: 100%;
+    height: 150px;
+}
+.picItem span.name ,.picItem span.age_sex{
+    font-size: 14px;
+    position: absolute;
+    top: 35%;
+    font-weight: bold;
+    color: white;
+    background-color: #f2ba01;
+    padding: 0 15px 0 5px;
+    line-height: 18px;
+    vertical-align: middle;
+}
+.picItem span.age_sex{
+  top: 50%;
+  font-weight: normal;
+  font-size: 12px;
+  line-height:16px;
+}
+.picItem .place_friends {
+    position: absolute;
+    bottom: 0;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    width: 100%;
+}
+.place_friends span {
+    width: 50%;
+    float: left;
+}
+.place_friends span:first-child {
+  text-align: left;
+}
+.place_friends span:last-child {
+  text-align: right;
+}
+.trip_container .description {
+    font-size: 12px;
+    color: gray;
+    padding: 5px;
+}
+.trip_container .description {
+    font-size: 12px;
+    color: gray;
+    line-height: 14px;
+    padding: 5px;
+}
+.description span.pickup {
+    display: block;
+    margin-top: 10px;
+}
+.trip_container {
+    background-color: white;
+    border-bottom: 2px solid silver;
+}
+.trip_container .contact_host_btn {
+    display: block;
+    color: #f2ba01;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+/*------End Find co traveller---*/
+
+
+/* Profile global start*/
+.profile {
+    width: 100%;
+    box-shadow: 0px -1px 0px 0px gray;
+}
+/* Profile global ends*/
+.postMessage{
+  width: 100%;
+  height: 150px;
+}
+.img_box_post {
+  float: left;
+  height: 60px;
+  width: 60px;
+}
+.img_box_post img{
+  width: 100%;
+  height: 100%;
+  border: 2px solid #f2ba01;
+  border-radius: 50%;
+}
+.usrName_post{
+  float: left;
+  margin: 0;
+  font-weight: bolder;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.time_post{
+  float: right;
+  margin-left: 8px;
+  font-weight: lighter;
+  font-size: 12px;
+}
+.postWall{
+  margin-top: 50px;
+}
+.listPostStatus{
+  margin-top: 105px;
+  height: 100%;
+}
+.float_left{
+  float: left
+}
+.float_right{
+float: right;
+}
+.marginPadding0{
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+.detialContainer{
+  padding-left: 20px;
+}
+.follow_post{
+    font-size: 20px;
+    font-weight: bold;
+}
+.text-align-right{
+  text-align: right;
+}
+.font15{
+  font-weight: bold;
+  font-size: 15px;
+}
+.contain_post{
+  margin-left: 15px;
+  margin-top: 10px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: normal;
+}
+.img_place{
+  height: 115px;
+  width: 100%;
+} 
+.borderGreen{
+  margin-top: 10px;
+  background-color: white;
+  border-top: 3px solid #f2ba01;
+  -webkit-box-shadow: 0px 3px 10px -1px rgba(0,0,0,0.64);
+  -moz-box-shadow: 0px 3px 10px -1px rgba(0,0,0,0.64);
+  box-shadow: 0px 3px 10px -1px rgba(0,0,0,0.64);
+}
+.textCenter{
+  text-align: center;
+}
+.btn_post{
+  font-size: 38px;
+}
+
+.loginPage input{
+  font-size: 18px;
+  font-family: Helvetica;
+  font-weight: 300;
+}
+
+.loginPage .placeholder-icon:first-child{
+  padding-right: 20px;  
+}
+.countrySelect{
+  width: 100%;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: transparent;
+  height: 41px;
+}
+.getCode{
+  color:#7888A0 !important;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  display: inline-block;
+}
+.leftAlign{
+  float: left !important;
+}
+
+.videoPlayer{
+  position: absolute;
+  top: 0;
+}
+.imageHeader{
+  position: relative;
+}
+.imageHeader .Profile-highlight{
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  margin-top: 0px;
+  padding: 0px 20px;
+}
+.profileTabs{
+  width: 100%;
+  margin: 20px 0px;
+}
+.profileTabs .profileName{
+  font-size: 18px;
+      border-bottom: 3px solid #666;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.testimonialsTab .testimonialCard{
+    border-bottom: 1px solid #666;
+    border-top: 1px solid #666;
+    padding: 10px 20px;
+}
+.testimonialsTab .testimonialcontent p{
+  margin: 0;
+}
+.testimonialsTab .testimonialcontent{
+  padding-top: 10px;
+  clear: both;
+}
+.testimonialsTab .testimonialHead .userImage{
+  float: left;
+}
+.testimonialsTab .testimonialHead .userName{
+  display: inline-block;
+    float: left;
+    margin-left: 15px;
+    vertical-align: bottom;
+    margin-top: 10px;
+}
+.testimonialsTab .testimonialHead .date{
+      display: inline-block;
+    float: right;
+    margin-top: 10px;
+}
+.followerGrid{
+  display: inline-block;
+  width: 50%;
+  height: 350px;
+  float: left;
+  position: relative;
+}
+.followerGrid .followerGridRow{
+  height: 100%;
+}
+.followerGrid .image{
+  width: 100%;
+  height: 100%;
+}
+.followerGrid .detail{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+.followerGrid .Profile-highlight{
+  width: 100%;
+  padding: 10px;
+}
+.followerGrid .Profile-highlight ul li{
+  width: 50%;
+  text-align: right;
+}
+.followerGrid .Profile-highlight ul li:first-child{
+  text-align: left;
+}
+.transperentBtn{
+  width: 100%;
+  padding: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #FFF;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.followerGrid .transperentBtn{
+  margin: 10px;
+}
+/*css for invite friend start*/
+.invitePage{
+    background-image: url("../img/background.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.friendsImage{
+  position: absolute;
+  z-index: -1;
+  left: 0
+}
+.titleIn{
+  z-index: 10;
+  color:white;
+    margin-top: 26%;
+    position: absolute;
+    font-size: 27px;
+    line-height: 26px;
+   
+}
+.inviteP{
+      position: absolute;
+    color: white;
+    width: 80%;
+    margin-top: 44%;
+}
+.transparentButton{
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 4px;
+    width: 100%;
+    color: white;
+    padding: 10px;
+    margin-top: 68%;
+}
+.overlay{
+  padding:0 20px;
+}
+.invitePage .bold{
+  float: left;
+}
+.invitePage .container{
+  padding:20px;
+}
+.inviteDetails{
+    font-size: 14px;
+    color: gray;
+    float: right;
+    margin-top: 20px;
+    font-family: Helvetica;
+}
+.invitePage .list{
+    margin-top: 20px;
+    background: white;
+    border-radius: 3px;
+    padding: 10px;
+    color: gray;
+    font-size: 16px;
+    box-shadow: 0px 0px 15px -2px #B7B7B7;
+}
+.clearBoth{
+  clear: both;
+}
+.center{
+  text-align: center;
+  color: gray 
+}
+.invitePage .name{
+    padding: 10px;
+    border-bottom: 1px solid #d8d8d8;
+}
+.invitePage .nameList{
+  background: white;
+  margin-top: 20px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 15px -2px #B7B7B7;
+}
+/*css for invite friend end*/
+
+.subHeader{
+  font-weight: bold;
+  font-size: 16px;
+}
+.profile-detail{
+  font-size: 18px;
+  margin: 20px 0px; 
+}
+.profile-detail li{
+  display: inline-block;
+  width: 49%;
+  text-align: left;
+  font-size: 15px;
+}
+.profile-detail li label{
+  font-size: 15px;
+}
+.profile-detail li:last-child{
+  display: inline-block;
+  width: 49%;
+  text-align: right;
+}
+.profile-detail .count{
+  font-size: 20px;
+  font-weight: bold;
+}
+.profile-place .placeBlock{
+  width: 49%;
+  display: inline-block;
+}
+.textRight{
+  text-align: right !important;
+}
+.textLeft{
+  text-align: left !important;
+}
+
+.hide{
+  display: none;
+}
+.openProfilMenu{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 20%;
+  display: block;
+}
+.navProfilePic img{
+  width: 100%;
+  height: 300px;
+}
+.navProfile .list .item{
+  border: 0px;
+  color: #666;
+}
+/*JM CSS Start*/ 
+
+.basicInfo .firstLabel{
+  padding-top: 50px;
+  border-bottom: 0;
+}
+.basicInfo .list{
+  background: #fff;
+}
+.basicInfo .item-select{
+   width: 90%;
+   margin: 0 auto;
+   border-bottom: 0
+}
+.basicInfo .item-select:last-child{
+    border-bottom: 1px solid #ddd;
+}
+.basicInfo .item-select select{
+  text-align: left;
+}
+
+.messageSetting .item-checkbox{
+  padding-left: 16px; 
+}
+.messageSetting .item-checkbox .checkbox{
+  left: auto; 
+}
+.messageSetting .list{
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+.messageSetting .list .item{
+  border: none;
+  border-bottom: 3px dotted #ddd;
+  padding-left: 0px;
+}
+.messageSetting .list .item:first-child{
+   border-top: 3px dotted #ddd;
+}
+.notification .track{
+    height: 20px;
+    margin-top: 5px;
+    background: white !important;
+    border: solid 2px #e6e6e6 !important;
+}
+.notification .track .handle{
+    height: 11px;
+    top: 9px;
+    left: 10px;
+    width: 22px;
+    margin-top: 5px;
+    background: #f2ba01 !important;
+}
+.settings .item-divider{
+    padding-top: 50px;
+    background: #fff;
+    width: 90%;
+    border: none;
+    margin: 0 auto;
+    border-bottom: 2px dotted #ddd;
+}
+.settings .item{
+    width: 90%;
+    border:none;
+    margin: 0 auto;
+    border-bottom: 2px dotted #ddd;
+    position: relative;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.settings .item i{
+    position: absolute;
+    right: 0
+}
+.settings .toggle{
+  right: 0;
+}
+.settings .button{
+    width: 90%;
+    margin: 40px auto;
+    color: red;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 2px 5px 3px rgba(238,238,238,0.5);
+    -moz-box-shadow: 0px 2px 5px 3px rgba(238,238,238,0.5);
+    box-shadow: 0px 2px 5px 3px rgba(238,238,238,0.5);
+}
+.settings .extraMargin{
+  margin-top: 50px;
+   border-top: 2px dotted #ddd;
+}
+.settings .list{
+  margin: 0;
+}
+/* JM CSS end*/
+/* JM CSS start 20/10*/
+.visibility .list{
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+.visibility .list i,.helpPage .item i{
+  float: right;
+}
+.helpPage .list{
+  padding-top: 40px;
+}
+.helpPage .item{
+  border: none;
+  width: 90%;
+  margin: 0 auto;
+  border-top: 2px dotted ;
+}
+.helpPage .item:last-child{
+  border-bottom: 2px dotted ;
+}
+.helpPage .item p{
+  width: 90%;
+  float: left;
+}
+
+/* JM CSS end 20/10*/
+.updateWall{
+  margin-top: 70px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.updateWall .item-select:last-child{
+  border-bottom: 1px solid #ddd;
+  width: 90%;
+  margin: 0 auto;
+}
+.updateWall .item-select select{
+  text-align: left;
+}
+.updateWall .title-input{
+  font-size: 17px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.updateWall ionic-datepicker .button{
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+.updateWall rzslider .rz-pointer{
+  background-color: #f2ba01;
+}
+.updateWall rzslider .rz-bar.rz-selection{
+  background: #f2ba01;
+}
+.updateWall rzslider .rz-pointer.rz-active:after {
+  background-color: #3d4552;
+}
+.updateWall .details_box{
+  float: initial;
+  width: 100%;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-top: 20px;
+}
+.updateWall .details_box label{ 
+  padding-left: 0px;
+}
+.updateWall .details_box label textarea{
+  padding-left: 0px;
+  padding-right: 0px;
+} 
+
+.ion-android-favorite{
+  color: #f2ba01;
+}
+
+
+
+
+
+.displayInlineBlock{
+  display: inline-block;
+}
+.footernav{
+  padding: 0px;
+  -webkit-box-shadow: 0px -7px 34px -7px rgba(112,112,112,0.86);
+  -moz-box-shadow: 0px -7px 34px -7px rgba(112,112,112,0.86);
+  box-shadow: 0px -7px 34px -7px rgba(112,112,112,0.86);
+}
+.footernav .footerTab{
+  margin: 15px;
+  cursor: pointer;
+}
+.footernav .activeFooterTab{
+  border-bottom: 3px solid #f2ba01;
+  font-weight: bold;
+}
+.button-bar{
+  margin-bottom: 15px;
+}
+.genderSelected{
+  background-color: #f2ba01;
+}

@@ -1,0 +1,19 @@
+<ion-view hide-nav-bar="true" class="authentication">
+   <ion-content class="padding login invite_container HelveticaBody" ng-controller='AuthCtrl'>
+    <div class="buddha_icon_container">
+			<img src="img/buddha-1.png"/>
+		</div>
+	      <div class="list list-inset loginPage">
+          <label class="item item-input">
+              <i class="icon placeholder-icon"><img src='img/login_user.png' width='25px'/></i>
+              <input type="text" placeholder="User name" ng-model="data.username">
+          </label>
+          <label class="item item-input">
+              <i class="icon placeholder-icon"><img src='img/login_pass.png' width='25px'/></i>
+              <input type="password" placeholder="Password" ng-model="data.password">
+          </label>
+      </div>
+      <button class="button button-block myTabStyle HelveticaHeading" ng-click="login()">LOGIN</button>
+      <label class="bold pull-right HelveticaHeading">FORGOT PASSWORD</label>
+  </ion-content> 
+</ion-view>
