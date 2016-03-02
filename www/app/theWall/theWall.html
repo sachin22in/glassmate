@@ -4,7 +4,7 @@
       	INTEREST
       	</ion-nav-title>
       	<ion-nav-buttons side="right">
-			<button menu-toggle="right" class="button button-icon theWall icon-filter"></button>
+			<button menu-toggle="right" ng-click="toggleLeftSideMenu()" class="button button-icon theWall icon-filter"></button>
 		</ion-nav-buttons>
     </ion-nav-bar>
 
@@ -24,10 +24,10 @@
 				</div>
 			</div>
 	</div>
-	<ion-content class="home_container HelveticaBody listPostStatus has-header has-hfooter">
+	<ion-content class="home_container HelveticaBody listPostStatus has-header has-footer">
 		
 		
-		<div class="list borderGreen" ng-repeat="post in showPosts">
+		<div class="list borderGreen" ng-repeat="post in showPosts" ng-click="openPostDetailModel()">
 			<div class="row ">
 				<div class="col col-25 marginPadding0">
 					<div class="img_box_post">
@@ -75,29 +75,26 @@
 			</div>
 			
 			<div class="row">
-					<div class="col col-25 textCenter" ng-show="checkLikedByMe(post.likeBy)">
+					<div class="col col-33 textCenter" ng-show="checkLikedByMe(post.likeBy)">
 					  <span class="ion-android-favorite btn_post"></span><br/>
 					  <div class="btnPost">{{post.likeCount}} Likes</div>
 					</div>
-					<div class="col col-25 textCenter" ng-click="likeThisPost(post)" ng-hide="checkLikedByMe(post.likeBy)">
+					<div class="col col-33 textCenter" ng-click="likeThisPost(post)" ng-hide="checkLikedByMe(post.likeBy)">
 					  <span class="ion-android-favorite-outline btn_post"></span><br/>
 					  <div class="btnPost">{{post.likeCount}} Likes</div>
 					</div>
-					<div class="col col-25 textCenter">
+					<div class="col col-33 textCenter">
 					  <span class="ion-android-favorite-outline btn_post"> </span><br/>
 					  <div class="btnPost">93 Comments</div>
 					</div>
-					<div class="col col-25 textCenter">
+					<div class="col col-33 textCenter">
 					  <span class="ion-android-favorite-outline btn_post"></span> <br/>
 					  <div class="btnPost">Share</div>
 					</div>
-					<div class="col col-25 textCenter">
-					  <span class="ion-android-favorite-outline btn_post"></span> <br/>
-					  <div class="btnPost">Follow</div>
-					</div>
+					
 			</div>
 		</div>
-		<div class="list borderGreen">
+		<div class="list borderGreen" ng-click="openPostDetailModel()">
 			<div class="row ">
 				<div class="col col-25 marginPadding0">
 					<div class="img_box_post">
@@ -151,22 +148,19 @@
 				</div>
 			</div>
 			<div class="row textCenter">
-					<div class="col col-25 ">
+					<div class="col col-33">
 					  <span class="ion-android-favorite-outline btn_post"></span><br/>
 					  <div class="btnPost">14 Likes</div>
 					</div>
-					<div class="col col-25 textCenter">
+					<div class="col col-33 textCenter">
 					  <span class="ion-android-favorite-outline btn_post"> </span><br/>
 					  <div class="btnPost">93 Comments</div>
 					</div>
-					<div class="col col-25 textCenter">
+					<div class="col col-33 textCenter">
 					  <span class="ion-android-favorite-outline btn_post"></span> <br/>
 					  <div class="btnPost">Share</div>
 					</div>
-					<div class="col col-25 textCenter">
-					  <span class="ion-android-favorite-outline btn_post"></span> <br/>
-					  <div class="btnPost">Follow</div>
-					</div>
+					
 			</div>
 		</div>
 	</ion-content>

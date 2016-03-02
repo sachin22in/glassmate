@@ -43,7 +43,7 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule'])
         },
         'menu-left@tabs': {
           templateUrl: "app/theWall/wallfilter.html",
-          controller:""
+          controller:"NavCtrl"
             }
  
       }

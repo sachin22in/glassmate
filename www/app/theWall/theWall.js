@@ -20,6 +20,20 @@
       $scope.closeModal = function() {
         $scope.modal.hide();
       };
+      $scope.closePostDetailModal = function(){
+        $scope.postModal.hide();  
+      }
+      $ionicModal.fromTemplateUrl('app/theWall/postDetail.html', {
+      scope: $scope,
+      animation: 'slide-in-up '
+      }).then(function(postModal) { 
+          $scope.postModal = postModal;
+      });
+      $scope.openPostDetailModel = function(){
+          $scope.postModal.show();  
+      }
+
+
       $scope.postData = function(){
         console.log($scope.newpost.postDisc);
         /*$http({

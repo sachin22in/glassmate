@@ -8,7 +8,9 @@
     $ionicSideMenuDelegate.toggleLeft();
   };
   $scope.showRightMenu = function () {
+    console.log("in");
     $ionicSideMenuDelegate.toggleRight();
+    $ionicSideMenuDelegate.canDragContent([false]);
   };
     }
 })();
