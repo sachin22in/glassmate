@@ -518,6 +518,9 @@ button.button-facebook.ion-social-facebook:before {
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
+.signup_container .signupInput .item{
+  padding: 0px;
+}
 .invite_container{
   background-color: #222930;
 }

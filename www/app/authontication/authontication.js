@@ -9,7 +9,7 @@
 
      $scope.login = function(){
        // console.log($scope.data.username + '' + $scope.data.password);
-
+       $state.go('tabs.theWall');
         $http({
                 url: $rootScope.baseUrl + 'loginVerification' + '/' + $scope.data.username + '/' + $scope.data.password,
                 method: "GET",
