@@ -18,7 +18,7 @@ app.get('/abc', function (req, res) {
 
 app.post('/searchPlace', function (req, res) {
 	
-	console.log('++++++++++' + req.body.query + '+++++++++');
+	console.log('++++++++++' + req.body.query + '++++++++++++');
 
 	//var url = 'https://developers.zomato.com/api/v2.1/search?entity_id='+ req.body.entity_id +'&entity_type=' + req.body.entity_type + '&q=' + req.body.query + '&count=5';
 	var url = 'https://developers.zomato.com/api/v2.1/search?lat=18.592139&lon=73.757416&q=' + req.body.query + '&count=5';
