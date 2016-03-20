@@ -2,18 +2,18 @@
 (function () {
     'use strict';
 
-    angular.module('starter').controller('theWallCtrl', ['$scope','$ionicModal','$http','$rootScope', theWallCtrl]);
+    angular.module('starter').controller('theWallCtrl', ['$scope','$ionicModal','$http','$rootScope', 'httpService', theWallCtrl]);
 
-    function theWallCtrl($scope,$ionicModal, $http, $rootScope) {
+    function theWallCtrl($scope,$ionicModal, $http, $rootScope, httpService) {
       //console.log($rootScope.baseUrl);
       $scope.catOfPost = 'Cat001';
       $scope.newpost = {};
       $ionicModal.fromTemplateUrl('app/theWall/updateWall.html', {
         scope: $scope,
         animation: 'slide-in-up '
-    	  }).then(function(modal) {	
-    	    $scope.modal = modal;
-    	});       
+        }).then(function(modal) { 
+          $scope.modal = modal;
+      });       
       $scope.openModal = function() {
         $scope.modal.show();
       };
@@ -84,6 +84,41 @@
             });
 
       };
+      $scope.selectResto = function(resto){
+          var selectedResto = resto;
+          $scope.restaurants = [];
+          $scope.newpost.place = resto.restaurant.name + ' - ' + resto.restaurant.location.locality;
+          console.log(resto);
+      }
+      $scope.searchPlace = function(){
+        //console.log($scope.newpost.place);
+         var payload = {
+            query : $scope.newpost.place,
+            entity_id : 5,
+            entity_type : 'city'
+         }
+         //console.log($rootScope.baseUrl);
+          httpService.makecall($rootScope.baseUrl+ '/searchPlace', 'POST', payload).then(function(response){
+            //console.log(response.data.restaurants);
+            $scope.restaurants = response.data.restaurants;
+          }, 
+          function(error){
+            console.log(error);
+          });
+      };
+      $scope.dates = [];
+      var today = new Date();
+      var i = 0;
+      var tempDate = today;
+      console.log(today);
+      do{
+        
+        tempDate.setDate(tempDate.getDate() + 1);
+        $scope.dates[i] = angular.copy(tempDate);  
+        i++;
+      }while(i<14);
+      console.log($scope.dates);
+      //$scope.searchPlace();
       $scope.datepickerObject = {
         titleLabel: 'Date of Birth', //Optional
         todayLabel: 'Today', //Optional
@@ -113,4 +148,10 @@
       };
       $scope.loadPost();   
     }
+
+    Date.prototype.getDayText = function(){
+        var days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+        return days[this.getDay()];
+    }
+
 })();

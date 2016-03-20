@@ -28,9 +28,25 @@
 		      INTERESTED DATE
 		    </div>
 			
-		  	<ionic-datepicker input-obj="datepickerObject">
+			<ion-scroll direction="x" style="width: 1000px;" class="scroll-view ionic-scroll">
+			<!--   <div style="width: 5000px; height: 5000px; background: url('https://upload.wikimedia.org/wikipedia/commons/a/ad/Europe_geological_map-en.jpg') repeat"></div> -->
+			<div class="dateSelect" style="width: 1000px;">
+		    	<div class="dates" ng-repeat="date in dates">
+		    		<div>{{date.getDayText()}}</div>
+		    		<div>{{date.getDate()}}</div>
+		    	</div>
+		    </div>
+			</ion-scroll>
+		    <div class="dateSelect">
+		    	<div class="dates" ng-repeat="date in dates">
+		    		<div>{{date.getDayText()}}</div>
+		    		<div>{{date.getDate()}}</div>
+		    	</div>
+		    </div>
+
+		  	<!-- <ionic-datepicker input-obj="datepickerObject">
 	            <button class="button"><span ng-model="interestedDate">{{interestedDate | date: dd-MM-yyyy}}</span> </button>
-	      	</ionic-datepicker>
+	      	</ionic-datepicker> -->
 
 	      	<div class="title-input">
 		      TIME SLOT
@@ -39,12 +55,23 @@
 		    	<rzslider rz-slider-model="slider.min" rz-slider-high="slider.max" rz-slider-options="slider.options"></rzslider>
 		    </div>
 		    
-		    <div class="details_box">
+		   <!--  <div class="details_box">
 		    	<label class="item item-input">
-			    <textarea type="text" placeholder="Anyone interested in drinking beer?" ng-model="newpost.postDisc"></textarea>
+			    <input type="text" placeholder="Anyone interested in drinking beer?" ng-change="searchPlace();" ng-model="newpost.place">
 			  </label>	
 		    </div>
-		    
+		     -->
+		    <div class="title-input">
+		      PLACE
+		    </div>
+		    <label class="item item-input">
+			    <input type="text" placeholder="Where you want to meet?" ng-change="searchPlace();" ng-model="newpost.place">
+		  	</label>	
+		    <div class="list placeSuggest">
+		    	<ul>
+		        <li class="item" ng-repeat="restaurant in restaurants" ng-click="selectResto(restaurant);">{{restaurant.restaurant.name}} - <span class="locality">{{restaurant.restaurant.location.locality}}</span></li>
+		        </ul>
+	      	</div>
 
 		</div>
 

@@ -72,6 +72,6 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule'])
 })
 .run(function($rootScope) {
     //alert();
-    $rootScope.baseUrl = 'http://synebyte.com/web125849serv_travelbuddha/Service1.svc/';
+    $rootScope.baseUrl = 'http://localhost:3000';
 
 });

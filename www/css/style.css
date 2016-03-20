@@ -1641,7 +1641,7 @@ float: right;
 .updateWall .details_box label{ 
   padding-left: 0px;
 }
-.updateWall .details_box label textarea{
+.updateWall .details_box label textarea, .updateWall .details_box label input{
   padding-left: 0px;
   padding-right: 0px;
 } 
@@ -1676,4 +1676,17 @@ float: right;
 }
 .genderSelected{
   background-color: #f2ba01;
+}
+.locality{
+    font-size: 16px;
+    color: #A9A9A9;
+}
+.placeSuggest{
+  margin-bottom: 30px !important;
+  cursor: pointer;
+}
+.dateSelect .dates{
+  display: inline-block;
+      padding: 10px;
+    text-align: center;
 }
