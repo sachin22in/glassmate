@@ -25,24 +25,18 @@
 		<div class="updateWall">
 
 		    <div class="title-input">
-		      INTERESTED DATE
+		      <span>INTERESTED DATE</span>
+		      <span class="month">{{dates[0].getMonthText()}}</span>
 		    </div>
-			
-			<ion-scroll direction="x" style="width: 1000px;" class="scroll-view ionic-scroll">
-			<!--   <div style="width: 5000px; height: 5000px; background: url('https://upload.wikimedia.org/wikipedia/commons/a/ad/Europe_geological_map-en.jpg') repeat"></div> -->
-			<div class="dateSelect" style="width: 1000px;">
-		    	<div class="dates" ng-repeat="date in dates">
-		    		<div>{{date.getDayText()}}</div>
-		    		<div>{{date.getDate()}}</div>
-		    	</div>
-		    </div>
-			</ion-scroll>
-		    <div class="dateSelect">
-		    	<div class="dates" ng-repeat="date in dates">
-		    		<div>{{date.getDayText()}}</div>
-		    		<div>{{date.getDate()}}</div>
-		    	</div>
-		    </div>
+			<input type="hidden" ng-model="selectedDate">
+			<ion-scroll  direction="x" scrollbar-x="false">
+	            <div class="dateSelect" style="width: 670px;">
+			    	<div class="dates" ng-repeat="date in dates" ng-class="{'selectedDate': selectedDate == date}" ng-click="selectDate(date)">
+			    		<div class="day">{{date.getDayText()}}</div>
+			    		<div class="date">{{date.getDate()}}</div>
+			    	</div>
+			    </div>
+        	</ion-scroll>
 
 		  	<!-- <ionic-datepicker input-obj="datepickerObject">
 	            <button class="button"><span ng-model="interestedDate">{{interestedDate | date: dd-MM-yyyy}}</span> </button>

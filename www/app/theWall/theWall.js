@@ -107,18 +107,21 @@
           });
       };
       $scope.dates = [];
-      var today = new Date();
       var i = 0;
-      var tempDate = today;
-      console.log(today);
+      var tempDate = new Date();
+      //$scope.selectedDate = angular.copy(tempDate);
       do{
-        
+        $scope.dates[i] = angular.copy(tempDate);
         tempDate.setDate(tempDate.getDate() + 1);
-        $scope.dates[i] = angular.copy(tempDate);  
         i++;
       }while(i<14);
       console.log($scope.dates);
       //$scope.searchPlace();
+      $scope.selectedDate = $scope.dates[0];
+      $scope.selectDate = function(date){
+        $scope.selectedDate = date;
+      }
+
       $scope.datepickerObject = {
         titleLabel: 'Date of Birth', //Optional
         todayLabel: 'Today', //Optional
@@ -152,6 +155,10 @@
     Date.prototype.getDayText = function(){
         var days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
         return days[this.getDay()];
+    }
+    Date.prototype.getMonthText = function(){
+        var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+        return months[this.getMonth()];
     }
 
 })();
