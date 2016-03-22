@@ -72,6 +72,6 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule'])
 })
 .run(function($rootScope) {
     //alert();
-    $rootScope.baseUrl = 'http://localhost:3000';
+    $rootScope.baseUrl = 'http://localhost:3000/glassmate';
 
 });

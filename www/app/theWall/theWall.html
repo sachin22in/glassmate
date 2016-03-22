@@ -26,62 +26,37 @@
 	</div>
 	<ion-content class="home_container HelveticaBody listPostStatus has-header has-footer">
 		
-		
-		<div class="list borderGreen" ng-repeat="post in showPosts" ng-click="openPostDetailModel()">
+		<div class="list borderGreen" ng-repeat="post in showPosts" ng-click="openPostDetailModel(post)">
 			<div class="row ">
 				<div class="col col-25 marginPadding0">
 					<div class="img_box_post">
 						<img src="img/sty.jpg">		
 					</div>
 				</div>
-				<div class="col col-75 detialContainer">
+				<div class="col col-75">
 					<div class="usrName_post">
-						{{post.userName}}
+						JUUHI RAAI1233
 					</div>
-					<div class="time_post">{{post.timeOfPost}}</div><br>
+					<div class="time_post">3h ago</div><br>
+					
 					<div class="row marginPadding0">
 						<div class="col marginPadding0">
-							<div>Indian,</div>
-							<div>Lives in Mumbai, IN<div class="float_right">31 Yrs</div></div>
-							<div>66 Followers</div>
+							<p>Hi, i am in {{post.placeName}} from {{post.startTime}} to {{post.endTime}} on {{post.date| date: dd/m/yy}}.</p>
+							<p>{{post.postDisc}}</p>
 						</div>
 					</div>
-					<div class="marginPadding0">
-					<div class="row">
-						<div class="col follow_post marginPadding0">34 
-						</div>
-						<div class="col follow_post text-align-right marginPadding0">23
-						</div>
-					</div>
-					<div class="row marginPadding0">
-						<div class="col follow_post marginPadding0">
-							 <div class="font15">TRAVELLED</div>
-						</div>
-						<div class="col follow_post text-align-right marginPadding0">
-						 <div class="font15">IN COMMON</div>
-						</div>
-					</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col contain_post"><p>{{post.commentDis}}</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<img class="img_place" src="img/barcelona.jpg">
 				</div>
 			</div>
 			
 			<div class="row">
-					<div class="col col-33 textCenter" ng-show="checkLikedByMe(post.likeBy)">
-					  <span class="ion-android-favorite btn_post"></span><br/>
-					  <div class="btnPost">{{post.likeCount}} Likes</div>
-					</div>
-					<div class="col col-33 textCenter" ng-click="likeThisPost(post)" ng-hide="checkLikedByMe(post.likeBy)">
+				<div class="col">
+					<img class="img_place" ng-src="{{post.placePic}}">
+				</div>
+			</div>
+			<div class="row textCenter">
+					<div class="col col-33">
 					  <span class="ion-android-favorite-outline btn_post"></span><br/>
-					  <div class="btnPost">{{post.likeCount}} Likes</div>
+					  <div class="btnPost">14 Likes</div>
 					</div>
 					<div class="col col-33 textCenter">
 					  <span class="ion-android-favorite-outline btn_post"> </span><br/>

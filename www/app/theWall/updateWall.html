@@ -28,10 +28,10 @@
 		      <span>INTERESTED DATE</span>
 		      <span class="month">{{dates[0].getMonthText()}}</span>
 		    </div>
-			<input type="hidden" ng-model="selectedDate">
+			<input type="hidden" ng-model="newpost.date">
 			<ion-scroll  direction="x" scrollbar-x="false">
 	            <div class="dateSelect" style="width: 670px;">
-			    	<div class="dates" ng-repeat="date in dates" ng-class="{'selectedDate': selectedDate == date}" ng-click="selectDate(date)">
+			    	<div class="dates" ng-repeat="date in dates" ng-class="{'selectedDate': newpost.date == date}" ng-click="selectDate(date)">
 			    		<div class="day">{{date.getDayText()}}</div>
 			    		<div class="date">{{date.getDate()}}</div>
 			    	</div>
@@ -46,7 +46,7 @@
 		      TIME SLOT
 		    </div>
 		    <div>
-		    	<rzslider rz-slider-model="slider.min" rz-slider-high="slider.max" rz-slider-options="slider.options"></rzslider>
+		    	<rzslider rz-slider-model="newpost.startTime" rz-slider-high="newpost.endTime" rz-slider-options="slider.options"></rzslider>
 		    </div>
 		    
 		   <!--  <div class="details_box">
@@ -59,7 +59,7 @@
 		      PLACE
 		    </div>
 		    <label class="item item-input">
-			    <input type="text" placeholder="Where you want to meet?" ng-change="searchPlace();" ng-model="newpost.place">
+			    <input type="text" placeholder="Where you want to meet?" ng-change="searchPlace();" ng-model="newpost.placeName">
 		  	</label>	
 		    <div class="list placeSuggest">
 		    	<ul>

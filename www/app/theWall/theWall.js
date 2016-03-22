@@ -29,13 +29,28 @@
       }).then(function(postModal) { 
           $scope.postModal = postModal;
       });
-      $scope.openPostDetailModel = function(){
+      $scope.openPostDetailModel = function(postDetail){
+          $scope.postModelDetail = postDetail;
           $scope.postModal.show();  
       }
 
 
       $scope.postData = function(){
-        console.log($scope.newpost.postDisc);
+        console.log($scope.newpost);
+        if($scope.newpost.placePic == undefined){
+          alert("Please select place from droupdown");
+        }
+
+        $scope.newpost.postBy = 9999;
+        $scope.newpost.placeId = 9999;
+
+        httpService.makecall($rootScope.baseUrl+ '/newPost', 'POST', $scope.newpost).then(function(response){
+            console.log(response);
+            $scope.modal.hide();
+          }, 
+          function(error){
+            console.log(error);
+          });
         /*$http({
             url: $rootScope.baseUrl + 'newPost' + '/' + $scope.newpost.postDisc + '/' + 'bhopal' + '/' + 'U00000032' + '/' + $scope.catOfPost,
             method: "GET",
@@ -71,29 +86,38 @@
             });
       }
       $scope.loadPost = function(){
-            $http({
-                url: $rootScope.baseUrl + 'InitialWall' + '/' + 'rahul12@gmail.com' + '/' + 'u4d3DMykMu',
-                method: "GET",
-            }).success(function(response){
-                console.log(response);
-                $scope.showPosts = response.InitialWallResult;
-                
-            }).error(function(error){
-                 console.log(error);
-                 alert("error");l
+
+            httpService.makecall($rootScope.baseUrl+ '/getPosts', 'GET').then(function(response){
+              console.log(response);
+              $scope.showPosts = response.data;
+            }, 
+            function(error){
+              console.log(error);
             });
+            // $http({
+            //     url: $rootScope.baseUrl + 'InitialWall' + '/' + 'rahul12@gmail.com' + '/' + 'u4d3DMykMu',
+            //     method: "GET",
+            // }).success(function(response){
+            //     console.log(response);
+            //     $scope.showPosts = response.InitialWallResult;
+                
+            // }).error(function(error){
+            //      console.log(error);
+            //      alert("error");l
+            // });
 
       };
       $scope.selectResto = function(resto){
           var selectedResto = resto;
           $scope.restaurants = [];
-          $scope.newpost.place = resto.restaurant.name + ' - ' + resto.restaurant.location.locality;
+          $scope.newpost.placeName = resto.restaurant.name + ' - ' + resto.restaurant.location.locality;
+          $scope.newpost.placePic = resto.restaurant.featured_image;
           console.log(resto);
       }
       $scope.searchPlace = function(){
         //console.log($scope.newpost.place);
          var payload = {
-            query : $scope.newpost.place,
+            query : $scope.newpost.placeName,
             entity_id : 5,
             entity_type : 'city'
          }
@@ -109,7 +133,7 @@
       $scope.dates = [];
       var i = 0;
       var tempDate = new Date();
-      //$scope.selectedDate = angular.copy(tempDate);
+      //$scope.newpost.selectedDate = angular.copy(tempDate);
       do{
         $scope.dates[i] = angular.copy(tempDate);
         tempDate.setDate(tempDate.getDate() + 1);
@@ -117,9 +141,9 @@
       }while(i<14);
       console.log($scope.dates);
       //$scope.searchPlace();
-      $scope.selectedDate = $scope.dates[0];
+      $scope.newpost.date = $scope.dates[0];
       $scope.selectDate = function(date){
-        $scope.selectedDate = date;
+        $scope.newpost.date = date;
       }
 
       $scope.datepickerObject = {
@@ -140,9 +164,9 @@
           $scope.interestedDate = val;
         }
       };
+      $scope.newpost.startTime = 10;
+      $scope.newpost.endTime = 20;
       $scope.slider = {
-        min: 10,
-        max: 20,
         showTicksValues: true,
         options: {
           floor: 0,
