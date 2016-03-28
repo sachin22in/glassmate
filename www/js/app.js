@@ -1,6 +1,6 @@
 
 
-angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule'])
+angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery'])
 .config(function($ionicConfigProvider) {
 
     $ionicConfigProvider.tabs.position('bottom'); // other values: top
@@ -54,6 +54,15 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule'])
         'home-tab': {
           templateUrl: "app/rightNow/rightNow.html",
           controller: 'RightNowTabCtrl'
+        }
+      }
+    })
+    .state('tabs.photos', {
+      url: "/photos",
+      views: {
+        'home-tab': {
+          templateUrl: "app/photos/photos.html",
+          controller: 'photosCtrl'
         }
       }
     })

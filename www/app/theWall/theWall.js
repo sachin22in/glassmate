@@ -89,9 +89,12 @@
 
             httpService.makecall($rootScope.baseUrl+ '/getPosts', 'GET').then(function(response){
               console.log(response);
+              $('.defaultSpinner').hide();
               $scope.showPosts = response.data;
             }, 
             function(error){
+              $('.defaultSpinner').hide();
+              alert("Connection Error. Please Check Network Connection.");
               console.log(error);
             });
             // $http({

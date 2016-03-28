@@ -1692,6 +1692,7 @@ float: right;
   padding: 5px 10px;
   text-align: center;
   border-radius: 5px;
+  cursor: pointer;
 }
 .dateSelect .selectedDate .day{
   color: #FFF;
@@ -1701,4 +1702,15 @@ float: right;
 }
 .dateSelect .selectedDate{
   background-color: #f2ba01;
+}
+
+.defaultSpinner svg{
+  height: 40px;
+  stroke: #f2ba01;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.button-icon.ion-plus{
+  color: #f2ba01;
 }

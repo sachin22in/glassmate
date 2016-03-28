@@ -19,7 +19,7 @@
 <div class="bar bar-footer footernav">
   <ion-scroll direction="x" style="width: 650px; height: 50px">
 
-  <div style="width: 650px; height: 50px;">
+  <div style="width: 650px; height: 50px;" ng-init="activeTab = 'INTEREST'">
     <div class="displayInlineBlock footerTab" ng-class="{'activeFooterTab': activeTab == 'INTEREST'}" ng-click="activeTab = 'INTEREST'" ui-sref="tabs.theWall">
       INTEREST
     </div>
@@ -32,8 +32,8 @@
     <div class="displayInlineBlock footerTab" ng-class="{'activeFooterTab': activeTab == 'OFFERS'}" ng-click="activeTab = 'OFFERS'" >
       OFFERS
     </div>
-    <div class="displayInlineBlock footerTab" ng-class="{'activeFooterTab': activeTab == 'PHOTOES'}" ng-click="activeTab = 'PHOTOES'" >
-      PHOTOES
+    <div class="displayInlineBlock footerTab" ng-class="{'activeFooterTab': activeTab == 'PHOTOES'}" ng-click="activeTab = 'PHOTOES'" ui-sref="tabs.photos">
+      PHOTOS
     </div>
     <div class="displayInlineBlock footerTab" ng-class="{'activeFooterTab': activeTab == 'PROFILE'}" ng-click="activeTab = 'PROFILE'" ui-sref="tabs.profile">
       PROFILE
