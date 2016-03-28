@@ -30,7 +30,7 @@
 		    </div>
 			<input type="hidden" ng-model="newpost.date">
 			<ion-scroll  direction="x" scrollbar-x="false">
-	            <div class="dateSelect" style="width: 670px;">
+	            <div class="dateSelect" style="width: 680px;">
 			    	<div class="dates" ng-repeat="date in dates" ng-class="{'selectedDate': newpost.date == date}" ng-click="selectDate(date)">
 			    		<div class="day">{{date.getDayText()}}</div>
 			    		<div class="date">{{date.getDate()}}</div>
@@ -45,7 +45,7 @@
 	      	<div class="title-input">
 		      TIME SLOT
 		    </div>
-		    <div>
+		    <div id="sliderDiv">
 		    	<rzslider rz-slider-model="newpost.startTime" rz-slider-high="newpost.endTime" rz-slider-options="slider.options"></rzslider>
 		    </div>
 		    
@@ -66,7 +66,7 @@
 		        <li class="item" ng-repeat="restaurant in restaurants" ng-click="selectResto(restaurant);">{{restaurant.restaurant.name}} - <span class="locality">{{restaurant.restaurant.location.locality}}</span></li>
 		        </ul>
 	      	</div>
-
+	      	<div id="bottom"> </div>
 		</div>
 
 	</ion-content>

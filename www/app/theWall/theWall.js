@@ -2,9 +2,9 @@
 (function () {
     'use strict';
 
-    angular.module('starter').controller('theWallCtrl', ['$scope','$ionicModal','$http','$rootScope', 'httpService', theWallCtrl]);
+    angular.module('starter').controller('theWallCtrl', ['$scope','$ionicModal','$http','$rootScope', 'httpService', '$location', '$ionicScrollDelegate', theWallCtrl]);
 
-    function theWallCtrl($scope,$ionicModal, $http, $rootScope, httpService) {
+    function theWallCtrl($scope,$ionicModal, $http, $rootScope, httpService, $location, $ionicScrollDelegate) {
       //console.log($rootScope.baseUrl);
       $scope.catOfPost = 'Cat001';
       $scope.newpost = {};
@@ -119,6 +119,7 @@
       }
       $scope.searchPlace = function(){
         //console.log($scope.newpost.place);
+
          var payload = {
             query : $scope.newpost.placeName,
             entity_id : 5,
@@ -128,6 +129,10 @@
           httpService.makecall($rootScope.baseUrl+ '/searchPlace', 'POST', payload).then(function(response){
             //console.log(response.data.restaurants);
             $scope.restaurants = response.data.restaurants;
+            var temp = $(window).height();
+            $location.hash('sliderDiv');
+            $ionicScrollDelegate.anchorScroll(true);
+            //$ionicScrollDelegate.scrollBottom();
           }, 
           function(error){
             console.log(error);

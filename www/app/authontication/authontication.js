@@ -5,8 +5,7 @@
     angular.module('starter').controller('AuthCtrl', ['$scope','$state','$rootScope','$ionicHistory','$http', AuthCtrl]);
 
     function AuthCtrl($scope,$state,$rootScope,$ionicHistory,$http ) {       
-     $rootScope.baseUrl = 'http://synebyte.com/web125849serv_travelbuddha/Service1.svc/';
-
+     
      $scope.login = function(){
        // console.log($scope.data.username + '' + $scope.data.password);
        $state.go('tabs.theWall');

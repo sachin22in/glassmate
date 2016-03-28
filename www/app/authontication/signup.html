@@ -32,11 +32,11 @@
         </label>
         <label class="item">
           Gender
-          {{genderSelect}}
+          {{user.gender}}
           <div class="button-bar">
-            <a class="button" ng-class="{'genderSelected': genderSelect == 'male'}" ng-click="genderSelect = 'male'">Male</a>
-            <a class="button" ng-class="{'genderSelected': genderSelect == 'female'}" ng-click="abc()">Female</a>
-            <a class="button" ng-class="{'genderSelected': genderSelect == 'other'}" ng-click="genderSelect = 'other'">Other</a>
+            <a class="button" ng-class="{'genderSelected': user.gender == 'male'}" ng-click="chnageGender('male')">Male</a>
+            <a class="button" ng-class="{'genderSelected': user.gender == 'female'}" ng-click="chnageGender('female')">Female</a>
+            <a class="button" ng-class="{'genderSelected': user.gender == 'other'}" ng-click="chnageGender('other')">Other</a>
           </div>
         </label>
         <label class="item">
