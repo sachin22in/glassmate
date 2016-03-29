@@ -9,7 +9,7 @@
     </ion-nav-bar>
 
 	
-	<div class="add_post postWall clearfix">
+	<!-- <div class="add_post postWall clearfix">
 			<div class="img_box">
 				<img src="img/girl_wall.png"/>
 			</div>
@@ -23,8 +23,23 @@
 					<span class="ion-ios-location">Place</span>
 				</div>
 			</div>
-	</div>
-	<ion-content class="home_container HelveticaBody listPostStatus has-header has-footer">
+	</div> -->
+	<ion-content class="home_container HelveticaBody listPostStatus has-header has-footer ">
+		<div class="add_post postWall clearfix">
+			<div class="img_box">
+				<img src="img/girl_wall.png"/>
+			</div>
+			<div class="details_box" ng-click="openModal();">
+				  <label class="item item-input">
+				    <input type="text" readonly placeholder="Whats on your mind ?">
+				  </label>
+				<div class="seprator"></div>
+				<div class="post_buttons">
+					<span class="ion-camera"></span>
+					<span class="ion-ios-location">Place</span>
+				</div>
+			</div>
+		</div>
 		<ion-spinner icon="android" class="defaultSpinner"></ion-spinner>
 		<div class="list borderGreen" ng-repeat="post in showPosts" ng-click="openPostDetailModel(post)">
 			<div class="row ">

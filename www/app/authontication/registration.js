@@ -2,29 +2,29 @@
 (function () {
     'use strict';
 
-    angular.module('starter').controller('registrationCtrl', ['$scope','$state','$rootScope','$ionicHistory','$http','$location', registrationCtrl]);
+    angular.module('starter').controller('registrationCtrl', ['$scope','$state','$rootScope','$ionicHistory','$http','$location', 'ionicDatePicker', registrationCtrl]);
 
-    function registrationCtrl($scope,$state,$rootScope,$ionicHistory,$http, $location) {  
+    function registrationCtrl($scope,$state,$rootScope,$ionicHistory,$http, $location, ionicDatePicker) {  
      console.log("on");    
      $scope.user = {};
      //$scope.genderSelect = 'male';
         $scope.chnageGender = function(newGender){
             console.log(newGender);
             $scope.user.gender = newGender;
-        }
+        };
 
-     $scope.login = function(){
-       
-          $http({
-                url: $rootScope.baseUrl + 'userRegistration' + '/' + $scope.user.name + '/' + $scope.user.email + '/' + $scope.user.password + '/' + $scope.country.dial_code + '/' + $scope.user.city + '/' + $scope.user.city + '/' + $scope.user.nationality + '/' + $scope.user.languages + '/' + $scope.user.dob + '/' + $rootScope.invitationCode, 
-                method: "GET",
-            }).success(function(response){
-                if(response.userRegistrationResult == -1){
-                    $state.go('login');
-                }
-            }).error(function(error){
-                 console.log(error);
-            });
+     $scope.signup = function(){
+          console.log($scope.user);
+          // $http({
+          //       url: $rootScope.baseUrl + 'userRegistration' + '/' + $scope.user.name + '/' + $scope.user.email + '/' + $scope.user.password + '/' + $scope.country.dial_code + '/' + $scope.user.city + '/' + $scope.user.city + '/' + $scope.user.nationality + '/' + $scope.user.languages + '/' + $scope.user.dob + '/' + $rootScope.invitationCode, 
+          //       method: "GET",
+          //   }).success(function(response){
+          //       if(response.userRegistrationResult == -1){
+          //           $state.go('login');
+          //       }
+          //   }).error(function(error){
+          //        console.log(error);
+          //   });
      };
 
      $scope.goTologin = function(){
@@ -57,10 +57,16 @@
       from: new Date(2014, 5, 1), //Optional
       to: new Date(2016, 7, 1), //Optional
       callback: function (val) { //Optional
-        datePickerCallback(val);
+        console.log(val);
+        $scope.user.dob = new Date(val);
+        console.log($scope.user.dob);
       }
     };
-
+    $scope.openDatePicker = function(){
+      $scope.datepickerObject.inputDate = $scope.user.dob || new Date();
+      ionicDatePicker.openDatePicker($scope.datepickerObject);  
+    }
+    
    /* $scope.datepickerObject = {
 
        callback: function (val) {  //Mandatory
