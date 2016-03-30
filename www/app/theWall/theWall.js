@@ -34,14 +34,18 @@
           $scope.postModal.show();  
       }
 
-      console.log("yes");
       $scope.postData = function(){
         console.log($scope.newpost);
         if($scope.newpost.placePic == undefined){
           alert("Please select place from droupdown");
         }
-
-        $scope.newpost.postBy = 9999;
+        console.log($rootScope.userDetails);
+        
+        if(!$rootScope.userDetails){
+          alert("please Login");
+          return;  
+        }
+        $scope.newpost.postBy = $rootScope.userDetails.userID;
         $scope.newpost.placeId = 9999;
 
         httpService.makecall($rootScope.baseUrl+ '/newPost', 'POST', $scope.newpost).then(function(response){

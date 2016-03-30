@@ -435,7 +435,7 @@ label.invite-code {
 .signup .button .icon {
     color: #000;
 } 
-.signup input[type="text"],.basicInfo input[type="text"], .signup input[type="password"],.basicInfo input[type="password"]{
+.signup input[type="text"],.basicInfo input[type="text"], .signup input[type="password"],.basicInfo input[type="password"], .signup input[type="tel"],.basicInfo input[type="tel"]{
     border: 1px solid rgba(102, 102, 102, 0.45);
     height: 41px;
     margin-top: 3px;

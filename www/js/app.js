@@ -81,6 +81,7 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
 })
 .run(function($rootScope) {
     //alert();
-    $rootScope.baseUrl = 'http://54.169.243.198/restAPI/app';
+    //$rootScope.baseUrl = 'http://54.169.243.198/restAPI/app';
+    $rootScope.baseUrl = 'http://localhost:3000/glassmate';
 
 });
