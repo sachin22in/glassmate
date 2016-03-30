@@ -34,7 +34,7 @@
           $scope.postModal.show();  
       }
 
-
+      console.log("yes");
       $scope.postData = function(){
         console.log($scope.newpost);
         if($scope.newpost.placePic == undefined){
