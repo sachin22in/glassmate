@@ -1705,7 +1705,9 @@ float: right;
 .dateSelect .selectedDate{
   background-color: #f2ba01;
 }
-
+ion-spinner svg{
+  stroke: #f2ba01;
+}
 .defaultSpinner svg{
   height: 40px;
   stroke: #f2ba01;
