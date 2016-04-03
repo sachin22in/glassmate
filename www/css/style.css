@@ -767,7 +767,7 @@ span.ion-ios-location:before {
 
 /* wall Modal code*/
 .wallModal div.add_post {
-    height: 130px;
+    height: 90px;
     width: 100%;
     background-color: white;
     border-bottom: none;
@@ -1090,6 +1090,9 @@ button.tb_search.ion-ios-search {
   height: 100%;
   border: 2px solid #f2ba01;
   border-radius: 50%;
+}
+.profileDP span{
+  font-size: 10px;
 }
 .peopleInterested{
   text-align: center;
@@ -1717,4 +1720,7 @@ ion-spinner svg{
 
 .button-icon.ion-plus{
   color: #f2ba01;
+}
+.liked{
+  background-color: #f2ba01;
 }

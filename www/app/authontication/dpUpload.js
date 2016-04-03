@@ -11,12 +11,35 @@
       $('.dpSpinner').hide();
       $scope.loadDone = function(){
         $('.dpSpinner').hide();
+        console.log($scope.myCroppedImage);
       }
       $scope.loadStart = function(){
         $('.dpSpinner').show();
       }
       $scope.chooseFile = function(){
         $('#fileInput').click();
+      }
+      $scope.skip = function(){
+        $state.go('tabs.theWall');
+      }
+      $scope.savePicture = function(){
+        $scope.objToSend = {};
+        $scope.objToSend.myCroppedImage = $('#cropImg').attr('src');
+        $scope.objToSend.userID = $rootScope.userDetails.userID;
+
+        httpService.makecall($rootScope.baseUrl+ '/profilePic', 'POST', $scope.objToSend).then(function(response){
+          console.log(response);
+          if (response.data.statusCode == 'success') {
+              $rootScope.userDetails.picPath = '/ProfilePic/' + $rootScope.userDetails.userID + '.png';
+              $state.go('tabs.theWall');
+          }else{
+            alert('error');
+          };
+          
+        }, 
+        function(error){
+          console.log(error);
+        });
       }
       var handleFileSelect=function(evt) {
         console.log(evt);

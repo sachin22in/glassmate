@@ -1,0 +1,23 @@
+<div class="positionRelative">
+	<div class="closeBtn"></div>
+	<div class="cheersImg">
+		<img src="img/glassmateLogo.png"/>
+	</div>
+	<div>
+		<p>Interested People</p>
+	</div>
+	<div class="subHeader"><h5>People Interested</h5></div>
+	<div class="people">
+		<div class="profileDP" ng-repeat="likePerson in likeBy">
+			<img ng-src="{{baseUrlStatic}}{{likePerson.picPath}}">
+			<span>{{likePerson.name}}</span>		
+		</div>
+		
+	</div>
+	<div>
+		<p>Say Cheers to Join Them !!</p>
+	</div>
+	<div>
+		<button class="button post-button">CHEERS</button>
+	</div>
+</div>

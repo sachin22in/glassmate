@@ -18,11 +18,16 @@
           var dataToSend = angular.copy($scope.user);
           delete dataToSend["confirmPassword"];
           console.log(dataToSend);
+          //$state.go('dp');
 
           httpService.makecall($rootScope.baseUrl+ '/signup', 'POST', dataToSend).then(function(response){
+            console.log('++++++++++newPost++++++++');
             console.log(response);
             if (response.data.statusCode == 'success') {
-                $state.go('tabs.theWall');
+                delete dataToSend["password"];
+                $rootScope.userDetails = dataToSend;
+                $rootScope.userDetails.userID = response.data.insertId;
+                $state.go('dp');
             };
             if (response.data.statusCode == 'error') {
                 alert("Already Registered");

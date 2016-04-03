@@ -4,10 +4,10 @@
       PROFILE PICTURE
       </ion-nav-title>
       <ion-nav-buttons side="right">
-       <button class="button post-button">POST</button>
+       <button class="button post-button" ng-click="savePicture()">POST</button>
       </ion-nav-buttons>
       <ion-nav-buttons side="left">
-       <button class="button post-button">SKIP</button>
+       <button class="button post-button" ng-click="skip()">SKIP</button>
       </ion-nav-buttons>
     </ion-nav-bar>
 
@@ -17,14 +17,13 @@
             <input type="file" name="file" id="fileInput" style="opacity: 0" />
             <div class="cropArea">
               <ion-spinner icon="android" class="dpSpinner"></ion-spinner>
-              <img-crop image="myImage" area-type="circle" result-image-size="100" result-image="myCroppedImage" on-load-done="loadDone()" on-load-begin="loadStart()"></img-crop>
+              <img-crop image="myImage" area-type="circle" result-image-size="100" result-image-quality="0.1" result-image="myCroppedImage" on-load-done="loadDone()" on-load-begin="loadStart()"></img-crop>
             </div>
             
             <div class="padding">
               <button class="button button-block" ng-click="chooseFile()">Choose s file...</button>
             </div>
-            <div>Cropped Image:</div>
-            <div><img ng-src="{{myCroppedImage}}" /></div>
+            <div style="display: none" ><img ng-src="{{myCroppedImage}}" id="cropImg" /></div>
 
         </div>   
         <style>

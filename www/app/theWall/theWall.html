@@ -27,7 +27,7 @@
 	<ion-content class="home_container HelveticaBody listPostStatus has-header has-footer ">
 		<div class="add_post postWall clearfix">
 			<div class="img_box">
-				<img src="img/girl_wall.png"/>
+				<img ng-src="{{baseUrlStatic}}{{userDetails.picPath}}"/>
 			</div>
 			<div class="details_box" ng-click="openModal();">
 				  <label class="item item-input">
@@ -41,11 +41,11 @@
 			</div>
 		</div>
 		<ion-spinner icon="android" class="defaultSpinner"></ion-spinner>
-		<div class="list borderGreen" ng-repeat="post in showPosts" ng-click="openPostDetailModel(post)">
+		<div class="list borderGreen" ng-repeat="post in showPosts | orderBy:'-date'" ng-click="openPostDetailModel(post)">
 			<div class="row ">
 				<div class="col col-25 marginPadding0">
 					<div class="img_box_post">
-						<img ng-src="{{post.picPath}}">		
+						<img ng-src="{{baseUrlStatic}}{{post.picPath}}">		
 					</div>
 				</div>
 				<div class="col col-75">
@@ -69,13 +69,13 @@
 				</div>
 			</div>
 			<div class="row textCenter">
-					<div class="col col-33">
+					<div class="col col-33" ng-class="{'liked': post.isLiked == userDetails.userID}" ng-click="showCheersPopup()">
 					  <span class="ion-android-favorite-outline btn_post"></span><br/>
-					  <div class="btnPost">14 Likes</div>
+					  <div class="btnPost">{{post.likeCount}} Likes</div>
 					</div>
 					<div class="col col-33 textCenter">
 					  <span class="ion-android-favorite-outline btn_post"> </span><br/>
-					  <div class="btnPost">93 Comments</div>
+					  <div class="btnPost">{{post.commentsCount}} Comments</div>
 					</div>
 					<div class="col col-33 textCenter">
 					  <span class="ion-android-favorite-outline btn_post"></span> <br/>

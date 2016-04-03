@@ -2,12 +2,20 @@
 (function () {
     'use strict';
 
-    angular.module('starter').controller('theWallCtrl', ['$scope','$ionicModal','$http','$rootScope', 'httpService', '$location', '$ionicScrollDelegate', theWallCtrl]);
+    angular.module('starter').controller('theWallCtrl', ['$scope','$state', '$ionicModal','$http','$rootScope', 'httpService', '$location', '$ionicScrollDelegate','$ionicPopup', theWallCtrl]);
 
-    function theWallCtrl($scope,$ionicModal, $http, $rootScope, httpService, $location, $ionicScrollDelegate) {
+    function theWallCtrl($scope, $state, $ionicModal, $http, $rootScope, httpService, $location, $ionicScrollDelegate, $ionicPopup) {
       //console.log($rootScope.baseUrl);
+      if($rootScope.userDetails){
+        $scope.userDetails = $rootScope.userDetails;
+      }else{
+        $state.go('login');
+        return;
+      }
+
       $scope.catOfPost = 'Cat001';
       $scope.newpost = {};
+      $scope.comment = {};
       $ionicModal.fromTemplateUrl('app/theWall/updateWall.html', {
         scope: $scope,
         animation: 'slide-in-up '
@@ -15,6 +23,10 @@
           $scope.modal = modal;
       });       
       $scope.openModal = function() {
+        $scope.newpost = {};
+        $scope.newpost.date = $scope.dates[0];
+        $scope.newpost.startTime = 10;
+        $scope.newpost.endTime = 20;
         $scope.modal.show();
       };
       $scope.closeModal = function() {
@@ -23,23 +35,65 @@
       $scope.closePostDetailModal = function(){
         $scope.postModal.hide();  
       }
-      $ionicModal.fromTemplateUrl('app/theWall/postDetail.html', {
-      scope: $scope,
-      animation: 'slide-in-up '
-      }).then(function(postModal) { 
-          $scope.postModal = postModal;
-      });
+       $scope.showCheersPopup = function() {
+         var alertPopup = $ionicPopup.show({
+           templateUrl: 'app/theWall/cheerModel.html',
+           cssClass: 'cheersModel'
+         });
+
+         alertPopup.then(function(res) {
+           console.log('Thank you for not eating my delicious ice cream cone');
+         });
+       };
       $scope.openPostDetailModel = function(postDetail){
           $scope.postModelDetail = postDetail;
-          $scope.postModal.show();  
-      }
+          console.log($scope.postModelDetail); 
+          $ionicModal.fromTemplateUrl('app/theWall/postDetail.html', {
+            scope: $scope,
+            animation: 'slide-in-up '
+            }).then(function(postModal) { 
 
+                $scope.postModal = postModal;
+                console.log($scope.postModal);
+                $scope.postModal.show(); 
+                var obj = {};
+                obj.postId = $scope.postModelDetail.postId;
+                httpService.makecall($rootScope.baseUrl+ '/getCheersByPost', 'POST', obj).then(function(response){
+                  console.log('++++++++++getCheersByPost++++++++');
+                  console.log(response);
+                  
+                  if (response.data.statusCode == 'error') {
+                      alert("Some Error");
+                  };
+                  $scope.likeBy = response.data;
+
+                }, 
+                function(error){
+                  console.log(error);
+                });
+                httpService.makecall($rootScope.baseUrl+ '/getCommentsByPost', 'POST', obj).then(function(response){
+                  console.log('++++++++++getCommentsByPost++++++++');
+                  console.log(response);
+                  
+                  if (response.data.statusCode == 'error') {
+                      alert("Some Error");
+                  };
+                  $scope.commentsForPost = response.data;
+
+                }, 
+                function(error){
+                  console.log(error);
+                });
+            });
+          
+      }
+      
       $scope.postData = function(){
         console.log($scope.newpost);
         if($scope.newpost.placePic == undefined){
           alert("Please select place from droupdown");
         }
-        console.log($rootScope.userDetails);
+        
         
         if(!$rootScope.userDetails){
           alert("please Login");
@@ -47,10 +101,21 @@
         }
         $scope.newpost.postBy = $rootScope.userDetails.userID;
         $scope.newpost.placeId = 9999;
-
+        console.log($scope.newpost);
         httpService.makecall($rootScope.baseUrl+ '/newPost', 'POST', $scope.newpost).then(function(response){
+            console.log('++++++++++newPost++++++++');
             console.log(response);
-            $scope.modal.hide();
+            if (response.data.statusCode == 'success') {
+                $scope.newpost.postId = response.data.insertId;
+                $scope.newpost.name = $scope.userDetails.name;
+                $scope.newpost.picPath = $scope.userDetails.picPath;
+                $scope.showPosts.push($scope.newpost);
+                $scope.modal.hide();
+            };
+            if (response.data.statusCode == 'error') {
+                alert("Some Error");
+            };
+            
           }, 
           function(error){
             console.log(error);
@@ -68,30 +133,77 @@
              alert("error");l
         });*/
       }
-      $scope.checkLikedByMe = function(likeByString){
-        if(likeByString.search("U00000032") == -1){
-          return false;
-        }else{
-          return true;
-        };
+      $scope.addComments = function(post){
+        console.log($scope.comment.newComment);
+        if(!$scope.comment.newComment){
+          alert("Please Add Comment");
+          return;
+        }
+        var obj = {
+          'postId': post.postId,
+          'commentBy': $rootScope.userDetails.userID,
+          'commentDisc': $scope.comment.newComment
+        }
+
+        httpService.makecall($rootScope.baseUrl+ '/addComment', 'POST', obj).then(function(response){
+          console.log('++++++++++addComment++++++++');
+          console.log(response);
+          if (response.data.statusCode == 'success') {
+              //$scope.postModelDetail.isLiked = $rootScope.userDetails.userID
+              $scope.comment.newComment = '';
+              var commentsForPostObj = angular.copy(obj);
+              commentsForPostObj.name = $rootScope.userDetails.name;
+              commentsForPostObj.picPath = $rootScope.userDetails.picPath;
+
+              $scope.commentsForPost.push(commentsForPostObj);
+          };
+          if (response.data.statusCode == 'error') {
+              alert("Some Error");
+          };
+          
+        }, 
+        function(error){
+          console.log(error);
+        });
       }
       $scope.likeThisPost = function(post){
         console.log(post);
-            $http({
-                url: $rootScope.baseUrl + 'likeBy' + '/' + post.commentId + '/' + 'U00000032',
-                method: "GET",
-            }).success(function(response){
-                console.log(response);
-                post.likeCount = response.likeByResult.likeCount;
-                post.likeBy = response.likeByResult.likeBy;
-            }).error(function(error){
-                 console.log(error);
-                 alert("error");l
-            });
+        var obj = {
+          'postId': post.postId,
+          'likeId': $rootScope.userDetails.userID
+        }
+        httpService.makecall($rootScope.baseUrl+ '/addCheers', 'POST', obj).then(function(response){
+          console.log('++++++++++addCheers++++++++');
+          console.log(response);
+          if (response.data.statusCode == 'success') {
+              $scope.postModelDetail.isLiked = $rootScope.userDetails.userID
+          };
+          if (response.data.statusCode == 'error') {
+              alert("Some Error");
+          };
+          
+        }, 
+        function(error){
+          console.log(error);
+        });
+
+            // $http({
+            //     url: $rootScope.baseUrl + 'likeBy' + '/' + post.commentId + '/' + 'U00000032',
+            //     method: "GET",
+            // }).success(function(response){
+            //     console.log(response);
+            //     post.likeCount = response.likeByResult.likeCount;
+            //     post.likeBy = response.likeByResult.likeBy;
+            // }).error(function(error){
+            //      console.log(error);
+            //      alert("error");l
+            // });
       }
       $scope.loadPost = function(){
-
-            httpService.makecall($rootScope.baseUrl+ '/getPosts', 'GET').then(function(response){
+            var obj = {
+              'userId': $rootScope.userDetails.userID
+            }
+            httpService.makecall($rootScope.baseUrl+ '/getPosts', 'POST', obj).then(function(response){
               console.log(response);
               $('.defaultSpinner').hide();
               $scope.showPosts = response.data;
@@ -151,9 +263,10 @@
         tempDate.setDate(tempDate.getDate() + 1);
         i++;
       }while(i<14);
-      console.log($scope.dates);
       //$scope.searchPlace();
       $scope.newpost.date = $scope.dates[0];
+      $scope.newpost.startTime = 10;
+      $scope.newpost.endTime = 20;
       $scope.selectDate = function(date){
         $scope.newpost.date = date;
       }
@@ -176,8 +289,7 @@
           $scope.interestedDate = val;
         }
       };
-      $scope.newpost.startTime = 10;
-      $scope.newpost.endTime = 20;
+      
       $scope.slider = {
         showTicksValues: true,
         options: {

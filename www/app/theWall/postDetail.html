@@ -3,22 +3,22 @@
 
 
 			  <button class="button close-button button-icon" ng-click="closePostDetailModal();"><i class="icon ion-chevron-left"></i></button>
-			  <h1 class="title">USER NAME</h1>	
+			  <h1 class="title">{{postModelDetail.name | uppercase }}</h1>	
               <!-- <button class="button post-button" ng-click="postData();">POST</button> -->
         </header>
         
 	<ion-content class="home_container wallModal has-header has-footer">
 		
-		<div class="list borderGreen" ng-click="openPostDetailModel()">
+		<div class="list borderGreen" ng-init="initPostDetailModel()">
 			<div class="row ">
 				<div class="col col-25 marginPadding0">
 					<div class="img_box_post">
-						<img src="img/sty.jpg">		
+						<img ng-src="{{baseUrlStatic}}{{postModelDetail.picPath}}">		
 					</div>
 				</div>
 				<div class="col col-75">
 					<div class="usrName_post">
-						JUUHI RAAI1233
+						{{postModelDetail.name | uppercase }}
 					</div>
 					<div class="time_post">3h ago</div><br>
 					
@@ -37,9 +37,9 @@
 				</div>
 			</div>
 			<div class="row textCenter">
-					<div class="col col-33">
+					<div class="col col-33" ng-click="likeThisPost(postModelDetail)" ng-class="{'liked': postModelDetail.isLiked == userDetails.userID}">
 					  <span class="ion-android-favorite-outline btn_post"></span><br/>
-					  <div class="btnPost">14 Likes</div>
+					  <div class="btnPost">{{postModelDetail.likeCount}} Likes</div>
 					</div>
 					<div class="col col-33 textCenter">
 					  <span class="ion-android-favorite-outline btn_post"> </span><br/>
@@ -56,19 +56,22 @@
 				<div class="borderBlack"></div>
 				<div class="subHeader"><h5>People Interested</h5></div>
 				<div class="people">
-					<div class="profileDP">
-						<img src="img/sty.jpg">		
+					<div class="profileDP" ng-repeat="likePerson in likeBy">
+						<img ng-src="{{baseUrlStatic}}{{likePerson.picPath}}">
+						<span>{{likePerson.name}}</span>		
 					</div>
-					<div class="profileDP">
-						<img src="img/sty.jpg">		
-					</div>
-					<div class="profileDP">
-						<img src="img/sty.jpg">		
-					</div>
+					
 				</div>
 				<div class="borderBlack"></div>
 				<div class="subHeader"><h5>Comments</h5></div>
 				<div class="comments">
+				
+					<div class="" ng-repeat="comment in commentsForPost" ng-class="{'rightComments': comment.commentBy == userDetails.userID, 'leftComments': comment.commentBy != userDetails.userID}">
+						<div class="commentsText card">{{comment.commentDisc}}</div>
+						<div class="profileDP">
+							<img ng-src="{{baseUrlStatic}}{{comment.picPath}}">		
+						</div>
+					</div>
 					<div class="rightComments">
 						<div class="commentsText card">Hii</div>
 						<div class="profileDP">
@@ -89,7 +92,7 @@
 
 	</ion-content>
 	<div class="newComments bar footernav ">
-		<textarea type="text" placeholder="Add Comments"></textarea>
-		<button class="button post-button">Post</button>
+		<textarea type="text" placeholder="Add Comments" ng-model="comment.newComment"></textarea>
+		<button class="button post-button" ng-click="addComments(postModelDetail)">Post</button>
 	</div>
 </div>
