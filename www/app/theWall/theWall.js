@@ -2,9 +2,9 @@
 (function () {
     'use strict';
 
-    angular.module('starter').controller('theWallCtrl', ['$scope','$state', '$ionicModal','$http','$rootScope', 'httpService', '$location', '$ionicScrollDelegate','$ionicPopup', theWallCtrl]);
+    angular.module('starter').controller('theWallCtrl', ['$scope','$state', '$ionicModal','$http','$rootScope', 'httpService', '$location', '$ionicScrollDelegate','$ionicPopup','$timeout', theWallCtrl]);
 
-    function theWallCtrl($scope, $state, $ionicModal, $http, $rootScope, httpService, $location, $ionicScrollDelegate, $ionicPopup) {
+    function theWallCtrl($scope, $state, $ionicModal, $http, $rootScope, httpService, $location, $ionicScrollDelegate, $ionicPopup, $timeout) {
       //console.log($rootScope.baseUrl);
       if($rootScope.userDetails){
         $scope.userDetails = $rootScope.userDetails;
@@ -35,17 +35,49 @@
       $scope.closePostDetailModal = function(){
         $scope.postModal.hide();  
       }
-       $scope.showCheersPopup = function() {
-         var alertPopup = $ionicPopup.show({
+      $scope.closeCheersPopup = function(){
+        //alert();
+        $scope.alertPopup.close();
+      }
+      $scope.showCheersPopup = function(post) {
+        if(post.isLiked == $scope.userDetails.userID){
+          return;
+        }
+
+        $scope.cheerModelPost = post;
+        $scope.likeBy = '';
+        var obj = {};
+        obj.postId = post.postId;
+        httpService.makecall($rootScope.baseUrl+ '/getCheersByPost', 'POST', obj).then(function(response){
+          console.log('++++++++++getCheersByPost++++++++');
+          console.log(response);
+          
+          if (response.data.statusCode == 'error') {
+              alert("Some Error");
+          };
+          $scope.likeBy = response.data;
+
+        }, 
+        function(error){
+          console.log(error);
+        });
+         $scope.alertPopup = $ionicPopup.show({
            templateUrl: 'app/theWall/cheerModel.html',
-           cssClass: 'cheersModel'
+           cssClass: 'cheersModel',
+           scope: $scope
          });
 
-         alertPopup.then(function(res) {
+         $scope.alertPopup.then(function(res) {
            console.log('Thank you for not eating my delicious ice cream cone');
+           console.log(res);
          });
-       };
+      };
       $scope.openPostDetailModel = function(postDetail){
+
+          if(postDetail.isLiked != $scope.userDetails.userID){
+            return;
+          }
+
           $scope.postModelDetail = postDetail;
           console.log($scope.postModelDetail); 
           $ionicModal.fromTemplateUrl('app/theWall/postDetail.html', {
@@ -166,6 +198,21 @@
           console.log(error);
         });
       }
+      $scope.closeCheersConfirmPopup = function(){
+        $scope.cheersConfirmPopup.close();
+      }
+      $scope.showCheersConfirmPopup = function(){
+        $scope.cheersConfirmPopup = $ionicPopup.show({
+           templateUrl: 'app/theWall/cheersConfirmModel.html',
+           cssClass: 'cheersModel',
+           scope: $scope
+         });
+
+         $scope.cheersConfirmPopup.then(function(res) {
+            console.log(res);
+           console.log('Thank you for not eating my delicious ice cream cone');
+         });
+      };
       $scope.likeThisPost = function(post){
         console.log(post);
         var obj = {
@@ -176,7 +223,13 @@
           console.log('++++++++++addCheers++++++++');
           console.log(response);
           if (response.data.statusCode == 'success') {
-              $scope.postModelDetail.isLiked = $rootScope.userDetails.userID
+              post.isLiked = $rootScope.userDetails.userID;
+              $scope.alertPopup.close();
+              post.likeCount = post.likeCount + 1;
+              $timeout(function(){
+                $scope.showCheersConfirmPopup();  
+              },100)
+              
           };
           if (response.data.statusCode == 'error') {
               alert("Some Error");
@@ -187,17 +240,6 @@
           console.log(error);
         });
 
-            // $http({
-            //     url: $rootScope.baseUrl + 'likeBy' + '/' + post.commentId + '/' + 'U00000032',
-            //     method: "GET",
-            // }).success(function(response){
-            //     console.log(response);
-            //     post.likeCount = response.likeByResult.likeCount;
-            //     post.likeBy = response.likeByResult.likeBy;
-            // }).error(function(error){
-            //      console.log(error);
-            //      alert("error");l
-            // });
       }
       $scope.loadPost = function(){
             var obj = {
@@ -213,17 +255,7 @@
               alert("Connection Error. Please Check Network Connection.");
               console.log(error);
             });
-            // $http({
-            //     url: $rootScope.baseUrl + 'InitialWall' + '/' + 'rahul12@gmail.com' + '/' + 'u4d3DMykMu',
-            //     method: "GET",
-            // }).success(function(response){
-            //     console.log(response);
-            //     $scope.showPosts = response.InitialWallResult;
-                
-            // }).error(function(error){
-            //      console.log(error);
-            //      alert("error");l
-            // });
+
 
       };
       $scope.selectResto = function(resto){

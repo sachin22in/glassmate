@@ -63,13 +63,13 @@
 				</div>
 			</div>
 			
-			<div class="row">
+			<div class="row row-no-padding">
 				<div class="col">
 					<img class="img_place" ng-src="{{post.placePic}}">
 				</div>
 			</div>
-			<div class="row textCenter">
-					<div class="col col-33" ng-class="{'liked': post.isLiked == userDetails.userID}" ng-click="showCheersPopup()">
+			<div class="row textCenter cheersBar">
+					<div class="col col-33" ng-class="{'liked': post.isLiked == userDetails.userID}" ng-click="showCheersPopup(post)">
 					  <span class="ion-android-favorite-outline btn_post"></span><br/>
 					  <div class="btnPost">{{post.likeCount}} Likes</div>
 					</div>
