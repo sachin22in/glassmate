@@ -35,6 +35,17 @@
       $scope.closePostDetailModal = function(){
         $scope.postModal.hide();  
       }
+      $scope.hideDeletCheers = function(){
+        console.log("abc");
+        $('.profileDP .ion-close').removeClass('showDelete');
+      }
+      
+      $scope.onHold = function(e){
+        console.log(e.target);
+        
+        $(e.target).siblings('.ion-close').addClass('showDelete')
+        //e.target.addClass('showDelete');
+      }
       $scope.closeCheersPopup = function(){
         //alert();
         $scope.alertPopup.close();
@@ -72,6 +83,25 @@
            console.log(res);
          });
       };
+      $scope.deleteCheers = function(e, postId, likeId){
+        var obj = {};
+        obj.postId = postId;
+        obj.likeId = likeId;
+        httpService.makecall($rootScope.baseUrl+ '/deleteCheers', 'POST', obj).then(function(response){
+          console.log('++++++++++deleteCheers++++++++');
+          console.log(response);
+          if (response.data.statusCode == 'success') {
+              $scope.showUnCheersConfirmPopup();
+          };
+          if (response.data.statusCode == 'error') {
+              alert("Some Error");
+          };
+
+        }, 
+        function(error){
+          console.log(error);
+        });
+      }
       $scope.openPostDetailModel = function(postDetail){
 
           if(postDetail.isLiked != $scope.userDetails.userID){
@@ -213,6 +243,21 @@
            console.log('Thank you for not eating my delicious ice cream cone');
          });
       };
+      $scope.closeUnCheersConfirmPopup = function(){
+        $scope.unCheersConfirmPopup.close();
+      }
+      $scope.showUnCheersConfirmPopup = function(){
+        $scope.unCheersConfirmPopup = $ionicPopup.show({
+           templateUrl: 'app/theWall/unCheersConfirmModel.html',
+           cssClass: 'cheersModel',
+           scope: $scope
+         });
+
+         $scope.unCheersConfirmPopup.then(function(res) {
+            console.log(res);
+           console.log('Thank you for not eating my delicious ice cream cone');
+         });
+      };
       $scope.likeThisPost = function(post){
         console.log(post);
         var obj = {
@@ -330,6 +375,26 @@
         }
       };
       $scope.loadPost();   
+      $scope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+        if($scope.postModal){
+          if($scope.postModal.isShown()){
+            $scope.postModal.remove();
+            event.preventDefault();  
+          }  
+        }
+        if($scope.modal.isShown()){
+          $scope.modal.remove();
+          event.preventDefault();  
+        }
+        if($scope.alertPopup){
+            if(!$scope.alertPopup.$$state.status){
+                $scope.alertPopup.close();
+                event.preventDefault();  
+            }  
+        }
+        console.log(toState);
+          
+      });
     }
 
     Date.prototype.getDayText = function(){

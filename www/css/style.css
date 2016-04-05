@@ -1096,6 +1096,7 @@ button.tb_search.ion-ios-search {
   height: 60px;
   width: 60px;
   margin: 0 5px;
+  position: relative;
 }
 .profileDP img{
   width: 100%;
@@ -1105,6 +1106,21 @@ button.tb_search.ion-ios-search {
 }
 .profileDP span{
   font-size: 10px;
+}
+.profileDP .ion-close{
+    position: absolute;
+    top: -2px;
+    right: -3px;
+    font-size: 16px;
+    line-height: 21px;
+    background-color: #f2ba01;
+    border-radius: 50%;
+    height: 20px;
+    width: 22px;
+    display: none;
+}
+.profileDP .showDelete{
+  display: block;
 }
 .peopleInterested{
   text-align: center;
