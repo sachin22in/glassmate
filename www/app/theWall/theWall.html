@@ -63,9 +63,13 @@
 				</div>
 			</div>
 			
-			<div class="row row-no-padding">
+			<div class="row row-no-padding imageInfoDiv">
 				<div class="col">
 					<img class="img_place" ng-src="{{post.placePic}}">
+				</div>
+				<div class="placeNameDiv">
+					<div class="placeName">{{post.placeName}}</div>
+					<div class="placeDateTime">ON {{post.date | date: dd/m/yy | uppercase }} ({{post.startTime}} TO {{post.endTime}})</div>
 				</div>
 			</div>
 			<div class="row textCenter cheersBar">
