@@ -1781,3 +1781,25 @@ ion-spinner svg{
 .cheersBar{
   margin-top: 0px !important;
 }
+.imageInfoDiv{
+  position: relative;
+}
+.placeNameDiv{
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+.placeNameDiv .placeName {
+    background-color: #f2ba01;
+    padding: 2px 10px;
+    color: #3d4552;
+    font-weight: bold;
+    font-size: 14px;
+}
+.placeNameDiv .placeDateTime {
+    padding: 2px 10px;
+    background-color: #3d4552;
+    color: #f2ba01;
+    width: auto;
+    font-size: 10px;
+}
