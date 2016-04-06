@@ -30,19 +30,21 @@
 				<img ng-src="{{baseUrlStatic}}{{userDetails.picPath}}"/>
 			</div>
 			<div class="details_box" ng-click="openModal();">
-				  <label class="item item-input">
-				    <input type="text" readonly placeholder="Whats on your mind ?">
-				  </label>
+				 <!--  <label class="item item-input">
+				    <input type="text" readonly placeholder="Anyone interested in drinking beer ?">
+				  </label> -->
+				 <div class="inputDiv">
+				 	Anyone interested in drinking beer ?
+				 </div>
 				<div class="seprator"></div>
 				<div class="post_buttons">
-					<span class="ion-camera"></span>
 					<span class="ion-ios-location">Place</span>
 				</div>
 			</div>
 		</div>
 		<ion-spinner icon="android" class="defaultSpinner"></ion-spinner>
 		<div class="list borderGreen" ng-repeat="post in showPosts | orderBy:'-date'" ng-click="openPostDetailModel(post)">
-			<div class="row ">
+			<div class="row postDetail">
 				<div class="col col-25 marginPadding0">
 					<div class="img_box_post">
 						<img ng-src="{{baseUrlStatic}}{{post.picPath}}">		
@@ -57,32 +59,37 @@
 					<div class="row marginPadding0">
 						<div class="col marginPadding0">
 							<p>Hi, i am in {{post.placeName}} from {{post.startTime}} to {{post.endTime}} on {{post.date| date: dd/m/yy}}.</p>
-							<p>{{post.postDisc}}</p>
 						</div>
 					</div>
+					
 				</div>
 			</div>
-			
+				<div class="row marginPadding0">
+					<div class="col">
+						
+						<p>{{post.postDisc}}</p>
+					</div>
+				</div>
 			<div class="row row-no-padding imageInfoDiv">
 				<div class="col">
 					<img class="img_place" ng-src="{{post.placePic}}">
 				</div>
 				<div class="placeNameDiv">
 					<div class="placeName">{{post.placeName}}</div>
-					<div class="placeDateTime">ON {{post.date | date: dd/m/yy | uppercase }} ({{post.startTime}} TO {{post.endTime}})</div>
+					<div class="placeDateTime">ON {{post.date | date: dd/m/yy | uppercase }} ( {{post.startTime}} TO {{post.endTime}} )</div>
 				</div>
 			</div>
 			<div class="row textCenter cheersBar">
 					<div class="col col-33" ng-class="{'liked': post.isLiked == userDetails.userID}" ng-click="showCheersPopup(post)">
-					  <span class="ion-android-favorite-outline btn_post"></span><br/>
+					  <span class="btn_post cheersIcon"></span>
 					  <div class="btnPost">{{post.likeCount}} Likes</div>
 					</div>
 					<div class="col col-33 textCenter">
-					  <span class="ion-android-favorite-outline btn_post"> </span><br/>
+					  <span class="btn_post commentsIcon"> </span>
 					  <div class="btnPost">{{post.commentsCount}} Comments</div>
 					</div>
 					<div class="col col-33 textCenter">
-					  <span class="ion-android-favorite-outline btn_post"></span> <br/>
+					  <span class="btn_post shareIcon"></span>
 					  <div class="btnPost">Share</div>
 					</div>
 					
@@ -157,6 +164,7 @@
 					
 			</div>
 		</div>
+		<div class="marginBottomFooter"></div>
 	</ion-content>
 	<!-- 
 	<div ui-view='menu-left'></div> -->

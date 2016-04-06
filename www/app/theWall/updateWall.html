@@ -7,7 +7,7 @@
               <button class="button post-button" ng-click="postData();">POST</button>
         </header>
         
-	<ion-content class="home_container wallModal">
+	<ion-content class="home_container wallModal has-header has-footer">
 		<div class="add_post clearfix">
 			<div class="img_box">
 				<img ng-src="{{baseUrlStatic}}{{userDetails.picPath}}"/>
@@ -16,8 +16,7 @@
 				  <label class="item item-input">
 				    <textarea type="text" placeholder="Anyone interested in drinking beer?" ng-model="newpost.postDisc"></textarea>
 				  </label>
-				<div class="seprator"></div>
-				
+				  <div class="seprator"></div>
 			</div>
 		</div>
 
