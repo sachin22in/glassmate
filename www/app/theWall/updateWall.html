@@ -10,7 +10,8 @@
 	<ion-content class="home_container wallModal has-header has-footer">
 		<div class="add_post clearfix">
 			<div class="img_box">
-				<img ng-src="{{baseUrlStatic}}{{userDetails.picPath}}"/>
+				<img ng-src="{{baseUrlStatic}}{{userDetails.picPath}}" ng-if="userDetails.picPath != null"/>
+				<img ng-src="img/login_user.png" ng-if="userDetails.picPath == null"/>
 			</div>
 			<div class="details_box">
 				  <label class="item item-input">

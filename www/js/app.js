@@ -6,7 +6,6 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
     $ionicConfigProvider.tabs.position('bottom'); // other values: top
 
 })
-
 .config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
@@ -90,6 +89,31 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
     $rootScope.baseUrlStatic = 'http://54.169.243.198/restAPI/app/glassmateStatic';
     // $rootScope.baseUrl = 'http://localhost:3000/glassmate';
     // $rootScope.baseUrlStatic = 'http://localhost:3000/glassmateStatic';
+    $('#loaderDiv').hide();
 
+})
+.factory('httpMyInterceptor', function() {  
+    var interceptor = {
+        request: function(request) {
+            if(request.method == 'POST'){
+              console.log('start');
+              $('#loaderDiv').show();
+            } 
+            return request;
+        },
+        response: function(response) {
+            console.log(response);
 
-});
+            if(response.config.method == 'POST'){
+              console.log('End');
+              $('#loaderDiv').hide();
+            }
+            return response;
+        }
+    };
+
+    return interceptor;
+})
+.config(['$httpProvider', function($httpProvider) {  
+    $httpProvider.interceptors.push('httpMyInterceptor');
+}]);

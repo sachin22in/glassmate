@@ -13,7 +13,8 @@
 			<div class="row ">
 				<div class="col col-25 marginPadding0">
 					<div class="img_box_post">
-						<img ng-src="{{baseUrlStatic}}{{postModelDetail.picPath}}">		
+						<img ng-src="{{baseUrlStatic}}{{postModelDetail.picPath}}" ng-if="postModelDetail.picPath != null">
+						<img ng-src="img/login_user.png" ng-if="postModelDetail.picPath == null"/>		
 					</div>
 				</div>
 				<div class="col col-75">
@@ -25,28 +26,37 @@
 					<div class="row marginPadding0">
 						<div class="col marginPadding0">
 							<p>Hi, i am in {{postModelDetail.placeName}} from {{postModelDetail.startTime}} to {{postModelDetail.endTime}} on {{postModelDetail.date| date: dd/m/yy}}.</p>
-							<p>{{postModelDetail.postDisc}}</p>
+							
 						</div>
 					</div>
 				</div>
 			</div>
-			
-			<div class="row">
+			<div class="row marginPadding0">
+				<div class="col">
+					
+					<p>{{postModelDetail.postDisc}}</p>
+				</div>
+			</div>
+			<div class="row row-no-padding imageInfoDiv">
 				<div class="col">
 					<img class="img_place" ng-src="{{postModelDetail.placePic}}">
 				</div>
+				<div class="placeNameDiv">
+					<div class="placeName">{{postModelDetail.placeName}}</div>
+					<div class="placeDateTime">ON {{postModelDetail.date | date: dd/m/yy | uppercase }} ( {{postModelDetail.startTime}} TO {{postModelDetail.endTime}} )</div>
+				</div>
 			</div>
-			<div class="row textCenter">
+			<div class="row textCenter cheersBar">
 					<div class="col col-33" ng-class="{'liked': postModelDetail.isLiked == userDetails.userID}">
-					  <span class="ion-android-favorite-outline btn_post"></span><br/>
+					  <span class="btn_post cheersIcon"></span>
 					  <div class="btnPost">{{postModelDetail.likeCount}} Likes</div>
 					</div>
 					<div class="col col-33 textCenter">
-					  <span class="ion-android-favorite-outline btn_post"> </span><br/>
-					  <div class="btnPost">93 Comments</div>
+					  <span class="btn_post commentsIcon"> </span>
+					  <div class="btnPost">{{postModelDetail.commentsCount}} Comments</div>
 					</div>
 					<div class="col col-33 textCenter">
-					  <span class="ion-android-favorite-outline btn_post"></span> <br/>
+					  <span class="btn_post shareIcon"></span>
 					  <div class="btnPost">Share</div>
 					</div>
 					
@@ -58,9 +68,12 @@
 				<div class="people">
 					<div class="profileDP" ng-repeat="likePerson in likeBy" on-hold="onHold($event)">
 						<span>{{likePerson.name}}</span>
-						<img ng-src="{{baseUrlStatic}}{{likePerson.picPath}}">
-						
-						<div class="ion-close icon" ng-click="deleteCheers($event, {{likePerson.postId}}, {{likePerson.likeId}})"></div>		
+						<img ng-src="{{baseUrlStatic}}{{likePerson.picPath}}" ng-if="likePerson.picPath != null">
+						<img ng-src="img/login_user.png" ng-if="likePerson.picPath == null"/>
+						<div class="ion-close icon" ng-click="showUnCheersConfirmPopup($event, {{likePerson.postId}}, {{likePerson.likeId}})"></div>		
+					</div>
+					<div ng-if="likeBy.length == 0">
+						<p>No Cheers Be First to Cheers.</p>
 					</div>
 					
 				</div>
@@ -71,10 +84,15 @@
 					<div class="" ng-repeat="comment in commentsForPost" ng-class="{'rightComments': comment.commentBy == userDetails.userID, 'leftComments': comment.commentBy != userDetails.userID}">
 						<div class="commentsText card">{{comment.commentDisc}}</div>
 						<div class="profileDP">
-							<img ng-src="{{baseUrlStatic}}{{comment.picPath}}">		
+							<img ng-src="{{baseUrlStatic}}{{comment.picPath}}" ng-if="comment.picPath != null">	
+							<img ng-src="img/login_user.png" ng-if="comment.picPath == null"/>
+
 						</div>
 					</div>
-					<div class="rightComments">
+					<div ng-if="commentsForPost.length == 0">
+						<p>No Comment, Be First to Comment.</p>
+					</div>
+					<!-- <div class="rightComments">
 						<div class="commentsText card">Hii</div>
 						<div class="profileDP">
 							<img src="img/sty.jpg">		
@@ -85,7 +103,7 @@
 						<div class="profileDP">
 							<img src="img/sty.jpg">		
 						</div>
-					</div>
+					</div> -->
 				</div>
 				
 			</div>

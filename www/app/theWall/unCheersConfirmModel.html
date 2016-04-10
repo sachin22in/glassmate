@@ -1,11 +1,13 @@
 <div class="positionRelative">
 	<div class="closeBtn"><div class="ion-close icon" ng-click="closeUnCheersConfirmPopup()"></div></div>
 	<div class="cheersImg">
-		<img src="img/glassmateLogo.png"/>
+		<img src="img/sadBeer.png"/>
 	</div>
 	
 	<div class="subTitle">
-		<p>Bye !!</p>
+		<p>Caught up in something</p>
 	</div>
-	
+	<div>
+		<button class="cheers-button" ng-click="deleteCheers(unCheersConfirmPopupData.postId, unCheersConfirmPopupData.likeId)">BYE</button>
+	</div>
 </div>

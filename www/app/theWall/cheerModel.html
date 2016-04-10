@@ -1,17 +1,20 @@
 <div class="positionRelative">
 	<div class="closeBtn"><div class="ion-close icon" ng-click="closeCheersPopup()"></div></div>
 	<div class="cheersImg">
-		<img src="img/glassmateLogo.png"/>
+		<img src="img/cheersModel.png"/>
 	</div>
 	<div class="subTitle">
 		<p>Interested People</p>
 	</div>
 	<div class="people">
 		<div class="profileDP" ng-repeat="likePerson in likeBy">
-			<img ng-src="{{baseUrlStatic}}{{likePerson.picPath}}">
-			<span>{{likePerson.name}}</span>		
+			<span>{{likePerson.name}}</span>
+			<img ng-src="{{baseUrlStatic}}{{likePerson.picPath}}" ng-if="likePerson.picPath != null">
+			<img ng-src="img/login_user.png" ng-if="likePerson.picPath == null"/>
 		</div>
-		
+		<div ng-if="likeBy.length == 0" class="fontSize12">
+			<p>No Cheers, Be first to Cheer.</p>
+		</div>
 	</div>
 	<div class="subTitle">
 		<p>Say Cheers to Join Them !!</p>

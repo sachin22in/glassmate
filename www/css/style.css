@@ -238,13 +238,15 @@ body{
     border-color: #f2ba01;
     border-width: 2px;
 }
-
+.fontSize12{
+  font-size: 12px;
+}
 .cheers-button{
     background-color: transparent;
-    font-size: 16px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 500;
-    padding: 2px 15px;
+    padding: 8px 20px;
     border-radius: 20px;
     border-color: #3d4552;
     border-width: 2px;
@@ -751,6 +753,7 @@ button.filter-button {
 }
 .loginPage{
   margin-top: 25px;
+  background-color: #FFF;
 }
 .details_box {
     width: 70%;
@@ -1113,6 +1116,9 @@ button.tb_search.ion-ios-search {
 }
 .profileDP span{
   font-size: 10px;
+  line-height: 12px;
+  display: block;
+  margin-bottom: 5px;
 }
 .profileDP .ion-close{
     position: absolute;
@@ -1778,15 +1784,21 @@ ion-spinner svg{
     position: absolute;
     top: 5px;
     right: 5px;
-    font-size: 20px;
+    font-size: 28px;
 }
 .cheersModel .popup .subTitle p{
   font-size: 16px;
   margin-top: 10px;
 }
+.cheersModel .popup .bottomText p {
+  font-size: 18px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
 
 .cheersBar{
   margin-top: 0px !important;
+  padding: 0px;
 }
 .imageInfoDiv{
   position: relative;
@@ -1799,6 +1811,7 @@ ion-spinner svg{
 .placeNameDiv .placeName {
     background-color: #f2ba01;
     padding: 2px 10px;
+    padding-top: 5px;
     color: #3d4552;
     font-weight: bold;
     font-size: 14px;
@@ -1815,7 +1828,7 @@ ion-spinner svg{
 }
 .commentsIcon{
   background: url('../img/comments.png') no-repeat 100% 100%;
-    width: 27px;
+    width: 30px;
     display: block;
     height: 30px;
     background-size: 100% 100%;
@@ -1823,14 +1836,14 @@ ion-spinner svg{
 }
 .shareIcon{
   background: url('../img/share.png') no-repeat 100% 100%;
-    width: 27px;
+    width: 30px;
     display: block;
     height: 30px;
     background-size: 100% 100%;
     margin: 0 auto;
 }
 .cheersIcon{
-  background: url('../img/unCheers.png') no-repeat 100% 100%;
+  background: url('../img/beer.png') no-repeat 100% 100%;
     width: 27px;
     display: block;
     height: 30px;
@@ -1838,10 +1851,35 @@ ion-spinner svg{
     margin: 0 auto;
 }
 .liked .cheersIcon{
-  background: url('../img/cheers.png') no-repeat 100% 100%;
+  background: url('../img/beerFilled.png') no-repeat 100% 100%;
   background-size: 100% 100%;
 }
 .marginBottomFooter{
   height: 100px;
   width: 100%;
+}
+
+.loaderDiv .shim{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 999999;
+  opacity: 0.5;
+}
+.loaderDiv .loaderImg{
+    z-index: 9999999;
+    position: absolute;
+    top: 36%;
+    left: 33%;
+    background-color: #FFF;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+}
+.loaderDiv .loadingText{
+  font-size: 18px;
+    margin: 10px;
+    color: #3d4552;
+    font-weight: bold;
 }

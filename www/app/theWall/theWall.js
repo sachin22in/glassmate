@@ -83,7 +83,7 @@
            console.log(res);
          });
       };
-      $scope.deleteCheers = function(e, postId, likeId){
+      $scope.deleteCheers = function(postId, likeId){
         var obj = {};
         obj.postId = postId;
         obj.likeId = likeId;
@@ -91,7 +91,18 @@
           console.log('++++++++++deleteCheers++++++++');
           console.log(response);
           if (response.data.statusCode == 'success') {
-              $scope.showUnCheersConfirmPopup();
+              angular.forEach($scope.likeBy, function(value, key){
+                console.log(value);
+                if(value.postId == postId && value.likeId == likeId){
+                  console.log(key);
+                  $scope.likeBy.splice(key, 1);
+                  $scope.postModelDetail.likeCount = $scope.postModelDetail.likeCount - 1;
+                  if(likeId == $scope.postModelDetail.isLiked){
+                    $scope.postModelDetail.isLiked = null;  
+                  }
+                }
+              });
+              $scope.closeUnCheersConfirmPopup();
           };
           if (response.data.statusCode == 'error') {
               alert("Some Error");
@@ -128,7 +139,7 @@
                       alert("Some Error");
                   };
                   $scope.likeBy = response.data;
-
+                  
                 }, 
                 function(error){
                   console.log(error);
@@ -246,7 +257,10 @@
       $scope.closeUnCheersConfirmPopup = function(){
         $scope.unCheersConfirmPopup.close();
       }
-      $scope.showUnCheersConfirmPopup = function(){
+      $scope.showUnCheersConfirmPopup = function(e, postId, likeId){
+        $scope.unCheersConfirmPopupData = {};
+        $scope.unCheersConfirmPopupData.postId = postId;
+        $scope.unCheersConfirmPopupData.likeId = likeId;
         $scope.unCheersConfirmPopup = $ionicPopup.show({
            templateUrl: 'app/theWall/unCheersConfirmModel.html',
            cssClass: 'cheersModel',
