@@ -5,8 +5,8 @@
     angular.module('starter').controller('registrationCtrl', ['$scope','$state','$rootScope','$ionicHistory','$http','$location', 'ionicDatePicker', 'httpService', registrationCtrl]);
 
     function registrationCtrl($scope,$state,$rootScope,$ionicHistory,$http, $location, ionicDatePicker, httpService) {  
-     console.log("on");    
      $scope.user = {};
+     $scope.signupError = false;
      //$scope.genderSelect = 'male';
         $scope.chnageGender = function(newGender){
             console.log(newGender);
@@ -14,7 +14,21 @@
         };
 
      $scope.signup = function(){
+          if ($scope.signupForm.$invalid) {
+            angular.forEach($scope.signupForm.$error, function(field) {
+              angular.forEach(field, function(errorField){
+                  errorField.$setTouched();
+              })
+            });
+            return;
+          };
+          if($scope.user.confirmPassword != $scope.user.password){
+            return;
+          }
+          console.log($scope.signupForm);
           console.log($scope.user);
+         
+          
           var dataToSend = angular.copy($scope.user);
           delete dataToSend["confirmPassword"];
           console.log(dataToSend);
@@ -30,6 +44,7 @@
                 $state.go('dp');
             };
             if (response.data.statusCode == 'error') {
+                $scope.signupError = true;
                 alert("Already Registered");
             };
           }, 
@@ -63,8 +78,8 @@
      };  
 
      $rootScope.$ionicGoBack = function() {
-         $ionicHistory.goBack();
-        }; 
+         $state.go('landing');
+      }; 
     $scope.datepickerObject = {
       titleLabel: 'Date of Birth', //Optional
       todayLabel: 'Today', //Optional

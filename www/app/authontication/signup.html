@@ -11,51 +11,77 @@
       <div class="or">
         <span></span><span>OR</span><span></span>
       </div>
-      <div class="signupInput">
+      <div class="errorMsg">
+            <p ng-show="signupError" class="signupError">Email id or Mobile number already registered.</p>
+      </div>
+      <form name="signupForm" autocomplete="off">
+        <div class="signupInput">
+          <label class="item">
+            Email ID
+            <input type="email" name="email" ng-model='user.email' required autocomplete="off">
+          </label>
+          <div class="errorMsg">
+            <p ng-show="signupForm.email.$error.required && signupForm.email.$touched">Email id is required.</p>
+            <p ng-show="signupForm.email.$error.email && signupForm.email.$touched">Email id is Invalid.</p>
+          </div>
+          <label class="item">
+            Mobile Number
+            <input type="tel" name="mobile" ng-model='user.mobile' maxlength="10" ng-minlength="10" required autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+          </label>
+          <div class="errorMsg">
+            <p ng-show="signupForm.mobile.$error.required && signupForm.mobile.$touched">Mobile Number is required.</p>
+            <p ng-show="signupForm.mobile.$error.minlength && signupForm.mobile.$touched">Mobile number must be 10 digit.</p>
+          </div>
+          <label class="item">
+            Password
+            <input type="password" name="password" ng-model='user.password' ng-minlength="6" required>
+          </label>
+          <div class="errorMsg">
+            <p ng-show="signupForm.password.$error.required && signupForm.password.$touched">Password is required.</p>
+            <p ng-show="signupForm.password.$error.minlength && signupForm.password.$touched">Password length must be more than 6.</p>
+            <p ng-show="signupForm.confirmPassword.$touched && signupForm.password.$touched && user.password != user.confirmPassword">Password and Confirm Password not match.</p>
+          </div>
+          <label class="item">
+            Confirm Password
+            <input type="password" name="confirmPassword" ng-model='user.confirmPassword' required>
+          </label>
+          <div class="errorMsg">
+            <p ng-show="signupForm.confirmPassword.$error.required && signupForm.confirmPassword.$touched">Confirm Password is required.</p>
+          </div>
+          <label class="item">
+            Full Name
+            <input type="text" name="name" ng-model='user.name' required>
+          </label>
+          <div class="errorMsg">
+            <p ng-show="signupForm.name.$error.required && signupForm.name.$touched">Name is required.</p>
+          </div>
+          <div class="item" ng-init="user.gender = 'male'">
+            Gender
+            <div class="button-bar">
+              <div class="button" ng-class="{'genderSelected': user.gender == 'male'}" ng-click="user.gender = 'male'">Male</div>
+              <div class="button" ng-class="{'genderSelected': user.gender == 'female'}" ng-click="user.gender = 'female'">Female</div>
+              <div class="button" ng-class="{'genderSelected': user.gender == 'other'}" ng-click="user.gender = 'other'">Other</div>
+            </div>
+          </div>
+         
+          <label class="item">
+            Date of Birth
+            <input type="hidden" name="dob" ng-model='user.dob' required>
+            <div>
+              <button class="button button-block" ng-click="openDatePicker(); startDobValidation = true;"><span ng-model="user.dob">{{user.dob | date: dd-MM-yyyy}}</span> </button>
+            </div>
+          </label>
+          <div class="errorMsg">
+            <p ng-show="signupForm.dob.$error.required && startDobValidation">Date of Birth is required.</p>
+          </div>
+          </div>
+        </form>
         
-      
-        <label class="item">
-          Email ID
-          <input type="text" name="email" ng-model='user.email'>
-        </label>
-        <label class="item">
-          Mobile Number
-          <input type="tel" name="mobile" ng-model='user.mobile' maxlength="10">
-        </label>
-        <label class="item">
-          Password
-          <input type="password" name="password" ng-model='user.password'>
-        </label>
-        <label class="item">
-          Confirm Password
-          <input type="password" name="confirmPassword" ng-model='user.confirmPassword'>
-        </label>
-        <label class="item">
-          Complete Name
-          <input type="text" name="name" ng-model='user.name'>
-        </label>
-        <div class="item" ng-init="user.gender = 'male'">
-          Gender
-          <div class="button-bar">
-            <div class="button" ng-class="{'genderSelected': user.gender == 'male'}" ng-click="user.gender = 'male'">Male</div>
-            <div class="button" ng-class="{'genderSelected': user.gender == 'female'}" ng-click="user.gender = 'female'">Female</div>
-            <div class="button" ng-class="{'genderSelected': user.gender == 'other'}" ng-click="user.gender = 'other'">Other</div>
-          </div>
-        </div>
-       
-        <label class="item">
-          Date of Birth
-          <!-- <input type="text" name="name" ng-model='user.dob'> -->
-          <div>
-            <button class="button button-block" ng-click="openDatePicker()"><span ng-model="user.dob">{{user.dob | date: dd-MM-yyyy}}</span> </button>
-          </div>
-        </label>
-        </div>
         </div>
       
-        <button type="submit" class="button button-block button-signup" ng-click="signup();">
+        <button type="submit" class="button button-block button-signup" ng-click="signup(); startDobValidation = true;">
           <span class="sign-up HelveticaHeading">SIGNUP</span>
-          <i ng-show="loading" class="ion-loading-b"></i>
+          
         </button>
       
    <!--    <ionic-datepicker input-obj="datepickerObject">
