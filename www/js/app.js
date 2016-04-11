@@ -85,10 +85,10 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
 })
 .run(function($rootScope) {
     //alert();
-    $rootScope.baseUrl = 'http://54.169.243.198/restAPI/app/service';
-    $rootScope.baseUrlStatic = 'http://54.169.243.198/restAPI/app/glassmateStatic';
-    // $rootScope.baseUrl = 'http://localhost:3000/glassmate';
-    // $rootScope.baseUrlStatic = 'http://localhost:3000/glassmateStatic';
+    // $rootScope.baseUrl = 'http://54.169.243.198/restAPI/app/service';
+    // $rootScope.baseUrlStatic = 'http://54.169.243.198/restAPI/app/glassmateStatic';
+     $rootScope.baseUrl = 'http://192.168.0.104:3000/glassmate';
+     $rootScope.baseUrlStatic = 'http://192.168.0.104:3000/glassmateStatic';
     $('#loaderDiv').hide();
 
 })
@@ -96,16 +96,12 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
     var interceptor = {
         request: function(request) {
             if(request.method == 'POST'){
-              console.log('start');
               $('#loaderDiv').show();
             } 
             return request;
         },
         response: function(response) {
-            console.log(response);
-
             if(response.config.method == 'POST'){
-              console.log('End');
               $('#loaderDiv').hide();
             }
             return response;

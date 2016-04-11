@@ -3,6 +3,10 @@
       	<ion-nav-title>
       	INTEREST
       	</ion-nav-title>
+      	<ion-nav-buttons side="left" >
+			<button ng-click="openNotificationModal()" class="button button-icon ion-android-notifications notificationIcon"><span class="notificationCount">{{notificationData.length}}</span></button>
+
+		</ion-nav-buttons>
       	<ion-nav-buttons side="right">
 			<button menu-toggle="right" ng-click="toggleLeftSideMenu()" class="button button-icon theWall icon-filter"></button>
 		</ion-nav-buttons>
@@ -44,7 +48,7 @@
 			</div>
 		</div>
 		<ion-spinner icon="android" class="defaultSpinner"></ion-spinner>
-		<div ng-if="showPosts.length == 0">
+		<div class="nothingFoundMsg" ng-if="showPosts.length == 0">
 			<p>No Post found, Be first to make post.</p>
 		</div>
 		<div class="list borderGreen" ng-repeat="post in showPosts | orderBy:'-date'" ng-click="openPostDetailModel(post)">

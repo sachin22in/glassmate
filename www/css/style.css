@@ -632,19 +632,19 @@ button.button-facebook.ion-social-facebook:before {
     background-color: #f2ba01;
     font-size: 20px;
     width: 100%;
-    color: #fff;
+    color: #3d4552;
     letter-spacing: 1px;
+    border: 0px;
 }
 .bold{
   float: right;
     margin-top: 20px;
-    font-weight: 700;
-    color: #3d4553;
+    color: #FFF;
     letter-spacing: 0.7px;
 }
 .invite_container.login .buddha_icon_container {
-    height: 45%;
-    padding-top:15%;
+    height: 40%;
+    padding-top:10%;
 }
 /*------ Login End -----*/
 /*------ Message start -----*/
@@ -1882,4 +1882,37 @@ ion-spinner svg{
 }
 .signupError{
   font-size: 16px;
+}
+.notificationIcon, .notificationIcon:hover{
+  color: #FFF;
+}
+.header-item .notificationIcon .notificationCount{
+  position: absolute;
+  top: 0;
+  right: 0;
+    display: block;
+    margin: 0;
+    padding: 2px;
+    background-color: #F2BA01;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    font-size: 14px;
+    line-height: 15px;
+    color: #3D4552;
+}
+.actionBtn .acceptBtn{
+    background-color: #F2BA01;
+    color: #3D4552;
+    border-color: #3d4552;
+    font-weight: bold;
+}
+.actionBtn .rejectBtn.button{
+    color: #3d4552;
+    border-color: #3d4552;
+}
+.nothingFoundMsg{
+    text-align: center;
+    margin-top: 15px;
+    font-size: 16px;
 }

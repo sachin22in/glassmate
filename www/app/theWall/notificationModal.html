@@ -1,0 +1,51 @@
+<div class="modal" ng-click="hideDeletCheers()">
+        <header class="bar bar-header ">
+
+
+			  <button class="button close-button button-icon" ng-click="hideNotificationModal();"><i class="icon ion-chevron-left"></i></button>
+			  <h1 class="title">NOTIFICATIONS</h1>	
+              <!-- <button class="button post-button" ng-click="postData();">POST</button> -->
+        </header>
+        
+	<ion-content class="home_container wallModal has-header">
+		<div class="nothingFoundMsg" ng-if="notificationData.length == 0">
+			<p>No Pending Notification..!!</p>
+		</div>
+		<div class="list borderGreen" ng-repeat="request in notificationData">
+			<div class="row ">
+				<div class="col col-25 marginPadding0">
+					<div class="img_box_post">
+						<img ng-src="{{baseUrlStatic}}{{request.picPath}}" ng-if="request.picPath != null">
+						<img ng-src="img/login_user.png" ng-if="request.picPath == null"/>		
+					</div>
+				</div>
+				<div class="col col-75">
+					<div class="usrName_post">
+						{{request.name | uppercase }}
+					</div>
+					
+					<div class="row marginPadding0">
+						<div class="col marginPadding0">
+							<p>Wants to join you at <strong>{{request.placeName}}</strong> on <strong>{{request.date| date: dd/m/yy}}</strong></p>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row actionBtn">
+					<div class="col" >
+					  <button class="button button-outline button-block button-positive rejectBtn" ng-click="rejectCheers(request.postId, request.likeId, $index)">
+						  Reject
+						</button>
+					</div>
+					<div class="col">
+					  	<button class="button button-block button-positive acceptBtn" ng-click="acceptCheers(request.postId, request.likeId, $index)">
+						  Accept
+						</button>
+					</div>
+			</div>
+		</div>
+
+	</ion-content>
+</div>

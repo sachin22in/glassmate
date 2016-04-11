@@ -28,6 +28,7 @@
         };
       }, 
       function(error){
+        alert("Connection Error. Please Check Network Connection.");
         console.log(error);
       });
       // $state.go('tabs.theWall');

@@ -21,7 +21,13 @@
         animation: 'slide-in-up '
         }).then(function(modal) { 
           $scope.modal = modal;
-      });       
+      });   
+      $ionicModal.fromTemplateUrl('app/theWall/notificationModal.html', {
+        scope: $scope,
+        animation: 'slide-in-up '
+        }).then(function(modal) { 
+          $scope.notificationModal = modal;
+      });     
       $scope.openModal = function() {
         $scope.newpost = {};
         $scope.newpost.date = $scope.dates[0];
@@ -70,6 +76,7 @@
 
         }, 
         function(error){
+          alert("Connection Error. Please Check Network Connection.");
           console.log(error);
         });
          $scope.alertPopup = $ionicPopup.show({
@@ -110,14 +117,18 @@
 
         }, 
         function(error){
+          alert("Connection Error. Please Check Network Connection.");
           console.log(error);
         });
       }
       $scope.openPostDetailModel = function(postDetail){
-
-          if(postDetail.isLiked != $scope.userDetails.userID){
-            return;
+        
+        if(($scope.userDetails.userID != postDetail.postBy)){
+          if((postDetail.isLiked != $scope.userDetails.userID)){
+              return;  
           }
+            
+        }
 
           $scope.postModelDetail = postDetail;
           console.log($scope.postModelDetail); 
@@ -142,6 +153,7 @@
                   
                 }, 
                 function(error){
+                  alert("Connection Error. Please Check Network Connection.");
                   console.log(error);
                 });
                 httpService.makecall($rootScope.baseUrl+ '/getCommentsByPost', 'POST', obj).then(function(response){
@@ -155,6 +167,7 @@
 
                 }, 
                 function(error){
+                  alert("Connection Error. Please Check Network Connection.");
                   console.log(error);
                 });
             });
@@ -191,6 +204,7 @@
             
           }, 
           function(error){
+            alert("Connection Error. Please Check Network Connection.");
             console.log(error);
           });
         /*$http({
@@ -236,6 +250,7 @@
           
         }, 
         function(error){
+          alert("Connection Error. Please Check Network Connection.");
           console.log(error);
         });
       }
@@ -296,15 +311,53 @@
           
         }, 
         function(error){
+          alert("Connection Error. Please Check Network Connection.");
           console.log(error);
         });
 
+      };
+      $scope.hideNotificationModal = function(){
+        $scope.notificationModal.hide();
+      }
+      $scope.openNotificationModal = function(){
+        $scope.notificationModal.show();
+      }
+      $scope.rejectCheers = function(postId, likeId, index){
+        var obj = {
+          'postId': postId,
+          'likeId': likeId
+        }
+        httpService.makecall($rootScope.baseUrl+ '/deleteCheers', 'POST', obj).then(function(response){
+          console.log('++++++++++deleteCheers++++++++');
+          console.log(response);
+          $scope.notificationData.splice(index, 1);
+        }, 
+        function(error){
+          alert("Connection Error. Please Check Network Connection.");
+          console.log(error);
+        });
+      }
+      $scope.acceptCheers = function(postId, likeId, index){
+        var obj = {
+          'postId': postId,
+          'likeId': likeId
+        }
+        httpService.makecall($rootScope.baseUrl+ '/acceptCheers', 'POST', obj).then(function(response){
+          console.log('++++++++++acceptCheers++++++++');
+          console.log(response);
+          $scope.notificationData.splice(index, 1);
+        }, 
+        function(error){
+          alert("Connection Error. Please Check Network Connection.");
+          console.log(error);
+        });
       }
       $scope.loadPost = function(){
             var obj = {
               'userId': $rootScope.userDetails.userID
             }
             httpService.makecall($rootScope.baseUrl+ '/getPosts', 'POST', obj).then(function(response){
+              console.log('++++++++++getPosts++++++++');
               console.log(response);
               $('.defaultSpinner').hide();
               $scope.showPosts = response.data;
@@ -315,6 +368,21 @@
               console.log(error);
             });
 
+
+            httpService.makecall($rootScope.baseUrl+ '/getPendingCheersByUser', 'POST', obj).then(function(response){
+              console.log('++++++++++getPendingCheersByUser++++++++');
+              console.log(response);
+              
+              if (response.data.statusCode == 'error') {
+                  alert("Some Error");
+              };
+              $scope.notificationData = response.data;
+
+            }, 
+            function(error){
+              alert("Connection Error. Please Check Network Connection.");
+              console.log(error);
+            });
 
       };
       $scope.selectResto = function(resto){
@@ -342,6 +410,8 @@
             //$ionicScrollDelegate.scrollBottom();
           }, 
           function(error){
+            alert("Connection Error. Please Check Network Connection.");
+              
             console.log(error);
           });
       };
