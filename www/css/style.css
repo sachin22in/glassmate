@@ -229,11 +229,12 @@ body{
      background-color: transparent;
     
     font-size: 16px;
+    width: 95px;
     font-style: normal;
     /* font-family: initial; */
     color: #f2ba01;
     font-weight: 500;
-    padding: 2px 15px;
+    padding: 2px 20px;
     border-radius: 20px;
     border-color: #f2ba01;
     border-width: 2px;
@@ -451,11 +452,11 @@ label.invite-code {
 .signup .button .icon {
     color: #000;
 } 
-.signup input[type="text"],.basicInfo input[type="text"], .signup input[type="password"],.basicInfo input[type="password"], .signup input[type="tel"],.basicInfo input[type="tel"]{
+.signup input[type="text"],.basicInfo input[type="text"], .signup input[type="password"],.basicInfo input[type="password"], .signup input[type="tel"],.basicInfo input[type="tel"], .signup input[type="email"],.basicInfo input[type="email"]{
     border: 1px solid rgba(102, 102, 102, 0.45);
     height: 41px;
     margin-top: 3px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     background-color: transparent;
     width: 100%;
     padding-left: 10px;
@@ -482,17 +483,8 @@ button.button-facebook.ion-social-facebook:before {
     font-size: 42px;
 }
 .signup .button-signup {
-    border-radius: 2px;
-    -moz-box-shadow: outset 0 1px 0 0 #5f7aaf;
-    -webkit-box-shadow: outset 0 1px 0 0 #666;
-    box-shadow: 0px 4px 1px 4px #eee;
-    background-color: #FFF;
-    background: -moz-linear-gradient(top, #4e6ba5, #2e4886);
-    background: -ms-linear-gradient(top, #4e6ba5, #2e4886);
-    background: -webkit-linear-gradient(top, #FFF, #fff);
-    border: 1px;
-    border-style: outset;
-    color: #666;
+    
+    color: #3d4552;
     line-height: 1.13;
     position: relative;
     text-align: center;
@@ -500,20 +492,19 @@ button.button-facebook.ion-social-facebook:before {
     width: 90%;
     text-align: center;
     margin: 0 5%;
+    background-color: #F2BA01;
+    margin-bottom: 20px;
 }
 .signup .bar-transparent{
 
 }
  .signup .item{
-  color: #666;
+  color: #3d4552;
   font-size: 16px;
   background-color: transparent;
   border: none;
  }
 
- .signup .sign-up {
-    color: #f2ba01;
-}
 /*------ signup End -----*/
 
 /*------ Main local Home Chef Start -----*/
@@ -530,12 +521,11 @@ button.button-facebook.ion-social-facebook:before {
     white-space: initial;
 }
 .signup_container{
-  background-image: url("../img/background.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background-color: #EEEFF3;
 }
 .signup_container .signupInput .item{
   padding: 0px;
+  margin-top: 10px;
 }
 .invite_container{
   background-color: #222930;
@@ -1882,4 +1872,14 @@ ion-spinner svg{
     margin: 10px;
     color: #3d4552;
     font-weight: bold;
+}
+.errorMsg{
+  font-size: 14px;
+  color: #F32424;
+}
+.errorMsg p{
+  margin-bottom: 5px;
+}
+.signupError{
+  font-size: 16px;
 }
