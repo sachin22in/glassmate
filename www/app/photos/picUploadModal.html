@@ -17,11 +17,11 @@
             <input type="file" name="file" id="fileInput" style="opacity: 0" />
             <div class="cropArea">
               <ion-spinner icon="android" class="dpSpinner"></ion-spinner>
-              <img-crop image="myImage" area-type="square" result-image-size="100" result-image-quality="0.1" result-image="myCroppedImage" on-load-done="loadDone()" on-load-begin="loadStart()"></img-crop>
+              <img-crop image="myImage" area-type="square" result-image-size="500" result-image-format="image/jpeg"  result-image="myCroppedImage" on-load-done="loadDone()" on-load-begin="loadStart()"></img-crop>
             </div>
             <div class="padding">
             	<label class="item tagInput">
-	            <input type="text" class="padding" name="name" ng-model='user.name' placeholder="Add Tags" required>
+	            <input type="text" class="padding" name="name" ng-model='photo.tags' placeholder="Add Tags" required>
 	          </label>
             </div>
             <div class="padding">

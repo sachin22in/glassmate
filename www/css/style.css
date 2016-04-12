@@ -1924,3 +1924,19 @@ ion-spinner svg{
   padding: 10px;
   color: #3d4552;
 }
+.imageView .image-subtitle{
+  color: #3d4552;
+}
+.imageView .headerView{
+  background-color: #3d4552;
+}
+ion-slide{
+  background-color: #FFF;
+}
+.onPhotoTag{
+      color: #FFF;
+    position: absolute;
+    bottom: 0px;
+    padding: 8px;
+    font-size: 14px;
+}

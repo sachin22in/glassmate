@@ -1,6 +1,6 @@
 
 
-angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery', 'ngImgCrop'])
+angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery', 'ngImgCrop', 'ngSanitize'])
 .config(function($ionicConfigProvider) {
 
     $ionicConfigProvider.tabs.position('bottom'); // other values: top

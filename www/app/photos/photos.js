@@ -2,10 +2,9 @@
 (function () {
     'use strict';
 
-    angular.module('starter').controller('photosCtrl', ['$scope','$ionicModal', photosCtrl]);
+    angular.module('starter').controller('photosCtrl', ['$scope','$ionicModal','$rootScope','httpService', photosCtrl]);
 
-    function photosCtrl($scope, $ionicModal) {       
-        console.log($scope);
+    function photosCtrl($scope, $ionicModal, $rootScope, httpService) {       
         $ionicModal.fromTemplateUrl('app/photos/picUploadModal.html', {
         scope: $scope,
         animation: 'slide-in-up '
@@ -24,13 +23,14 @@
 
         $scope.myImage='';
 	     $scope.myCroppedImage='';
+	     $scope.photo = {};
+	     $scope.photos= [];
 	      $('.dpSpinner').hide();
 	      $scope.loadDone = function(){
 	        $('.dpSpinner').hide();
-	        console.log($scope.myCroppedImage);
 	      }
 	      $scope.loadStart = function(){
-	        //$('.dpSpinner').show();
+	        $('.dpSpinner').show();
 	      }
 	      $scope.chooseFile = function(){
 	        $('#fileInput').click();
@@ -42,24 +42,26 @@
 	        $scope.objToSend = {};
 	        $scope.objToSend.myCroppedImage = $('#cropImg').attr('src');
 	        $scope.objToSend.userID = $rootScope.userDetails.userID;
+	        $scope.objToSend.tags = $scope.photo.tags;
 
-	        httpService.makecall($rootScope.baseUrl+ '/profilePic', 'POST', $scope.objToSend).then(function(response){
+	        httpService.makecall($rootScope.baseUrl+ '/uploadPic', 'POST', $scope.objToSend).then(function(response){
 	          console.log(response);
 	          if (response.data.statusCode == 'success') {
-	              $rootScope.userDetails.picPath = '/ProfilePic/' + $rootScope.userDetails.userID + '.png';
-	              $state.go('tabs.theWall');
+	              $scope.closeUploadPicModal();
+	              $scope.loadPhotos();
 	          }else{
 	            alert('error');
 	          };
 	          
 	        }, 
 	        function(error){
+	        	alert("Check Connection.");
 	          console.log(error);
 	        });
 	      }
 	      var handleFileSelect=function(evt) {
 	        console.log(evt);
-	        //$('.dpSpinner').show();
+	        $('.dpSpinner').show();
 	        var file=evt.currentTarget.files[0];
 	        if(!file){
 	          $('.dpSpinner').hide();
@@ -74,9 +76,33 @@
 	        };
 	        reader.readAsDataURL(file);
 	      };
-	      
+	      $scope.convertDataForGallary = function(data){
+	      	$scope.photos= [];
+	      	var obj={};
+	      	angular.forEach(data, function(value, key){
+	      		obj={};
+	      		obj.src =  $rootScope.baseUrlStatic + value.photoPath;
+	      		obj.sub =  value.tags;
+	      		$scope.photos.push(obj);
+	      	});
+			
+	      }
+	      $scope.loadPhotos = function(){
 
+	        httpService.makecall($rootScope.baseUrl+ '/getAllPhotos', 'POST', $scope.objToSend).then(function(response){
+	          console.log("+++++++++getAllPhotos+++++++");
+	          console.log(response);
+	          $scope.convertDataForGallary(response.data);
+              //$scope.photos = response.data;
+	          
+	        }, 
+	        function(error){
+	        	alert("Check Connection.");
+	          console.log(error);
+	        });
 
+	      }
+	      $scope.loadPhotos();
 
         $scope.items = [
 		  {
