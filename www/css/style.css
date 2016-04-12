@@ -1916,3 +1916,11 @@ ion-spinner svg{
     margin-top: 15px;
     font-size: 16px;
 }
+.tagInput{
+  padding: 0;
+}
+.tagInput input{
+  width: 100%;
+  padding: 10px;
+  color: #3d4552;
+}
