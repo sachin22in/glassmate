@@ -68,7 +68,7 @@
             Date of Birth
             <input type="hidden" name="dob" ng-model='user.dob' required>
             <div>
-              <button class="button button-block" ng-click="openDatePicker(); startDobValidation = true;"><span ng-model="user.dob">{{user.dob | date: dd-MM-yyyy}}</span> </button>
+              <button class="button button-block datePickerBtn" ng-click="openDatePicker(); startDobValidation = true;"><span ng-model="user.dob">{{user.dob | date: dd-MM-yyyy}}</span> </button>
             </div>
           </label>
           <div class="errorMsg">

@@ -88,6 +88,14 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
         }
       }
     })
+    .state('tabs.myDetail', {
+      url: "/myDetail",
+      views: {
+        'home-tab': {
+          templateUrl: "app/profile/myDetail/myDetail.html"
+        }
+      }
+    })
 
    $urlRouterProvider.otherwise("landing");
 

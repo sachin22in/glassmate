@@ -24,9 +24,10 @@
 			
 	      }
 	      $scope.loadPhotos = function(){
-
-	        httpService.makecall($rootScope.baseUrl+ '/getAllPhotos', 'POST', $scope.objToSend).then(function(response){
-	          console.log("+++++++++getAllPhotos+++++++");
+	      	$scope.objToSend={};
+	      	$scope.objToSend.photoBy = $rootScope.userDetails.userID;
+	        httpService.makecall($rootScope.baseUrl+ '/getMyPhotos', 'POST', $scope.objToSend).then(function(response){
+	          console.log("+++++++++getMyPhotos+++++++");
 	          console.log(response);
 	          $scope.convertDataForGallary(response.data);
               //$scope.photos = response.data;
@@ -38,7 +39,7 @@
 	        });
 
 	      }
-	      //$scope.loadPhotos();
+	      $scope.loadPhotos();
 
         $scope.items = [
 		  {

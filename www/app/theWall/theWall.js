@@ -57,9 +57,14 @@
         $scope.alertPopup.close();
       }
       $scope.showCheersPopup = function(post) {
+        if(post.postBy == $scope.userDetails.userID){
+          return;
+        }
+        
         if(post.isLiked == $scope.userDetails.userID){
           return;
         }
+
 
         $scope.cheerModelPost = post;
         $scope.likeBy = '';
@@ -122,12 +127,15 @@
         });
       }
       $scope.openPostDetailModel = function(postDetail){
-        
+        console.log(postDetail);
         if(($scope.userDetails.userID != postDetail.postBy)){
           if((postDetail.isLiked != $scope.userDetails.userID)){
+            return;
+          }else{
+            if(!postDetail.likeApproved){
               return;  
+            }
           }
-            
         }
 
           $scope.postModelDetail = postDetail;

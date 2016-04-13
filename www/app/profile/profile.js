@@ -5,24 +5,17 @@
     
 
     function ProfileTabCtrl($scope,$state,$rootScope,$ionicHistory) {       
-        //alert("Profile");
-        $scope.showUserTestimonials = false;
-        $scope.showphotos = function(){
-            $scope.showUserTestimonials = false;
-        }
-        $scope.showtestimonials = function(){
-            $scope.showUserTestimonials = true;
-        }
-
-        $scope.goTOFollowerPage = function(){
-            $state.go('tabs.followers');
-        }
-        $scope.goToPublicProfile = function(){
-            $state.go('tabs.publicProfile');
-        }
-        $scope.login = function(){
-                alert();
-     	      //$state.go('tabs.home');
+        
+        if($rootScope.userDetails){
+            $scope.userDetails = $rootScope.userDetails;
+          }else{
+            $state.go('login');
+            return;
+          }
+        
+      $scope.logout = function(){
+            $rootScope.userDetails = '';
+            $state.go('login');
      	};
      	$rootScope.$ionicGoBack = function() {
             $ionicHistory.goBack();

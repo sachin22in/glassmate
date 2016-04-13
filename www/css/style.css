@@ -183,11 +183,9 @@ body{
 }
 .signup_header span.heading {
     width: 92%;
-    height: 50px;
     font-size: 20px;
     text-align: center;
     display: inline-block;
-    padding-top: 15px;
 }
 .bar-header .button.back-button {
     opacity: 1;
@@ -368,7 +366,7 @@ ion-header-bar{
     padding: 0;
     z-index: 50;
 }
-.profile_header .transperentBtnHead{
+.transperentBtnHead{
     display: inline-block;
         position: absolute;
     top: 7px;
@@ -1288,13 +1286,20 @@ float: right;
 }
 .imageHeader{
   position: relative;
-}
-.imageHeader .Profile-highlight{
-  position: absolute;
-  bottom: 15px;
+  height: 250px;
   width: 100%;
-  margin-top: 0px;
-  padding: 0px 20px;
+}
+.profileImg{
+  border-bottom: 2px solid #b4b4b4;
+}
+.profileImg img{
+  width: 100%;
+  max-height: 300px;
+  -webkit-filter: blur(7px);
+  -moz-filter: blur(7px);
+  -o-filter: blur(7px);
+  -ms-filter: blur(7px);
+  filter: blur(7px);
 }
 .profileTabs{
   width: 100%;
@@ -1939,4 +1944,16 @@ ion-slide{
     bottom: 0px;
     padding: 8px;
     font-size: 14px;
+}
+.profileHeader{
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.datePickerBtn{
+  background: transparent;
+}
+.padding5{
+  padding: 5px;
+  padding-top: 0px;
 }

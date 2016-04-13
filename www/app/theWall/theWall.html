@@ -12,22 +12,6 @@
 		</ion-nav-buttons>
     </ion-nav-bar>
 
-	
-	<!-- <div class="add_post postWall clearfix">
-			<div class="img_box">
-				<img src="img/girl_wall.png"/>
-			</div>
-			<div class="details_box" ng-click="openModal();">
-				  <label class="item item-input">
-				    <input type="text" readonly placeholder="Whats on your mind ?">
-				  </label>
-				<div class="seprator"></div>
-				<div class="post_buttons">
-					<span class="ion-camera"></span>
-					<span class="ion-ios-location">Place</span>
-				</div>
-			</div>
-	</div> -->
 	<ion-content class="home_container HelveticaBody listPostStatus has-header has-footer ">
 		<div class="add_post postWall clearfix">
 			<div class="img_box ">
@@ -91,7 +75,7 @@
 			<div class="row textCenter cheersBar">
 					<div class="col col-33" ng-class="{'liked': post.isLiked == userDetails.userID}" ng-click="showCheersPopup(post)">
 					  <span class="btn_post cheersIcon"></span>
-					  <div class="btnPost">{{post.likeCount}} Likes</div>
+					  <div class="btnPost">{{post.likeCount}} Cheers</div>
 					</div>
 					<div class="col col-33 textCenter">
 					  <span class="btn_post commentsIcon"> </span>
@@ -103,6 +87,7 @@
 					</div>
 					
 			</div>
+			<div class="padding5" ng-if="(post.isLiked == userDetails.userID) && !post.likeApproved">Your Request is pending for approval.</div>
 		</div>
 		
 		<div class="marginBottomFooter"></div>
