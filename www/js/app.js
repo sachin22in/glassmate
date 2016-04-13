@@ -79,6 +79,15 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
         }
       }
     })
+    .state('tabs.myPhotos', {
+      url: "/myPhotos",
+      views: {
+        'home-tab': {
+          templateUrl: "app/profile/myPhotos/photos.html",
+          controller: 'myPhotosCtrl'
+        }
+      }
+    })
 
    $urlRouterProvider.otherwise("landing");
 
