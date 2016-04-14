@@ -104,6 +104,17 @@
 	      }
 	      $scope.loadPhotos();
 
+	      $scope.$on('$locationChangeStart', function(event, toState, toParams, fromState, fromParams){
+	        
+	        if($scope.uploadPicModal){
+	          if($scope.uploadPicModal.isShown()){
+	            $scope.uploadPicModal.remove();
+	            event.preventDefault();  
+	          }  
+	        }
+	        
+	          
+	      });
         $scope.items = [
 		  {
 		    src:'http://www.wired.com/images_blogs/rawfile/2013/11/offset_WaterHouseMarineImages_62652-2-660x440.jpg',

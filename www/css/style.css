@@ -1957,3 +1957,15 @@ ion-slide{
   padding: 5px;
   padding-top: 0px;
 }
+.loginErrorMsg{
+  padding: 5px 10px;
+}
+.profilePic{
+  position: absolute;
+  top: 130px;
+  left: 36%;
+}
+.profilePic .img_box_post{
+  width: 100px;
+  height: 100px; 
+}

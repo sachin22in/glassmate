@@ -5,15 +5,25 @@
     angular.module('starter').controller('AuthCtrl', ['$scope','$state','$rootScope','$ionicHistory','httpService', AuthCtrl]);
 
     function AuthCtrl($scope,$state,$rootScope,$ionicHistory,httpService ) {       
-     
+     $scope.showError = false;
+      $scope.errorMsg = "";
+
      $scope.login = function(){
        // console.log($scope.data.username + '' + $scope.data.password);
-       if(!$scope.data.username){
-        return;
+       console.log($scope.loginForm);
+       if($scope.loginForm.$invalid){
+        if($scope.loginForm.email.$invalid){
+          $scope.showError = true;
+          $scope.errorMsg = "Please enter Valid Email Id.";
+          return;
+         }
+         if($scope.loginForm.password.$invalid){
+          $scope.showError = true;
+          $scope.errorMsg = "Please enter Password.";
+          return;
+         }
        }
-       if(!$scope.data.password){
-        return;
-       }
+        $scope.showError = false;
        httpService.makecall($rootScope.baseUrl+ '/login', 'POST', $scope.data).then(function(response){
         console.log(response);
         if (response.data.statusCode == 'success') {
@@ -21,10 +31,14 @@
             $state.go('tabs.theWall');
         };
         if (response.data.statusCode == 'userNotFound') {
-            alert("User id not found");
+            $scope.showError = true;
+          $scope.errorMsg = "Email Id not Found.";
+            //alert("User id not found");
         };
         if (response.data.statusCode == 'invalidPass') {
-            alert("Invalid Password");
+            $scope.showError = true;
+          $scope.errorMsg = "UserId and Password is invalid.";
+            //alert("Invalid Password");
         };
       }, 
       function(error){

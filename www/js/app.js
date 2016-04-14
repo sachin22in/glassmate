@@ -96,11 +96,29 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
         }
       }
     })
+    .state('tabs.myPosts', {
+      url: "/myPosts",
+      views: {
+        'home-tab': {
+          templateUrl: "app/profile/myPosts/theWall.html",
+          controller: 'myPostsCtrl'
+        }
+      }
+    })
+    .state('tabs.changePic', {
+      url: "/changePic",
+      views: {
+        'home-tab': {
+          templateUrl: "app/profile/changePic/dpUpload.html",
+          controller: 'changePicCtrl'
+        }
+      }
+    })
 
    $urlRouterProvider.otherwise("landing");
 
 })
-.run(function($rootScope) {
+.run(function($rootScope, $ionicHistory, $ionicViewService, $window) {
     //alert();
     // $rootScope.baseUrl = 'http://54.169.243.198/restAPI/app/service';
     // $rootScope.baseUrlStatic = 'http://54.169.243.198/restAPI/app/glassmateStatic';
@@ -108,10 +126,16 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
      $rootScope.baseUrlStatic = 'http://192.168.0.104:3000/glassmateStatic';
     $('#loaderDiv').hide();
 
+    $rootScope.$windowGoBack = function(){
+      $window.history.back();
+      
+    }
+
 })
-.factory('httpMyInterceptor', function() {  
+.factory('httpMyInterceptor', function($q) {  
     var interceptor = {
         request: function(request) {
+            
             if(request.method == 'POST'){
               $('#loaderDiv').show();
             } 
@@ -122,6 +146,12 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
               $('#loaderDiv').hide();
             }
             return response;
+        },
+        responseError: function(rejection){
+          if(rejection.config.method == 'POST'){
+              $('#loaderDiv').hide();
+          }
+          return $q.reject(rejection);
         }
     };
 

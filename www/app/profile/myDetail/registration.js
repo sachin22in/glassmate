@@ -9,7 +9,7 @@
      $scope.signupError = false;
      $scope.disableEdit = true;
      //$scope.genderSelect = 'male';
-     $scope.user = $rootScope.userDetails;
+     $scope.user = angular.copy($rootScope.userDetails);
      console.log($scope.user);
       $scope.chnageGender = function(newGender){
           console.log(newGender);
@@ -18,10 +18,10 @@
       $scope.enableEdit = function(){
         $scope.disableEdit = false;
       };
-     $scope.signup = function(){
-      console.log($scope);
-          if ($scope.signupForm.$invalid) {
-            angular.forEach($scope.signupForm.$error, function(field) {
+     $scope.signup = function(signupFormCtrl){
+      
+          if (signupFormCtrl.$invalid) {
+            angular.forEach(signupFormCtrl.$error, function(field) {
               angular.forEach(field, function(errorField){
                   errorField.$setTouched();
               })
@@ -32,24 +32,27 @@
           
           console.log($scope.user);
          
-          return;
-          var dataToSend = angular.copy($scope.user);
-          delete dataToSend["confirmPassword"];
-          console.log(dataToSend);
+          var dataToSend = {};
+          dataToSend.dob = $scope.user.dob;
+          dataToSend.email = $scope.user.email;
+          dataToSend.gender = $scope.user.gender;
+          dataToSend.mobile = $scope.user.mobile;
+          dataToSend.name = $scope.user.name;
+          dataToSend.userID = $scope.user.userID;
           //$state.go('dp');
 
-          httpService.makecall($rootScope.baseUrl+ '/signup', 'POST', dataToSend).then(function(response){
-            console.log('++++++++++newPost++++++++');
+          httpService.makecall($rootScope.baseUrl+ '/updateDetails', 'POST', dataToSend).then(function(response){
+            console.log('++++++++++updateDetails++++++++');
             console.log(response);
             if (response.data.statusCode == 'success') {
-                delete dataToSend["password"];
-                $rootScope.userDetails = dataToSend;
-                $rootScope.userDetails.userID = response.data.insertId;
-                $state.go('dp');
+
+                $rootScope.userDetails = $scope.user;
+                console.log($rootScope.userDetails);
+                $scope.disableEdit = true;
             };
             if (response.data.statusCode == 'error') {
                 $scope.signupError = true;
-                alert("Already Registered");
+                //alert("Already Registered");
             };
           }, 
           function(error){

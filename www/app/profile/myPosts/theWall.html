@@ -1,0 +1,76 @@
+<ion-view title="THE WALL">
+	<ion-nav-bar class="nav-title-slide-ios7">
+      	<ion-nav-title>
+      	MY INTEREST
+      	</ion-nav-title>
+      	<ion-nav-buttons side="left" >
+			<button class="button close-button button-icon" ng-click="$windowGoBack();"><i class="icon ion-chevron-left"></i></button>
+		</ion-nav-buttons>
+      	
+    </ion-nav-bar>
+
+	<ion-content class="home_container HelveticaBody listPostStatus has-header has-footer ">
+		
+		<div class="nothingFoundMsg" ng-if="showPosts.length == 0">
+			<p>No Post found, Be first to make post.</p>
+		</div>
+		<div class="list borderGreen" ng-repeat="post in showPosts | orderBy:'-date'" ng-click="openPostDetailModel(post)">
+			<div class="row postDetail">
+				<div class="col col-25 marginPadding0">
+					<div class="img_box_post">
+						<img ng-src="{{baseUrlStatic}}{{post.picPath}}" ng-if="post.picPath != null">	
+						<img ng-src="img/login_user.png" ng-if="post.picPath == null"/>	
+					</div>
+				</div>
+				<div class="col col-75">
+					<div class="usrName_post">
+						{{post.name | uppercase }}
+					</div>
+					<div class="time_post">3h ago</div><br>
+					
+					<div class="row marginPadding0">
+						<div class="col marginPadding0">
+							<p>Hi, i am in {{post.placeName}} from {{post.startTime}} to {{post.endTime}} on {{post.date| date: dd/m/yy}}.</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+				<div class="row marginPadding0">
+					<div class="col">
+						
+						<p>{{post.postDisc}}</p>
+					</div>
+				</div>
+			<div class="row row-no-padding imageInfoDiv">
+				<div class="col">
+					<img class="img_place" ng-src="{{post.placePic}}">
+				</div>
+				<div class="placeNameDiv">
+					<div class="placeName">{{post.placeName}}</div>
+					<div class="placeDateTime">ON {{post.date | date: dd/m/yy | uppercase }} ( {{post.startTime}} TO {{post.endTime}} )</div>
+				</div>
+			</div>
+			<div class="row textCenter cheersBar">
+					<div class="col col-33" ng-class="{'liked': post.isLiked == userDetails.userID}" ng-click="showCheersPopup(post)">
+					  <span class="btn_post cheersIcon"></span>
+					  <div class="btnPost">{{post.likeCount}} Cheers</div>
+					</div>
+					<div class="col col-33 textCenter">
+					  <span class="btn_post commentsIcon"> </span>
+					  <div class="btnPost">{{post.commentsCount}} Comments</div>
+					</div>
+					<div class="col col-33 textCenter">
+					  <span class="btn_post shareIcon"></span>
+					  <div class="btnPost">Share</div>
+					</div>
+					
+			</div>
+			<div class="padding5" ng-if="(post.isLiked == userDetails.userID) && !post.likeApproved">Your Request is pending for approval.</div>
+		</div>
+		
+		<div class="marginBottomFooter"></div>
+	</ion-content>
+	<!-- 
+	<div ui-view='menu-left'></div> -->
+</ion-view>

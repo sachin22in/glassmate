@@ -3,16 +3,23 @@
     <div class="buddha_icon_container">
 			<img src="img/glassmateLogo.png"/>
 		</div>
+      <form name="loginForm">
 	      <div class="list list-inset loginPage">
+          <div class="errorMsg loginErrorMsg" ng-if="showError">
+            <p >{{errorMsg}}</p>
+          </div>
           <label class="item item-input">
               <i class="icon placeholder-icon"><img src='img/login_user.png' width='25px'/></i>
-              <input type="email" placeholder="User name" ng-model="data.username">
+              <input name="email" type="email" placeholder="User name" ng-model="data.username" required>
           </label>
+          
           <label class="item item-input">
               <i class="icon placeholder-icon"><img src='img/login_pass.png' width='25px'/></i>
-              <input type="password" placeholder="Password" ng-model="data.password">
+              <input name="password" type="password" placeholder="Password" ng-model="data.password" required>
           </label>
+
       </div>
+    </form>
       <button class="button button-block myTabStyle HelveticaHeading" ng-click="login()">LOGIN</button>
       <label class="bold pull-right HelveticaHeading">FORGOT PASSWORD</label>
   </ion-content> 

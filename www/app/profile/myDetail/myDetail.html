@@ -4,7 +4,7 @@
       BASIC DETAIL
       </ion-nav-title>
       <ion-nav-buttons side="left">
-       <button class="button close-button button-icon" ng-click="$ionicGoBack();"><i class="icon ion-chevron-left"></i></button>
+       <button class="button close-button button-icon" ng-click="$windowGoBack();"><i class="icon ion-chevron-left"></i></button>
       </ion-nav-buttons>
       <ion-nav-buttons side="right">
        <button class="button post-button" ng-click="enableEdit();">EDIT</button>
@@ -79,7 +79,7 @@
         
         </div>
       
-        <button type="submit" class="button button-block button-signup" ng-click="signup(); startDobValidation = true;" ng-if="!disableEdit">
+        <button type="submit" class="button button-block button-signup" ng-click="signup(signupForm); startDobValidation = true;" ng-if="!disableEdit">
           <span class="sign-up HelveticaHeading">SAVE</span>
           
         </button>

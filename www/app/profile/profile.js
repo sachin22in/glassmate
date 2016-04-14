@@ -17,6 +17,9 @@
             $rootScope.userDetails = '';
             $state.go('login');
      	};
+      $scope.changeProfilePic = function(){
+          $state.go('tabs.changePic');
+      }
      	$rootScope.$ionicGoBack = function() {
             $ionicHistory.goBack();
         };		
