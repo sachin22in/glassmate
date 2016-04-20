@@ -12,7 +12,7 @@
         $state.go('login');
         return;
       }
-
+      $scope.placeChnage = false;
       $scope.catOfPost = 'Cat001';
       $scope.newpost = {};
       $scope.comment = {};
@@ -46,10 +46,12 @@
         $('.profileDP .ion-close').removeClass('showDelete');
       }
       
-      $scope.onHold = function(e){
+      $scope.onHold = function(e, postModelDetail){
         console.log(e.target);
+        if(postModelDetail.postBy == $scope.userDetails.userID){
+          $(e.target).siblings('.ion-close').addClass('showDelete');  
+        }
         
-        $(e.target).siblings('.ion-close').addClass('showDelete')
         //e.target.addClass('showDelete');
       }
       $scope.closeCheersPopup = function(){
@@ -184,8 +186,9 @@
       
       $scope.postData = function(){
         console.log($scope.newpost);
-        if($scope.newpost.placePic == undefined){
+        if($scope.placeChnage){
           alert("Please select place from droupdown");
+          return;
         }
         
         
@@ -196,6 +199,7 @@
         $scope.newpost.postBy = $rootScope.userDetails.userID;
         $scope.newpost.placeId = 9999;
         console.log($scope.newpost);
+          
         httpService.makecall($rootScope.baseUrl+ '/newPost', 'POST', $scope.newpost).then(function(response){
             console.log('++++++++++newPost++++++++');
             console.log(response);
@@ -398,7 +402,13 @@
           $scope.restaurants = [];
           $scope.newpost.placeName = resto.restaurant.name + ' - ' + resto.restaurant.location.locality;
           $scope.newpost.placePic = resto.restaurant.featured_image;
+          $scope.placeChnage = false;
           console.log(resto);
+      }
+      $scope.clearSelectResto = function(){
+          // $scope.newpost.placeName = undefined;
+          // $scope.newpost.placePic = undefined;
+          $scope.placeChnage = true;
       }
       $scope.searchPlace = function(){
         //console.log($scope.newpost.place);
@@ -412,9 +422,9 @@
           httpService.makecall($rootScope.baseUrl+ '/searchPlace', 'POST', payload).then(function(response){
             //console.log(response.data.restaurants);
             $scope.restaurants = response.data.restaurants;
-            var temp = $(window).height();
-            $location.hash('sliderDiv');
-            $ionicScrollDelegate.anchorScroll(true);
+            //var temp = $(window).height();
+            //$location.hash('sliderDiv');
+            //$ionicScrollDelegate.anchorScroll(true);
             //$ionicScrollDelegate.scrollBottom();
           }, 
           function(error){
@@ -470,7 +480,6 @@
 
 
       $scope.$on('$locationChangeStart', function(event, toState, toParams, fromState, fromParams){
-        
         if($scope.postModal){
           if($scope.postModal.isShown()){
             $scope.postModal.remove();

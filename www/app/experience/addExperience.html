@@ -1,0 +1,27 @@
+<div class="modal">
+        <header class="bar bar-header ">
+
+
+			  <button class="button close-button button-icon" ng-click="closeModal();"><i class="icon ion-chevron-left"></i></button>
+			  <h1 class="title">ADD EXPERIENCE</h1>	
+              <button class="button post-button" ng-click="postData();">POST</button>
+        </header>
+        
+	<ion-content class="home_container wallModal has-header has-footer">
+		<div class="add_post clearfix">
+			<div class="img_box">
+				<img ng-src="{{baseUrlStatic}}{{userDetails.picPath}}" ng-if="userDetails.picPath != null"/>
+				<img ng-src="img/login_user.png" ng-if="userDetails.picPath == null"/>
+			</div>
+			<div class="details_box">
+				  <label class="item item-input">
+				    <textarea type="text" placeholder="Write about your experience." rows="5" ng-model="addExperience.expDetail"></textarea>
+				  </label>
+				  <div class="seprator"></div>
+			</div>
+		</div>
+
+
+
+	</ion-content>
+</div>

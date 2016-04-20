@@ -61,6 +61,15 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
         }
       }
     })
+    .state('tabs.experience', {
+      url: "/experience",
+      views: {
+        'home-tab': {
+          templateUrl: "app/experience/home.html",
+          controller: 'experienceCtrl'
+        }
+      }
+    })
     .state('tabs.photos', {
       url: "/photos",
       views: {
@@ -114,16 +123,26 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
         }
       }
     })
+    .state('tabs.changePwd', {
+      url: "/changePwd",
+      views: {
+        'home-tab': {
+          templateUrl: "app/profile/changePwd.html",
+          controller: 'changePwdCtrl'
+        }
+      }
+    })
 
    $urlRouterProvider.otherwise("landing");
 
 })
 .run(function($rootScope, $ionicHistory, $ionicViewService, $window) {
-    //alert();
-    // $rootScope.baseUrl = 'http://54.169.243.198/restAPI/app/service';
-    // $rootScope.baseUrlStatic = 'http://54.169.243.198/restAPI/app/glassmateStatic';
-     $rootScope.baseUrl = 'http://192.168.0.104:3000/glassmate';
-     $rootScope.baseUrlStatic = 'http://192.168.0.104:3000/glassmateStatic';
+    $rootScope.baseUrl = 'http://54.169.243.198/restAPI/app/service';
+    $rootScope.baseUrlStatic = 'http://54.169.243.198/restAPI/app/glassmateStatic';
+     // $rootScope.baseUrl = 'http://192.168.0.100:3000/glassmate';
+     // $rootScope.baseUrlStatic = 'http://192.168.0.100:3000/glassmateStatic';
+     // $rootScope.baseUrl = 'http://localhost:3000/glassmate';
+     // $rootScope.baseUrlStatic = 'http://localhost:3000/glassmateStatic';
     $('#loaderDiv').hide();
 
     $rootScope.$windowGoBack = function(){

@@ -1,0 +1,66 @@
+<ion-view hide-nav-bar="true" class=" view-container">
+    <ion-nav-bar class="nav-title-slide-ios7">
+      <ion-nav-title>
+      CHANGE PASSWORD
+      </ion-nav-title>
+      <ion-nav-buttons side="left">
+       <button class="button close-button button-icon" ng-click="$windowGoBack();"><i class="icon ion-chevron-left"></i></button>
+      </ion-nav-buttons>
+      
+    </ion-nav-bar>
+
+    <ion-content class="signup_container signup HelveticaBody has-header has-footer" >
+    <div class="signup_header padding">
+      <!-- <span class="back_button" ng-click="$ionicGoBack()"></span><span class="heading HelveticaHeading">BASIC DETAIL</span>
+      <div class="transperentBtnHead">
+                <span class="transperentBtn">EDIT</span>
+              </div> -->
+      <div class="list list-solid padding">
+      <div class="errorMsg">
+            <p ng-show="pwdChangeError" class="signupError">Password is invalid.</p>
+      </div>
+      <form name="changePwdForm" autocomplete="off">
+        <div class="signupInput">
+          <label class="item">
+            Old Password
+            <input type="password" name="oldPwd" ng-model='pwd.oldPwd' ng-minlength="6" required>
+          </label>
+          <div class="errorMsg">
+            <p ng-show="changePwdForm.oldPwd.$error.required && changePwdForm.oldPwd.$touched">Password is required.</p>
+            
+          </div>
+          <label class="item">
+            New Password
+            <input type="password" name="newPwd" ng-model='pwd.newPwd' ng-minlength="6" required>
+          </label>
+          <div class="errorMsg">
+            <p ng-show="changePwdForm.newPwd.$error.required && changePwdForm.newPwd.$touched">Password is required.</p>
+            <p ng-show="changePwdForm.newPwd.$error.minlength && changePwdForm.newPwd.$touched">Password length must be more than 6.</p>
+            <p ng-show="changePwdForm.confirmPwd.$touched && changePwdForm.newPwd.$touched && pwd.newPwd != pwd.confirmPwd">Password and Confirm Password not match.</p>
+          </div>
+          <label class="item">
+            Retype New Password
+            <input type="password" name="confirmPwd" ng-model='pwd.confirmPwd' required>
+          </label>
+          <div class="errorMsg">
+            <p ng-show="changePwdForm.confirmPwd.$error.required && changePwdForm.confirmPwd.$touched">Confirm Password is required.</p>
+          </div>
+          
+          
+        </div>
+      </form>
+        
+        </div>
+      
+        <button type="submit" class="button button-block button-signup" ng-click="changePwd(changePwdForm);">
+          <span class="sign-up HelveticaHeading">CHANGE PASSWORD</span>
+          
+        </button>
+      
+   <!--    <ionic-datepicker input-obj="datepickerObject">
+            <button class="button button-block button-positive"> </button>
+      </ionic-datepicker> -->
+    </ion-content>
+   
+</ion-view>
+

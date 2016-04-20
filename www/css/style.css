@@ -1646,6 +1646,7 @@ float: right;
 /*  margin-top: 70px;*/
   margin-left: 10px;
   margin-right: 10px;
+  position: relative;
 }
 .updateWall .item-select:last-child{
   border-bottom: 1px solid #ddd;
@@ -1717,6 +1718,9 @@ float: right;
   border-bottom: 3px solid #f2ba01;
   font-weight: bold;
 }
+.footernav .scroll-bar{
+  visibility: hidden;
+}
 .button-bar{
   margin-bottom: 15px;
 }
@@ -1730,6 +1734,14 @@ float: right;
 .placeSuggest{
   margin-bottom: 30px !important;
   cursor: pointer;
+    position: absolute;
+    width: 100%;
+    bottom: 17px;
+    z-index: 10;
+}
+.placeSuggest li{
+  padding: 10px;
+  background-color: #f8f8f8;
 }
 .dateSelect .dates{
   display: inline-block;
@@ -1968,4 +1980,23 @@ ion-slide{
 .profilePic .img_box_post{
   width: 100px;
   height: 100px; 
+}
+.title-center{
+  margin-right: 40px !important;
+}
+
+ion-nav-bar .ion-plus-round{
+  color: #f2ba01;
+}
+ion-nav-bar .ion-plus-round:hover{
+  color: #f2ba01;
+}
+.experiencePage .img_box_post{
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.experiencePage .username{
+  margin-top: 10px;
+  width: 100%;
 }

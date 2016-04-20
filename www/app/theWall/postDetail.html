@@ -47,9 +47,13 @@
 				</div>
 			</div>
 			<div class="row textCenter cheersBar">
-					<div class="col col-33" ng-class="{'liked': postModelDetail.isLiked == userDetails.userID}">
+					<div class="col col-33" ng-class="{'liked': postModelDetail.isLiked == userDetails.userID}" ng-if="postModelDetail.postBy == userDetails.userID" >
 					  <span class="btn_post cheersIcon"></span>
-					  <div class="btnPost">{{postModelDetail.likeCount}} Likes</div>
+					  <div class="btnPost">{{postModelDetail.likeCount}} Cheers</div>
+					</div>
+					<div class="col col-33" ng-class="{'liked': postModelDetail.isLiked == userDetails.userID}" ng-click="showUnCheersConfirmPopup($event, {{postModelDetail.postId}}, {{userDetails.userID}})" ng-if="postModelDetail.postBy != userDetails.userID">
+					  <span class="btn_post cheersIcon"></span>
+					  <div class="btnPost">{{postModelDetail.likeCount}} Cheers</div>
 					</div>
 					<div class="col col-33 textCenter">
 					  <span class="btn_post commentsIcon"> </span>
@@ -66,7 +70,7 @@
 				<div class="borderBlack"></div>
 				<div class="subHeader"><h5>People Interested</h5></div>
 				<div class="people">
-					<div class="profileDP" ng-repeat="likePerson in likeBy" on-hold="onHold($event)">
+					<div class="profileDP" ng-repeat="likePerson in likeBy" on-hold="onHold($event, postModelDetail)">
 						<span>{{likePerson.name}}</span>
 						<img ng-src="{{baseUrlStatic}}{{likePerson.picPath}}" ng-if="likePerson.picPath != null">
 						<img ng-src="img/login_user.png" ng-if="likePerson.picPath == null"/>

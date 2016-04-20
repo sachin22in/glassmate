@@ -1,0 +1,54 @@
+<ion-view title="THE WALL">
+	<ion-nav-bar class="nav-title-slide-ios7">
+      	<ion-nav-title>
+      	EXPERIENCE
+      	</ion-nav-title>
+      	<ion-nav-buttons side="right">
+			<button ng-click="openModal()" class="button button-icon theWall ion-plus-round"></button>
+		</ion-nav-buttons>
+    </ion-nav-bar>
+
+	<ion-content class="home_container HelveticaBody listPostStatus has-header has-footer experiencePage">
+		<div class="nothingFoundMsg" ng-if="showPosts.length == 0">
+			<p>No Post found, Be first to make post.</p>
+		</div>
+		<div class="list borderGreen" ng-repeat="post in showPosts | orderBy:'-date'" ng-click="openPostDetailModel(post)">
+			<div class="row postDetail">
+				<div class=" marginPadding0">
+					<div class="img_box_post">
+						<img ng-src="{{baseUrlStatic}}{{post.picPath}}" ng-if="post.picPath != null">	
+						<img ng-src="img/login_user.png" ng-if="post.picPath == null"/>	
+					</div>
+				</div>
+				<div class="username">
+					<div class="usrName_post">
+						{{post.name | uppercase }}
+					</div>
+					<div class="time_post">3h ago</div><br>
+					
+				</div>
+			</div>
+				<div class="row marginPadding0">
+					<div class="col">
+						
+						<p>{{post.expDetail}}</p>
+					</div>
+				</div>
+			<!-- <div class="row row-no-padding imageInfoDiv">
+				<div class="col">
+					<img class="img_place" ng-src="{{post.placePic}}">
+				</div>
+				<div class="placeNameDiv">
+					<div class="placeName">{{post.placeName}}</div>
+					<div class="placeDateTime">ON {{post.date | date: dd/m/yy | uppercase }} ( {{post.startTime}} TO {{post.endTime}} )</div>
+				</div>
+			</div> -->
+			
+			
+		</div>
+		
+		<div class="marginBottomFooter"></div>
+	</ion-content>
+	<!-- 
+	<div ui-view='menu-left'></div> -->
+</ion-view>
