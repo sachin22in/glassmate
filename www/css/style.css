@@ -1803,6 +1803,36 @@ ion-spinner svg{
   margin-bottom: 30px;
 }
 
+.profilePopup .popup{
+  background-color: #f2ba01;
+  border-radius: 5px;
+  width: 90%;
+  -webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.69);
+  -moz-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.69);
+  box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.69);
+}
+.profilePopup .popup .popup-head{
+  border: 0px;
+}
+.profilePopup .popup .popup-body{
+  text-align: left;
+}
+.profilePopup .popup .closeBtn .icon{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 28px;
+}
+.profilePopup .popup .subTitle p{
+  font-size: 16px;
+  margin-top: 10px;
+}
+.profilePopup .popup .bottomText p {
+  font-size: 18px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
 .cheersBar{
   margin-top: 0px !important;
   padding: 0px;

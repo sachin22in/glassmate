@@ -45,7 +45,23 @@
         console.log("abc");
         $('.profileDP .ion-close').removeClass('showDelete');
       }
-      
+      $scope.closeProfilePopup = function(){
+        $scope.profilePopup.close();
+      }
+      $scope.showProfile = function(){
+        
+          $scope.profilePopup = $ionicPopup.show({
+             templateUrl: 'app/theWall/profilePopup.html',
+             cssClass: 'profilePopup',
+             scope: $scope
+           });
+
+           $scope.profilePopup.then(function(res) {
+              console.log(res);
+             console.log('Thank you for not eating my delicious ice cream cone');
+           });
+        
+      };
       $scope.onHold = function(e, postModelDetail){
         console.log(e.target);
         if(postModelDetail.postBy == $scope.userDetails.userID){

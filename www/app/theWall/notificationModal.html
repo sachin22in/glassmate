@@ -13,7 +13,7 @@
 		</div>
 		<div class="list borderGreen" ng-repeat="request in notificationData">
 			<div class="row ">
-				<div class="col col-25 marginPadding0">
+				<div class="col col-25 marginPadding0" ng-click="showProfile()">
 					<div class="img_box_post">
 						<img ng-src="{{baseUrlStatic}}{{request.picPath}}" ng-if="request.picPath != null">
 						<img ng-src="img/login_user.png" ng-if="request.picPath == null"/>		
