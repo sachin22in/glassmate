@@ -1813,6 +1813,7 @@ ion-spinner svg{
 }
 .profilePopup .popup .popup-head{
   border: 0px;
+  display: none;
 }
 .profilePopup .popup .popup-body{
   text-align: left;
@@ -1822,6 +1823,12 @@ ion-spinner svg{
     top: 5px;
     right: 5px;
     font-size: 28px;
+}
+.profilePopup .popup .popupDp{
+    margin-bottom: 10px;
+}
+.profilePopup .popup .userName{
+    margin-top: 10px;
 }
 .profilePopup .popup .subTitle p{
   font-size: 16px;
@@ -2030,3 +2037,9 @@ ion-nav-bar .ion-plus-round:hover{
   margin-top: 10px;
   width: 100%;
 }
+#map{
+  width: 100%;
+  height: 100%;
+}
+
+
