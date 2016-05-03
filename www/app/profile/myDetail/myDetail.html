@@ -74,6 +74,28 @@
           <div class="errorMsg">
             <p ng-show="signupForm.dob.$error.required && startDobValidation">Date of Birth is required.</p>
           </div>
+          <label class="item">
+            About You
+            <input type="text" name="aboutYou" ng-model='user.aboutYou' ng-disabled="disableEdit">
+          </label>
+          <label class="item">
+            Occupation
+            <input type="text" name="occupation" ng-model='user.occupation' ng-disabled="disableEdit">
+          </label>
+          <div class="errorMsg">
+            <p ng-show="signupForm.occupation.$error.required && signupForm.occupation.$touched">Occupation is required.</p>
+          </div>
+          <label class="item">
+            Location
+            <input type="text" name="location" ng-model='user.location' ng-disabled="disableEdit">
+          </label>
+          <div class="errorMsg">
+            <p ng-show="signupForm.location.$error.required && signupForm.location.$touched">Location is required.</p>
+          </div>
+
+
+
+
           </div>
         </form>
         
