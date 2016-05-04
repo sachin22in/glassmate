@@ -2,16 +2,11 @@
 (function () {
     'use strict';
 
-    angular.module('starter').controller('RightNowTabCtrl', ['$scope','$ionicLoading', '$compile','$timeout', RightNowTabCtrl]);
+    angular.module('starter').controller('RightNowTabCtrl', ['$scope','$ionicLoading', '$compile','$timeout','httpService','$rootScope', RightNowTabCtrl]);
 
-    function RightNowTabCtrl($scope,$ionicLoading, $compile, $timeout) {  
+    function RightNowTabCtrl($scope,$ionicLoading, $compile, $timeout, httpService, $rootScope ) {  
 
-    	var neighborhoods = [
-		  {lat: 18.587388, lng: 73.697398},
-		  {lat: 18.595726, lng: 73.720058},
-		  {lat: 18.595626, lng: 73.795340},
-		  {lat: 18.496866, lng: 73.939670}
-		];
+    	var rightNowData = [];
 
 		var markers = [];
 		var map;
@@ -22,14 +17,12 @@
 		    center: {lat: 18.587388, lng: 73.697398}
 		  });
 
-		  
-
 		}
 
 		function initData() {
 		  clearMarkers();
-		  for (var i = 0; i < neighborhoods.length; i++) {
-		    addMarkerWithTimeout(neighborhoods[i], i * 200);
+		  for (var i = 0; i < rightNowData.length; i++) {
+		    addMarkerWithTimeout(rightNowData[i], i * 200);
 		  }
 		}
 
@@ -66,7 +59,28 @@
 
 
 		$scope.getPlaceData= function(){
-			initData();
+			httpService.makecall($rootScope.baseUrl+ '/gerRightNowLocation', 'POST').then(function(response){
+	            console.log('++++++++++gerRightNowLocation++++++++');
+	            console.log(response);
+	            var temp = response.data;
+	            var tempObj = {};
+	            temp.forEach(function(val, key){
+	            	console.log(val);
+	            	console.log(key);
+	            	tempObj = {};
+	            	tempObj.lat = parseFloat(val.placeLat);
+	            	tempObj.lng = parseFloat(val.placeLon);
+	            	rightNowData.push(tempObj);
+	            })
+	            //console.log(rightNowData);
+	            initData();
+	          }, 
+	          function(error){
+	            alert("Connection Error. Please Check Network Connection.");
+	            console.log(error);
+	          });
+
+			
 		}
 
 	      $scope.initMap = function(){

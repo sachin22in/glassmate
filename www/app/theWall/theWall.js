@@ -48,6 +48,18 @@
       $scope.closeProfilePopup = function(){
         $scope.profilePopup.close();
       }
+      $scope.checkforProfile = function(postDetail){
+        if(($scope.userDetails.userID != postDetail.postBy)){
+          if((postDetail.isLiked != $scope.userDetails.userID)){
+            $scope.showProfile(postDetail.userID);
+          }else{
+            if(!postDetail.likeApproved){
+              $scope.showProfile(postDetail.userID);  
+            }
+          }
+        }
+
+      }
       $scope.showProfile = function(userId){
           
           $scope.profileDetails = {};
@@ -442,6 +454,7 @@
           $scope.newpost.placePic = resto.restaurant.featured_image;
           $scope.newpost.placeLat = resto.restaurant.location.latitude;
           $scope.newpost.placeLon = resto.restaurant.location.longitude;
+          $scope.newpost.placeCity = resto.restaurant.location.city;
           $scope.placeChnage = false;
           console.log(resto);
       }

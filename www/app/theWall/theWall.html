@@ -38,7 +38,7 @@
 		<div class="list borderGreen" ng-repeat="post in showPosts | orderBy:'-date'" ng-click="openPostDetailModel(post)">
 			<div class="row postDetail">
 				<div class="col col-25 marginPadding0">
-					<div class="img_box_post">
+					<div class="img_box_post" ng-click="checkforProfile(post)">
 						<img ng-src="{{baseUrlStatic}}{{post.picPath}}" ng-if="post.picPath != null">	
 						<img ng-src="img/login_user.png" ng-if="post.picPath == null"/>	
 					</div>

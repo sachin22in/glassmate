@@ -70,7 +70,7 @@
 				<div class="borderBlack"></div>
 				<div class="subHeader"><h5>People Interested</h5></div>
 				<div class="people">
-					<div class="profileDP" ng-repeat="likePerson in likeBy" on-hold="onHold($event, postModelDetail)">
+					<div class="profileDP" ng-repeat="likePerson in likeBy" on-hold="onHold($event, postModelDetail)" ng-click="showProfile(likePerson.likeId)">
 						<span>{{likePerson.name}}</span>
 						<img ng-src="{{baseUrlStatic}}{{likePerson.picPath}}" ng-if="likePerson.picPath != null">
 						<img ng-src="img/login_user.png" ng-if="likePerson.picPath == null"/>
