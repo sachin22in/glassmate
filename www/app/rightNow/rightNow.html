@@ -4,14 +4,14 @@
       RIGHT NOW
       </ion-nav-title>
       <ion-nav-buttons side="right" >
-       <button ng-click="openModal()" class="button button-icon theWall ion-plus-round"></button>
+       <button ng-click="getPlaceData()" class="button button-icon theWall ion-plus-round"></button>
       </ion-nav-buttons>
     </ion-nav-bar>
-
+      <!-- ng-click="openModal()" -->
 
       <ion-content class="message home_container has-header has-footer">
       <script src="http://maps.google.com/maps/api/js?key=AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es&sensor=true"></script>
-         <div id="map" data-tap-disabled="true" ></div>
+         <div id="map" data-tap-disabled="true" ng-init="initMap()"></div>
 
       <!-- <div class="list">
 
