@@ -48,8 +48,31 @@
       $scope.closeProfilePopup = function(){
         $scope.profilePopup.close();
       }
-      $scope.showProfile = function(){
-        
+      $scope.showProfile = function(userId){
+          
+          $scope.profileDetails = {};
+          var obj = {
+            'userID': userId
+          }
+          httpService.makecall($rootScope.baseUrl+ '/gerProfileDetails', 'POST', obj).then(function(response){
+            console.log('++++++++++gerProfileDetails++++++++');
+            console.log(response);
+            var temp = response.data;
+                $scope.profileDetails = temp[0];
+            if (response.data.statusCode == 'success') {
+                
+            };
+            if (response.data.statusCode == 'error') {
+                alert("Some Error");
+            };
+
+          }, 
+          function(error){
+            alert("Connection Error. Please Check Network Connection.");
+            console.log(error);
+          });
+
+
           $scope.profilePopup = $ionicPopup.show({
              templateUrl: 'app/theWall/profilePopup.html',
              cssClass: 'profilePopup',
@@ -57,7 +80,6 @@
            });
 
            $scope.profilePopup.then(function(res) {
-              console.log(res);
              console.log('Thank you for not eating my delicious ice cream cone');
            });
         
@@ -418,6 +440,8 @@
           $scope.restaurants = [];
           $scope.newpost.placeName = resto.restaurant.name + ' - ' + resto.restaurant.location.locality;
           $scope.newpost.placePic = resto.restaurant.featured_image;
+          $scope.newpost.placeLat = resto.restaurant.location.latitude;
+          $scope.newpost.placeLon = resto.restaurant.location.longitude;
           $scope.placeChnage = false;
           console.log(resto);
       }

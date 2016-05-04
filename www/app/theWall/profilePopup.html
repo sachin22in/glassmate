@@ -3,13 +3,13 @@
 	<div class="row popupDp">
 		<div class="col col-30 marginPadding0" >
 			<div class="img_box_post">
-				<img ng-src="{{baseUrlStatic}}{{request.picPath}}" ng-if="request.picPath != null">
-				<img ng-src="img/login_user.png" ng-if="request.picPath == null"/>		
+				<img ng-src="{{baseUrlStatic}}{{profileDetails.picPath}}" ng-if="profileDetails.picPath != null">
+				<img ng-src="img/login_user.png" ng-if="profileDetails.picPath == null"/>		
 			</div>
 		</div>
 		<div class="col col-70 marginPadding0 userName">
 			<div class="usrName_post">
-				SACHIN PATEL
+				{{profileDetails.name}}
 			</div>
 			
 		</div>
@@ -21,7 +21,7 @@
 			</div>
 		</div>
 		<div class="col col-70 marginPadding0">
-			MALE
+			{{profileDetails.gender}}
 		</div>
 	</div>
 	<div class="row ">
@@ -31,7 +31,7 @@
 			</div>
 		</div>
 		<div class="col col-70 marginPadding0">
-			this is about me. this is my short discription.
+			{{profileDetails.aboutYou}}
 		</div>
 	</div>
 	<div class="row ">
@@ -41,7 +41,7 @@
 			</div>
 		</div>
 		<div class="col col-70 marginPadding0">
-			STUDENT
+			{{profileDetails.occupation}}
 		</div>
 	</div>
 	<div class="row ">
@@ -51,7 +51,7 @@
 			</div>
 		</div>
 		<div class="col col-70 marginPadding0">
-			PUNE
+			{{profileDetails.location}}
 		</div>
 	</div>
 	<div class="row ">
