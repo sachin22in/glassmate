@@ -665,10 +665,36 @@ button.button-facebook.ion-social-facebook:before {
 
 /*------ message End -----*/
 /*------ the wall filter starts -----*/
+.wallfilter{
+  padding: 10px;
+  padding-top: 20px;
+}
+.wallfilter .title-input{
+    font-size: 16px;
+    color: #666;
+    border-bottom: 1px dotted #9299A7;
+    margin-bottom: 10px;
+}
+.wallfilter .cityTitle{
+  margin-top: 20px;
+}
+.wallfilter .selectCity .city{
+  color: rgb(163, 174, 190);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  font-size: 16px;
+  border-bottom: 1px dotted #9299A7;
+  display: block;
+  width: 100%;
+  padding-bottom: 10px;
+}
 .wallfilter li {
     border-top: 1px dotted #9299A7;
     background-color: transparent;
     border-bottom: 1px dotted #9299A7;
+    
 }
 .wallfilter .checkbox input, .checkbox-icon{
   float: right;
@@ -2041,6 +2067,12 @@ ion-nav-bar .ion-plus-round:hover{
 #map{
   width: 100%;
   height: 100%;
+}
+.gallery-view .row{
+  padding: 0px;
+}
+.gallery-view .image-container{
+  border: 0px;
 }
 
 
