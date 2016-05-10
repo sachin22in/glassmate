@@ -197,6 +197,10 @@ body{
 .bar-header .back-button .icon {
     display: none;
 }
+.bar .titleLeft{
+  text-align: left;
+  padding-left: 50px;
+}
 .tabs-striped .tab-item.tab-item-active, .tabs-striped .tab-item.active, .tabs-striped .tab-item.activated {
     margin-top: -2px;
     border: none;
@@ -689,6 +693,7 @@ button.button-facebook.ion-social-facebook:before {
   display: block;
   width: 100%;
   padding-bottom: 10px;
+      background: transparent;
 }
 .wallfilter li {
     border-top: 1px dotted #9299A7;
