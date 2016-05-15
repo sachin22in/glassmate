@@ -452,24 +452,41 @@
       };
       $scope.loadPost();   
       $scope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-        if($scope.postModal){
-          if($scope.postModal.isShown()){
-            $scope.postModal.remove();
-            event.preventDefault();  
-          }  
-        }
-        if($scope.modal.isShown()){
-          $scope.modal.remove();
-          event.preventDefault();  
-        }
         if($scope.alertPopup){
             if(!$scope.alertPopup.$$state.status){
                 $scope.alertPopup.close();
                 event.preventDefault();  
+                return false;
             }  
         }
-        console.log(toState);
-          
+        if($scope.cheersConfirmPopup){
+            if(!$scope.cheersConfirmPopup.$$state.status){
+                $scope.cheersConfirmPopup.close();
+                event.preventDefault();  
+                return false;
+            }  
+        }
+        if($scope.unCheersConfirmPopup){
+            if(!$scope.unCheersConfirmPopup.$$state.status){
+                $scope.unCheersConfirmPopup.close();
+                event.preventDefault();  
+                return false;
+            }  
+        }
+
+        if($scope.postModal){
+          if($scope.postModal.isShown()){
+            $scope.postModal.hide();
+            event.preventDefault();  
+          }  
+        }
+        if($scope.modal){
+          if($scope.modal.isShown()){
+            $scope.modal.hide();
+            event.preventDefault();  
+          }  
+        }
+         
       });
     }
 

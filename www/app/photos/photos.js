@@ -108,12 +108,11 @@
 	        
 	        if($scope.uploadPicModal){
 	          if($scope.uploadPicModal.isShown()){
-	            $scope.uploadPicModal.remove();
+	            $scope.uploadPicModal.hide();
 	            event.preventDefault();  
 	          }  
 	        }
-	        
-	          
+	     
 	      });
         $scope.items = [
 		  {

@@ -10,12 +10,15 @@
         $scope.userDetails = $rootScope.userDetails;
       }else{
         $state.go('login');
-        return;
-      }
+        return;      
+      }      
       $scope.placeChnage = false;
       $scope.catOfPost = 'Cat001';
       $scope.newpost = {};
       $scope.comment = {};
+      $scope.postCitys = [];
+      $rootScope.filterOptions = {};
+      //$scope.filterOptions = {placeCity: 'Delhi'};
       $ionicModal.fromTemplateUrl('app/theWall/updateWall.html', {
         scope: $scope,
         animation: 'slide-in-up '
@@ -48,6 +51,7 @@
       $scope.closeProfilePopup = function(){
         $scope.profilePopup.close();
       }
+      
       $scope.checkforProfile = function(postDetail){
         if(($scope.userDetails.userID != postDetail.postBy)){
           if((postDetail.isLiked != $scope.userDetails.userID)){
@@ -97,7 +101,6 @@
         
       };
       $scope.onHold = function(e, postModelDetail){
-        console.log(e.target);
         if(postModelDetail.postBy == $scope.userDetails.userID){
           $(e.target).siblings('.ion-close').addClass('showDelete');  
         }
@@ -343,11 +346,13 @@
            cssClass: 'cheersModel',
            scope: $scope
          });
-
          $scope.unCheersConfirmPopup.then(function(res) {
             console.log(res);
            console.log('Thank you for not eating my delicious ice cream cone');
          });
+         console.log();
+         e.stopPropagation();
+         e.preventDefault();
       };
       $scope.likeThisPost = function(post){
         console.log(post);
@@ -533,43 +538,56 @@
 
 
       $scope.$on('$locationChangeStart', function(event, toState, toParams, fromState, fromParams){
-        if($scope.postModal){
-          if($scope.postModal.isShown()){
-            $scope.postModal.remove();
-            event.preventDefault();  
-          }  
-        }
-        if($scope.notificationModal){
-          if($scope.notificationModal.isShown()){
-            $scope.notificationModal.remove();
-            event.preventDefault();  
-          }  
-        }
-        if($scope.modal){
-          if($scope.modal.isShown()){
-            $scope.modal.remove();
-            event.preventDefault();  
-          }  
-        }
-
+        
         if($scope.alertPopup){
             if(!$scope.alertPopup.$$state.status){
                 $scope.alertPopup.close();
                 event.preventDefault();  
+                return false;
             }  
         }
         if($scope.cheersConfirmPopup){
             if(!$scope.cheersConfirmPopup.$$state.status){
                 $scope.cheersConfirmPopup.close();
                 event.preventDefault();  
+                return false;
             }  
         }
         if($scope.unCheersConfirmPopup){
             if(!$scope.unCheersConfirmPopup.$$state.status){
                 $scope.unCheersConfirmPopup.close();
                 event.preventDefault();  
+                return false;
             }  
         }
+        if($scope.profilePopup){
+            if(!$scope.profilePopup.$$state.status){
+                $scope.profilePopup.close();
+                event.preventDefault();  
+                return false;
+            }  
+        }        
+
+        if($scope.postModal){
+          if($scope.postModal.isShown()){
+            $scope.postModal.hide();
+            event.preventDefault();  
+          }  
+        }
+        if($scope.notificationModal){
+          if($scope.notificationModal.isShown()){
+            $scope.notificationModal.hide();
+            event.preventDefault();  
+          }  
+        }
+        if($scope.modal){
+          if($scope.modal.isShown()){
+            $scope.modal.hide();
+            event.preventDefault();  
+          }  
+        }
+
+
           
       });
     }

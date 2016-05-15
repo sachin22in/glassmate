@@ -1,7 +1,11 @@
 <ion-view hide-nav-bar="true" class="authentication">
-   <ion-content class="padding login invite_container HelveticaBody" ng-controller='AuthCtrl'>
+   <ion-content class="padding login invite_container HelveticaBody loginBG" ng-controller='AuthCtrl'>
+    <div class="loginBackBtn">
+      <button class="button close-button button-icon" ui-sref="landing"><i class="icon ion-chevron-left"></i></button>
+    </div>
     <div class="buddha_icon_container">
 			<img src="img/glassmateLogo.png"/>
+      <h1 class="glassmatesTitle">Glassmates</h1>
 		</div>
       <form name="loginForm">
 	      <div class="list list-inset loginPage">
@@ -19,8 +23,35 @@
           </label>
 
       </div>
-    </form>
       <button class="button button-block myTabStyle HelveticaHeading" ng-click="login()">LOGIN</button>
-      <label class="bold pull-right HelveticaHeading">FORGOT PASSWORD</label>
+    </form>
+      <div class="bold pull-left HelveticaHeading" ui-sref="signup">JOIN NOW</div>      
+      <div class="bold pull-right HelveticaHeading">FORGOT PASSWORD</div>
+
+      <div class="lineBreakDiv">
+        <span class="breakLine pull-left"></span>
+        <span class="HelveticaHeading orText">OR</span>
+        <span class="breakLine pull-right"></span>
+      </div>
+      <div class="loginWith">
+          <div class="socialBtn">
+              <img src="img/fbLogo.png" width="50">
+          </div>
+          <div class="socialBtn">
+              <img src="img/googleLogo.png" width="50">
+          </div>
+      </div>
+      <!-- <div class="loginWith">
+          <div class="socialBtn">
+              <button type="submit" class="button button-block HelveticaHeading ion-social-facebook button-facebook">
+                FACEBOOK
+              </button>
+          </div>
+          <div class="socialBtn">
+              <button type="submit" class="button button-block HelveticaHeading icon-social-google-plus button-google">
+                GOOGLE
+              </button>
+          </div>
+      </div> -->
   </ion-content> 
 </ion-view>

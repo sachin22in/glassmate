@@ -201,6 +201,11 @@ body{
   text-align: left;
   padding-left: 50px;
 }
+.barTitleLeft .title{
+  left: 40px !important;
+  right: 0px !important;
+  text-align: left;
+}
 .tabs-striped .tab-item.tab-item-active, .tabs-striped .tab-item.active, .tabs-striped .tab-item.activated {
     margin-top: -2px;
     border: none;
@@ -480,6 +485,22 @@ label.invite-code {
     text-align: center;
     font-size: 20px;
 }
+.button-google {
+    border-radius: 0px;
+    -moz-box-shadow: inset 0 1px 0 0 #F00;
+    -webkit-box-shadow: inset 0 1px 0 0 #F00;
+    box-shadow: inset 0 1px 0 0 #F00;
+    background-color: #F00;
+    /* fallback color */
+    
+    background: -moz-linear-gradient(top, #F00, #F00);
+    background: -ms-linear-gradient(top, #F00, #F00);
+    background: -webkit-linear-gradient(top, #F00, #F00);
+    border: 1px solid #F00;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+}
 button.button-facebook.ion-social-facebook:before {
     content: "\f231";
     float: left;
@@ -554,17 +575,21 @@ button.button-facebook.ion-social-facebook:before {
     height: 100%;
 }
 .buddha_icon_container {
-    height: 45%;
     padding-top:15%;
 }
 .invite_container .buddha_icon_container {
-    height: 60%;
     padding-top:15%;
 }
 .buddha_icon_container img {
     margin: 0 auto;
     display: block;
-    height: 100%
+    width: 120px;
+}
+.buddha_icon_container .glassmatesTitle{
+  margin: 0;
+  text-align: center;
+  color: #F5A623;
+  font-size: 26px;
 }
 .invite_box {
     width: 100%;
@@ -631,8 +656,12 @@ button.button-facebook.ion-social-facebook:before {
 .login label.item.item-input{
   background-color: transparent;
 }
+.loginBG{
+  background: url('../img/bg.png') no-repeat;
+      background-size: auto 100%;
+}
 .button.myTabStyle {
-    background-color: #f2ba01;
+    background-color: #F5A623;
     font-size: 20px;
     width: 100%;
     color: #3d4552;
@@ -640,14 +669,43 @@ button.button-facebook.ion-social-facebook:before {
     border: 0px;
 }
 .bold{
-  float: right;
     margin-top: 20px;
     color: #FFF;
     letter-spacing: 0.7px;
 }
+.pull-right{
+  float: right;
+}
+.pull-left{
+  float: left;
+}
 .invite_container.login .buddha_icon_container {
-    height: 40%;
     padding-top:10%;
+}
+.loginWith{
+  clear: both;
+}
+.loginWith .socialBtn{
+    display: inline-block;
+    width: 49%;
+    padding: 10px;
+    text-align: center;
+}
+.lineBreakDiv{
+  clear: both;
+  padding-top: 10px;
+  text-align: center;
+}
+.lineBreakDiv .breakLine{
+  border-bottom: 1px solid #FFF;
+  width: 45%;
+  height: 1px;
+  display: inline-block;
+  margin-top: 8px;
+}
+.lineBreakDiv .orText{
+    color: #FFF;
+    font-size: 14px;
 }
 /*------ Login End -----*/
 /*------ Message start -----*/
@@ -718,7 +776,7 @@ button.button-facebook.ion-social-facebook:before {
     border-right: none;
 }
 .wallfilter ul{
-  margin: 20px; 
+  margin-top: 15px;
   color: #666;
   font-size: 16px;
 }
@@ -726,6 +784,7 @@ button.button-facebook.ion-social-facebook:before {
     padding-left: 0px;
     font-size: 16px;
     color: rgb(163, 174, 190);
+    padding: 10px 0;
   }
 
 button.filter-button {
@@ -738,6 +797,13 @@ button.filter-button {
     margin-top: 10px;
     padding: 0px 10px;
     
+}
+.checkbox-balanced input:checked:before, .checkbox-balanced input:checked + .checkbox-icon:before{
+    background: #f2ba01;
+    border-color: #f2ba01; 
+}
+.checkbox-balanced input:before, .checkbox-balanced .checkbox-icon:before{
+    border-color: #f2ba01;
 }
 .button.button-icon.icon-filter{
     vertical-align: middle;
@@ -865,6 +931,14 @@ span.ion-ios-location:before {
 }
 .loginInto_btn_container button.login{
   text-align: right;
+}
+.loginBackBtn{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.loginBackBtn .button.close-button i{
+  color: #F5A623;
 }
 /*-------Login Intro End------------*/
 /*-------Home Start--------------*/
@@ -1416,7 +1490,7 @@ float: right;
   margin: 10px;
 }
 /*css for invite friend start*/
-.invitePage{
+/*.invitePage{
     background-image: url("../img/background.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -1493,7 +1567,7 @@ float: right;
   letter-spacing: 0.5px;
   border-radius: 4px;
   box-shadow: 0px 0px 15px -2px #B7B7B7;
-}
+}*/
 /*css for invite friend end*/
 
 .subHeader{

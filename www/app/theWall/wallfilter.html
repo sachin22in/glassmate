@@ -1,12 +1,12 @@
  
- <ion-side-menu side="right" class="HelveticaBody" ng-controller="theWallCtrl">
+ <ion-side-menu side="right" class="HelveticaBody">
       <ion-header-bar align-title="center" class="bar-filter">
   <div class="buttons">
-    <button class="filter-button" ng-click="doSomething()">RESET</button>
+    <button class="filter-button" ng-click="resetFilter()">RESET</button>
   </div>
   <h1 class="title">FILTER</h1>
   <div class="buttons">
-    <button class="filter-button myThemeColor">APPLY</button>
+    <button class="filter-button myThemeColor" ng-click="applyFilter()">APPLY</button>
   </div>
 </ion-header-bar>
  <ion-content class="has-header wallfilter home_container">
@@ -15,10 +15,10 @@
     <span>INTERESTED DATE</span>
     <!-- <span class="month">{{dates[0].getMonthText()}}</span> -->
   </div>
-    <input type="hidden" ng-model="newpost.date">
+    <input type="hidden" ng-model="filter.date">
     <ion-scroll  direction="x" scrollbar-x="false">
         <div class="dateSelect" style="width: 690px;">
-      <div class="dates" ng-repeat="date in dates" ng-class="{'selectedDate': newpost.date == date}" ng-click="selectDate(date)">
+      <div class="dates" ng-repeat="date in dates" ng-class="{'selectedDate': filter.date == date}" ng-click="selectDate(date)">
         <div class="day">{{date.getDayText()}}</div>
         <div class="date">{{date.getDate()}}</div>
       </div>
@@ -28,14 +28,23 @@
     <span>CITY</span>
     <!-- <span class="month">{{dates[0].getMonthText()}}</span> -->
   </div>
-  <div class="selectCity">
-    <select class="city">
-      <option value="PUNE">PUNE</option>
-      <option value="AHMEDABAD">AHMEDABAD</option>
-      <option value="DELHI">DELHI</option>
+  <div class="selectCity" >
+    <select class="city" ng-model="filter.placeCity">
+      <option value="">Select</option>
+      <option value="{{city.placeCity}}" ng-repeat="city in postCitys">{{city.placeCity}}</option>
     </select>
   </div>
 
+  <ul class="list">
+    LIKED BY
+    <li class="item item-checkbox">
+       <label class="checkbox checkbox-balanced">
+         <input type="checkbox" ng-model="likedByFilter.me">
+       </label>
+      Me
+    </li>
+  </ul>
+<!-- 
 
        <ul class="list">
 POSTED BY
@@ -101,7 +110,7 @@ CATEGORY OF POST
 
 </ul>
 
-
+ -->
       
         
       </ion-content>

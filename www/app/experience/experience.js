@@ -144,42 +144,12 @@
 
 
       $scope.$on('$locationChangeStart', function(event, toState, toParams, fromState, fromParams){
-        if($scope.postModal){
-          if($scope.postModal.isShown()){
-            $scope.postModal.remove();
-            event.preventDefault();  
-          }  
-        }
-        if($scope.notificationModal){
-          if($scope.notificationModal.isShown()){
-            $scope.notificationModal.remove();
-            event.preventDefault();  
-          }  
-        }
+        
         if($scope.modal){
           if($scope.modal.isShown()){
-            $scope.modal.remove();
+            $scope.modal.hide();
             event.preventDefault();  
           }  
-        }
-
-        if($scope.alertPopup){
-            if(!$scope.alertPopup.$$state.status){
-                $scope.alertPopup.close();
-                event.preventDefault();  
-            }  
-        }
-        if($scope.cheersConfirmPopup){
-            if(!$scope.cheersConfirmPopup.$$state.status){
-                $scope.cheersConfirmPopup.close();
-                event.preventDefault();  
-            }  
-        }
-        if($scope.unCheersConfirmPopup){
-            if(!$scope.unCheersConfirmPopup.$$state.status){
-                $scope.unCheersConfirmPopup.close();
-                event.preventDefault();  
-            }  
         }
           
       });
