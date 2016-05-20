@@ -1,6 +1,6 @@
 
 
-angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery', 'ngImgCrop', 'ngSanitize'])
+angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery', 'ngImgCrop', 'ngSanitize', 'ui.mask'])
 .config(function($ionicConfigProvider) {
 
     $ionicConfigProvider.tabs.position('bottom'); // other values: top
@@ -34,6 +34,11 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
       url: "/dp",
           templateUrl: "app/authontication/dpUpload.html",
           controller: 'dpUploadCtrl'
+     })
+    .state('otp', {
+      url: "/otp",
+          templateUrl: "app/authontication/otp.html",
+          controller: 'otpCtrl'
      })
     
 
