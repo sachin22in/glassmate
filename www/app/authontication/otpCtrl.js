@@ -27,6 +27,9 @@
         });
 
      }
+     $scope.generateOTP = function(){
+        return Math.floor(Math.random()*90000) + 10000;
+     }
   
     }
 

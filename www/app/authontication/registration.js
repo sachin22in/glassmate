@@ -2,9 +2,9 @@
 (function () {
     'use strict';
 
-    angular.module('starter').controller('registrationCtrl', ['$scope','$state','$rootScope','$ionicHistory','$http','$location', 'ionicDatePicker', 'httpService', registrationCtrl]);
+    angular.module('starter').controller('registrationCtrl', ['$scope','$state','$rootScope','$ionicHistory','$http','$location', 'ionicDatePicker', 'httpService','$ionicModal', registrationCtrl]);
 
-    function registrationCtrl($scope,$state,$rootScope,$ionicHistory,$http, $location, ionicDatePicker, httpService) {  
+    function registrationCtrl($scope,$state,$rootScope,$ionicHistory,$http, $location, ionicDatePicker, httpService, $ionicModal) {  
      $scope.user = {};
      $scope.signupError = false;
      //$scope.genderSelect = 'male';
@@ -23,6 +23,10 @@
             return;
           };
           if($scope.user.confirmPassword != $scope.user.password){
+            return;
+          }
+          if(!$scope.otpValidate){
+            $scope.initOTPModal();
             return;
           }
           console.log($scope.signupForm);
@@ -118,6 +122,58 @@
       }
     };
 
+    // otp verification code
+    $scope.otpValidate = false;
+    $scope.initOTPModal = function(){
+
+      $scope.otpObj={};
+
+      $ionicModal.fromTemplateUrl('app/authontication/otp.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+        }).then(function(modal) { 
+          $scope.OTPModal = modal;
+          $scope.OTPModal.show();
+      });
+
+
+      $scope.sendOTP = function(){
+        $scope.OTP = $scope.generateOTP();
+        var URL = 'http://login.smsgatewayhub.com/RestAPI/MT.svc/mt';
+        var data = {"Account":{"User":"Glassmates","Password":"fiesta86","SenderId":"WEBSMS","Channel":"2","DCS":"0","SchedTi me":null,"GroupId":null},"Messages":[{"Number":"919558515827","Text":"Hello test message % ignore123 %"}]};
+
+          /*$http({
+              method: 'POST',
+              url: URL,
+              headers: {
+             'Content-Type': undefined
+          },
+              crossDomain: true,
+              data: data
+          })
+          .then(function(response){
+              
+          }, 
+          function(error){
+              console.log(error);
+          });*/
+
+       }
+       $scope.generateOTP = function(){
+          return Math.floor(Math.random()*90000) + 10000;
+       }
+       $scope.validateOTP = function(){
+          if($scope.OTP == $scope.otpObj.otp){
+            $scope.otpValidate = true;
+            $scope.OTPModal.hide();
+          }else{
+            alert("Invalid OTP, Please Try again.");
+          }
+       }
+    
+
+
+    }
 
   $scope.selectedCountry = {}
   

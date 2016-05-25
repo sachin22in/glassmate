@@ -21,7 +21,7 @@
 
           <label class="item">
             OTP
-            <input type="tel" name="otp" ng-model='user.otp' maxlength="6" ng-minlength="6" required autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ui-mask="999-999" class="otpInput">
+            <input type="tel" name="otp" ng-model='otpObj.otp' maxlength="6" ng-minlength="6" required autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ui-mask="999-999" class="otpInput">
           </label>
           <div class="errorMsg">
             <p ng-show="chnagePassForm.otp.$error.required && chnagePassForm.otp.$touched">OTP is required.</p>
@@ -29,16 +29,16 @@
 
           <label class="item">
             Password
-            <input type="password" name="password" ng-model='user.password' ng-minlength="6" required>
+            <input type="password" name="password" ng-model='otpObj.password' ng-minlength="6" required>
           </label>
           <div class="errorMsg">
             <p ng-show="chnagePassForm.password.$error.required && chnagePassForm.password.$touched">Password is required.</p>
             <p ng-show="chnagePassForm.password.$error.minlength && chnagePassForm.password.$touched">Password length must be more than 6.</p>
-            <p ng-show="chnagePassForm.confirmPassword.$touched && chnagePassForm.password.$touched && user.password != user.confirmPassword">Password and Confirm Password not match.</p>
+            <p ng-show="chnagePassForm.confirmPassword.$touched && chnagePassForm.password.$touched && otpObj.password != otpObj.confirmPassword">Password and Confirm Password not match.</p>
           </div>
           <label class="item">
             Confirm Password
-            <input type="password" name="confirmPassword" ng-model='user.confirmPassword' required>
+            <input type="password" name="confirmPassword" ng-model='otpObj.confirmPassword' required>
           </label>
           <div class="errorMsg">
             <p ng-show="chnagePassForm.confirmPassword.$error.required && chnagePassForm.confirmPassword.$touched">Confirm Password is required.</p>
