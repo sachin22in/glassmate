@@ -1,0 +1,414 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body{
+  font-size: 14px;
+  background-color: #000;
+}
+.homeContainer {
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  /*-webkit-perspective: 1200;*/
+  max-width: 775px;
+  margin: 0 auto;    
+}
+.mainBG{
+  background: url("../img/vault_bg_ipad.png") no-repeat top center;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.doorClose {
+  background: url("../img/door_closed.png") no-repeat;
+  background-size: 100%;
+  height: 100%;
+  width: 59%;
+  z-index: 10;
+  background-position: 5px 21.5%;
+  float: left;
+  position: absolute;
+}
+.doorWheel {
+  background: url("../img/door_wheel.png") no-repeat;
+  background-size: 32%;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-position: 66.5% 34.5%;
+}
+.grandPrizeBG{
+  background: url("../img/grand_prize_gold_bar_bg.jpg") no-repeat;
+  background-size: 55% 55%;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  background-position: 20% 27%;
+}
+.grandPrizeTextBG{
+  background: url("../img/grand_prize_bg.png") no-repeat;
+  background-size: 100% 100%;
+  height: 18%;
+  width: 35%;
+  z-index: -1;
+  position: absolute;
+  top: 30%;
+  left: 18%;
+  text-align: center;
+  padding: 2%;
+}
+.grandPrizeRing{
+  background: url("../img/grand_winning_glow.png") no-repeat;
+  background-size: 100% 100%;
+  height: 53%;
+  width: 40%;
+  position: absolute;
+  top: 13%;
+  left: 16%;
+}
+.grandPrizeGlow{
+  background: url("../img/grand_prize_door_glow.png") no-repeat;
+  background-size: 100% 100%;
+  height: 53%;
+  width: 40%;
+  position: absolute;
+  top: 13%;
+  left: 16%;
+}
+
+.clientDetails{
+  background: url("../img/client_logo_bg.png") no-repeat;
+  background-size: 100% 100%;
+  z-index: 10;
+  position: absolute;
+  bottom: 3%;
+  left: 18%;
+  text-align: center;
+  padding: 10px 15px;
+}
+.clientDetails .clientName{
+  font-size: 1.2em;
+  color: #071D46;  
+}
+.clientDetails .clientAmount{
+  font-size: 2em;
+  margin-top: 6px;
+  color: #A3010B;
+}
+.gameInfo {
+  background: url("../img/key_panel_bg.jpg") no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+  width: 33%;
+  z-index: 10;
+  float: right;
+  position: relative;
+}
+.gameLogoBG {
+  background: url("../img/key_panel_logo_bg.png") no-repeat;
+  background-size: 100% 100%;
+  height: 12%;
+  width: 82%;
+  z-index: 10;
+  margin: 0 auto;
+  margin-top: 3%;
+}
+.gameLogo{
+  background: url("../img/key_panel_logo.png") no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+  width: 82%;
+  z-index: 10;
+  margin: 0 auto;
+}
+.soundDisplay {
+  background: url("../img/key_panel_sound_display.png") no-repeat center center;
+  background-size: 100% 86%;
+  height: 4%;
+  width: 36%;
+  z-index: 10;
+  margin: 0 auto;
+}
+.keyPanel{
+  background: url("../img/key_panel_digit_bg.png") no-repeat;
+  background-size: 100% 100%;
+  height: 61%;
+  width: 82%;
+  z-index: 10;
+  margin: 0 auto;
+  text-align: center;
+}
+.keyPanel .codeValue{
+  border: 1px solid #002AC4;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 2em;
+  color: #9FFB2D;
+  font-weight: bold;
+  padding: 1% 10px;
+}
+.infoText{
+  color: #FFF;
+  font-size: 1em;
+  text-align: center;
+  padding: 2% 0px;
+}
+.digits{
+  border: 1px solid #002AC4;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 2%;
+  padding: 2% 10px;
+}
+.digits .row{
+    text-align: center;
+    padding: 0px;
+}
+.digits .digit{
+  display: inline-block;
+  width: 30%;
+}
+.digits .digit img{
+  width: 100%;
+}
+.enterBtn{
+  background: url("../img/key_panel_enter_btu_normal.png") no-repeat;
+  background-size: 100% 100%;
+  height: 12%;
+  width: 92%;
+  z-index: 10;
+  padding: 0% 10px;
+  border: 0px;
+  margin-top: 6%;
+}
+.prizeList{
+  background: url("../img/key_panel_btn_prize_list_normal.png") no-repeat;
+  background-size: 100% 100%;
+  height: 39%;
+  width: 77%;
+  z-index: 10;
+  padding: 0% 10px;
+  border: 0px;
+}
+.divider{
+  background: url("../img/key_panel_divider.png") no-repeat;
+  background-size: 100% 100%;
+  height: 5px;
+  width: 100%;
+  z-index: 10;
+  display: block;
+  margin: 0 auto;
+}
+.attemptsDiv{
+  position: absolute;
+  width: 82%;
+  margin: 0 auto;
+  height: 20%;
+  bottom: 0;
+  left: 9%;
+  text-align: center;
+}
+.attemptsValue {
+  background: url("../img/key_panel_attempts_left_holder.png") no-repeat;
+  background-size: 100% 100%;
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 2em;
+  color: #FFF;
+  font-weight: bold;
+  padding: 2% 10px;
+  margin-bottom: 2%;
+}
+.attemptsText{
+  color: #000;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* animation css */
+.doorClose {
+  /*background: url("../img/door_closed.png") no-repeat;*/
+  transition: 1s transform linear;
+  transform-origin: left;
+}
+
+.openDoor1{
+  transform: rotateY(-50deg);
+  transform-origin: 8px;
+  transition: 5s linear;
+}
+.door1{
+  background: url("../img/door_open_01.png") no-repeat;
+  background-size: 145%;
+  background-position: 98% -25%;
+  width: 59%;
+}
+.door2{
+  background: url("../img/door_open_02.png") no-repeat;
+  background-size: 145%;
+  background-position: 98% -25%;
+  width: 59%;
+  transition: 0.4s linear;
+}.door3{
+  background: url("../img/door_open_03.png") no-repeat;
+  background-size: 145%;
+  background-position: 98% -25%;
+  width: 59%;
+  /*transition: 0s linear;*/
+}.door4{
+  background: url("../img/door_open_04.png") no-repeat;
+  background-size: 145%;
+  background-position: 98% -25%;
+  width: 59%;
+  /*transition: 0s linear;*/
+}.door5{
+  background: url("../img/door_open_05.png") no-repeat;
+  background-size: 145%;
+  background-position: 98% -25%;
+  width: 59%;
+  /*transition: 0s linear;*/
+}.door6{
+  background: url("../img/door_open_06.png") no-repeat;
+  background-size: 145%;
+  background-position: 98% -25%;
+  width: 59%;
+  /*transition: 0s linear;*/
+}
+.door7{
+  background: url("../img/door_open_07.png") no-repeat;
+  background-size: 145%;
+  background-position: 98% -25%;
+  width: 59%;
+  /*transition: 0s linear;*/
+}
+.door8{
+  background: url("../img/door_open_08.png") no-repeat;
+  background-size: 145%;
+  background-position: 98% -25%;
+  width: 59%;
+  /*transition: 0s linear;*/
+}.door9{
+  background: url("../img/door_open_09.png") no-repeat;
+  background-size: 145%;
+  background-position: 98% -25%;
+  width: 59%;
+  /*transition: 0s linear;*/
+}.door10{
+  background: url("../img/door_open_10.png") no-repeat;
+  background-size: 145%;
+  background-position: 98% -25%;
+  width: 59%;
+  /*transition: 0s linear;*/
+}
+.door11{
+  background: url("../img/door_open_11.png") no-repeat;
+  background-size: 145%;
+  background-position: 98% -25%;
+  width: 59%;
+  /*transition: 0s linear;*/
+}
+.door12{
+  background: url("../img/door_open_12.png") no-repeat;
+  background-size: 145%;
+  background-position: 98% -25%;
+  width: 59%;
+  /*transition: 0s linear;*/
+}
+.door13{
+  background: url("../img/door_open_13.png") no-repeat;
+  background-size: 145%;
+  background-position: 98% -25%;
+  width: 59%;
+  /*transition: 0s linear;*/
+}
+
+/* popup style start*/
+  .ngdialog.ngdialog-theme-default .ngdialog-content{
+      background: url("../img/popup_defult_bg.png") no-repeat top center;
+  background-size: 100% 100%;
+  height: 250px;
+  }
+  
+  .popupContainer .closeBtn{
+    background: url("../img/popup_close_btn.png") no-repeat top center;
+    background-size: 100% 100%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: 2px;
+  }
+  .popupContainer .popupTitle{
+        font-size: 18px;
+    color: #F00;
+    font-weight: 500;
+    /* padding-left: 51px; */
+    text-align: center;
+  }
+  .popupContainer .popupBody{
+    text-align: center;
+    margin-top: 74px;
+  }
+  .popupContainer .amount{
+    color: #fff;
+    font-size: 26px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .youWonContainer .popupBody {
+    margin-top: 65px;
+  }
+  .prizeDetailContainer .popupBody{
+    margin-top: 13px;
+  }
+  .prizeDetailContainer .borderBlue{
+    border-top: 1px solid #00F;
+    width: 82%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+/* popup style end*/

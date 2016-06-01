@@ -1,0 +1,60 @@
+ 
+<div class="homeContainer">
+  <div class="grandPrizeBG">
+    <div class="grandPrizeTextBG">
+      <div class="youWonText"><img src="img/grand_prize_text_win.png"></div>
+      <div class="grandPrizeAmount">$25,000</div>
+      <div class="grandPrizeText"><img src="img/grand_prize_winning_text.png"></div>
+    </div>
+  </div>
+  <div class="mainBG">
+    <div class="grandPrizeRing"></div>
+    <!-- <div class="grandPrizeGlow"></div> -->
+    <div class="doorClose">
+    	<div class="doorWheel"></div>
+    </div>
+    <div class="clientDetails">
+    	<div class="clientName">JOHN SMITH'S CHEVROLET</div>
+    	<div class="clientAmount">$25,000 GIVEAWAY</div>
+    </div>
+    
+    <div class="gameInfo">
+    	<div class="gameLogoBG"><div class="gameLogo"></div></div>
+    	<div class="soundDisplay"></div>
+    	<div class="keyPanel">
+    		<p class="infoText">ENTER A 6 DIGIT CODE</p>
+    		<div class="codeValue">_</div>
+    		<div class="digits">
+    			<div class="row">
+    				<div class="digit" ng-click="addDigit('1')"><img src="img/key_panel_digit_1_normal.png" clickable-button></div>
+    				<div class="digit" ng-click="addDigit('2')"><img src="img/key_panel_digit_2_normal.png" clickable-button></div>
+    				<div class="digit" ng-click="addDigit('3')"><img src="img/key_panel_digit_3_normal.png" clickable-button></div>
+    			</div>
+    			<div class="row">
+    				<div class="digit" ng-click="addDigit('4')"><img src="img/key_panel_digit_4_normal.png" clickable-button></div>
+    				<div class="digit" ng-click="addDigit('5')"><img src="img/key_panel_digit_5_normal.png" clickable-button></div>
+    				<div class="digit" ng-click="addDigit('6')"><img src="img/key_panel_digit_6_normal.png" clickable-button></div>
+    			</div>
+    			<div class="row">
+    				<div class="digit" ng-click="addDigit('7')"><img src="img/key_panel_digit_7_normal.png" clickable-button></div>
+    				<div class="digit" ng-click="addDigit('8')"><img src="img/key_panel_digit_8_normal.png" clickable-button></div>
+    				<div class="digit" ng-click="addDigit('9')"><img src="img/key_panel_digit_9_normal.png" clickable-button></div>
+    			</div>
+    			<div class="row">
+    				<div class="digit" ng-click="clearDigit('all')"><img src="img/key_panel_digit_delete_normal.png" clickable-button></div>
+    				<div class="digit" ng-click="addDigit('0')"><img src="img/key_panel_digit_0_normal.png" clickable-button></div>
+    				<div class="digit" ng-click="clearDigit()"><img src="img/key_panel_digit_back_normal.png" clickable-button></div>
+    			</div>
+    		</div>
+    		<button class="enterBtn" ng-click="validateCode()"></button>
+    	</div>
+    	<div class="attemptsDiv">
+    		<p class="infoText attemptsText">ATTEMPTS LEFT</p>
+    		<div class="attemptsValue">10,000</div>
+    		<span class="divider"></span>
+    		<button class="prizeList"  ng-click="openPrizeDetailPopup()"></button>
+    	</div>
+  		
+    </div>
+  </div>
+</div>
