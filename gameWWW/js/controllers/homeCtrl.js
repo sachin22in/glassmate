@@ -1,9 +1,14 @@
 (function () {
     'use strict';
 
-    app.controller('homeCtrl', ['$scope','httpService','$rootScope','$window','ngDialog', homeCtrl]);
+    app.controller('homeCtrl', ['$scope','httpService','$rootScope','$window','ngDialog','$state', homeCtrl]);
 
-    function homeCtrl($scope, httpService, $rootScope, $window, ngDialog) {       
+    function homeCtrl($scope, httpService, $rootScope, $window, ngDialog, $state) { 
+
+        if($rootScope.isAllLoaded == false){
+            $state.go('landing');
+        }
+
         $scope.setHeight = function(){
         	var ratio = $('.homeContainer').outerWidth()/1024;
         	$('.homeContainer').height(ratio* 768);
@@ -34,6 +39,10 @@
             }
             if(value == '999999'){
                 $scope.openYouWonModel();
+            }
+            if(value == '888888'){
+                $rootScope.correctCode = value;
+                $state.go('tab.openDoor');
             }
 
         }

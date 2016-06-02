@@ -4,6 +4,11 @@
     app.controller('openDoorCtrl', ['$scope','httpService','$rootScope','$window','$timeout','$interval', openDoorCtrl]);
 
     function openDoorCtrl($scope, httpService, $rootScope, $window, $timeout, $interval) {
+        
+        if($rootScope.correctCode){
+            $('.codeValue').html($rootScope.correctCode + '_');
+        }
+
         $scope.setHeight = function(){
             var ratio = $('.homeContainer').outerWidth()/1024;
             $('.homeContainer').height(ratio* 768);

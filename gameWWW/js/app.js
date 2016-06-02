@@ -41,5 +41,5 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 })
 .run(function($rootScope, $window) {
-
+  $rootScope.isAllLoaded = false;
 })
