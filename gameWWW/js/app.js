@@ -31,7 +31,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/openDoor",
       views: {
         'home-tab': {
-          templateUrl: "views/home.html",
+          templateUrl: "views/doorOpen.html",
           controller: 'openDoorCtrl'
         }
       }

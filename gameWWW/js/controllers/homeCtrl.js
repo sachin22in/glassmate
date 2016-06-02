@@ -39,11 +39,14 @@
             }
             if(value == '999999'){
                 $scope.openYouWonModel();
+                return false;
             }
             if(value == '888888'){
                 $rootScope.correctCode = value;
                 $state.go('tab.openDoor');
+                return false;
             }
+            $scope.openInvalidModel();
 
         }
         $scope.openPrizeDetailPopup = function(){
