@@ -11,6 +11,9 @@
                 method: method,
                 url: url,
                 crossDomain: true,
+                headers: {
+                  'Content-Type': 'application/json'
+                },
                 data: data
               })
           }

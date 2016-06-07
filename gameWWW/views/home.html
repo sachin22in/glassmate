@@ -22,15 +22,16 @@
     	<div class="doorWheel"></div>
     </div>
     <div class="clientDetails">
-    	<div class="clientName">JOHN SMITH'S CHEVROLET</div>
-    	<div class="clientAmount">$25,000 GIVEAWAY</div>
+        <img src="img/clinet_logo_text.png">
+    	<!-- <div class="clientName">JOHN SMITH'S CHEVROLET</div>
+    	<div class="clientAmount">$25,000 GIVEAWAY</div> -->
     </div>
     
     <div class="gameInfo">
     	<div class="gameLogoBG"><div class="gameLogo"></div></div>
     	<div class="soundDisplay"></div>
     	<div class="keyPanel">
-    		<p class="infoText">ENTER A 6 DIGIT CODE</p>
+    		<p class="infoText"><img src="img/key_panel_text_enter_digit.png"></p>
     		<div class="codeValue">_</div>
     		<div class="digits">
     			<div class="row">
@@ -57,12 +58,13 @@
     		<div class="enterBtn" ng-click="validateCode()"><img src="img/key_panel_enter_btu_normal.png" clickable-button></div>
     	</div>
     	<div class="attemptsDiv">
-    		<p class="infoText attemptsText">ATTEMPTS LEFT</p>
-    		<div class="attemptsValue">10,000</div>
+    		<p class="infoText attemptsText"><img src="img/key_panel_text_attempts_left.png"></p>
+    		<div class="attemptsValue">{{attemptsValue}}</div>
     		<span class="divider"></span>
-    		<button class="prizeList"  ng-click="openPrizeDetailPopup()"></button>
+    		<div class="prizeList"  ng-click="openPrizeDetailPopup()"><img src="img/key_panel_btn_prize_list_normal.png" clickable-button></div>
     	</div>
   		
     </div>
   </div>
+  
 </div>

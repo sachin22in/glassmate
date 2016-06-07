@@ -19,50 +19,52 @@
     <div class="grandPrizeRing"></div>
     <!-- <div class="grandPrizeGlow"></div> -->
     <div class="doorClose">
-    	<div class="doorWheel"></div>
+        <div class="doorWheel"></div>
     </div>
     <div class="clientDetails">
-    	<div class="clientName">JOHN SMITH'S CHEVROLET</div>
-    	<div class="clientAmount">$25,000 GIVEAWAY</div>
+        <img src="img/clinet_logo_text.png">
+        <!-- <div class="clientName">JOHN SMITH'S CHEVROLET</div>
+        <div class="clientAmount">$25,000 GIVEAWAY</div> -->
     </div>
     
     <div class="gameInfo">
-    	<div class="gameLogoBG"><div class="gameLogo"></div></div>
-    	<div class="soundDisplay"></div>
-    	<div class="keyPanel">
-    		<p class="infoText">ENTER A 6 DIGIT CODE</p>
-    		<div class="codeValue">_</div>
-    		<div class="digits">
-    			<div class="row">
-    				<div class="digit"><img src="img/key_panel_digit_1_dis.png" ></div>
-    				<div class="digit" ><img src="img/key_panel_digit_2_dis.png" ></div>
-    				<div class="digit" ><img src="img/key_panel_digit_3_dis.png" ></div>
-    			</div>
-    			<div class="row">
-    				<div class="digit" ><img src="img/key_panel_digit_4_dis.png" ></div>
-    				<div class="digit" ><img src="img/key_panel_digit_5_dis.png" ></div>
-    				<div class="digit" ><img src="img/key_panel_digit_6_dis.png" ></div>
-    			</div>
-    			<div class="row">
-    				<div class="digit" ><img src="img/key_panel_digit_7_dis.png" ></div>
-    				<div class="digit" ><img src="img/key_panel_digit_8_dis.png" ></div>
-    				<div class="digit" ><img src="img/key_panel_digit_9_dis.png" ></div>
-    			</div>
-    			<div class="row">
-    				<div class="digit" ><img src="img/key_panel_digit_delete_dis.png" ></div>
-    				<div class="digit" ><img src="img/key_panel_digit_0_dis.png" ></div>
-    				<div class="digit" ><img src="img/key_panel_digit_back_dis.png" ></div>
-    			</div>
-    		</div>
-    		<div class="enterBtn" ><img src="img/key_panel_enter_btn_dis.png" ></div>
-    	</div>
-    	<div class="attemptsDiv">
-    		<p class="infoText attemptsText">ATTEMPTS LEFT</p>
-    		<div class="attemptsValue">10,000</div>
-    		<span class="divider"></span>
-    		<button class="prizeList"  ng-click="openPrizeDetailPopup()"></button>
-    	</div>
-  		
+        <div class="gameLogoBG"><div class="gameLogo"></div></div>
+        <div class="soundDisplay"></div>
+        <div class="keyPanel">
+            <p class="infoText"><img src="img/key_panel_text_enter_digit.png"></p>
+            <div class="codeValue">_</div>
+            <div class="digits">
+                <div class="row">
+                    <div class="digit"><img src="img/key_panel_digit_1_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_2_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_3_dis.png" ></div>
+                </div>
+                <div class="row">
+                    <div class="digit" ><img src="img/key_panel_digit_4_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_5_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_6_dis.png" ></div>
+                </div>
+                <div class="row">
+                    <div class="digit" ><img src="img/key_panel_digit_7_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_8_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_9_dis.png" ></div>
+                </div>
+                <div class="row">
+                    <div class="digit" ><img src="img/key_panel_digit_delete_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_0_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_back_dis.png" ></div>
+                </div>
+            </div>
+            <div class="enterBtn" ><img src="img/key_panel_enter_btn_dis.png" ></div>
+        </div>
+        <div class="attemptsDiv">
+            <p class="infoText attemptsText"><img src="img/key_panel_text_attempts_left.png"></p>
+            <div class="attemptsValue">{{attemptsValue}}</div>
+            <span class="divider"></span>
+            <div class="prizeList"  ng-click="openPrizeDetailPopup()"><img src="img/key_panel_btn_prize_list_dis.png" clickable-button></div>
+        </div>
+        
     </div>
   </div>
+  
 </div>

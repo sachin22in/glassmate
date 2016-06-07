@@ -42,4 +42,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 })
 .run(function($rootScope, $window) {
   $rootScope.isAllLoaded = false;
+  $rootScope.baseUrl = 'http://ec2-52-34-200-40.us-west-2.compute.amazonaws.com/api';
+  $rootScope.GAME_CONFIG = {
+    'game_number': 999999,
+    'game_password': "1234"
+  }
 })

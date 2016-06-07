@@ -9,14 +9,18 @@
             $('.codeValue').html($rootScope.correctCode + '_');
         }
 
+        if($rootScope.loginResponse){
+           $scope.attemptsValue =  $rootScope.loginResponse.attempts_left;
+        }
+
         $scope.setHeight = function(){
             var ratio = $('.homeContainer').outerWidth()/1024;
             $('.homeContainer').height(ratio* 768);
 
-            var heightDiff = $(window).height() - $('.homeContainer').height();
-
+            var heightDiff = $(window).height() - $('.homeContainer').height() - 41;
+            var heightDiffTop = heightDiff/2;
             if(heightDiff > 0){
-                $('.homeContainer').css({'margin-top': heightDiff/2 + 'px'});
+                $('.homeContainer').css({'margin-top': heightDiffTop + 'px'});
             }
         }
         $scope.setHeight();	
@@ -99,7 +103,8 @@
                 }
             }, 500)
             //$('.doorClose').addClass('openDoor1');
-            
+
+
         }
 
         $scope.initAnimation();

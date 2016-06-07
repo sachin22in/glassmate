@@ -3,9 +3,12 @@
 
     app.controller('landingCtrl', ['$scope','httpService','$rootScope','preloader','$state', landingCtrl]);
 
-    function landingCtrl($scope, httpService, $rootScope, preloader, $state) {       
+    function landingCtrl($scope, httpService, $rootScope, preloader, $state) { 
+        $scope.assetsLoaded = false;
+        $scope.gameDetailLoaded = true;
         $scope.imageLocations= [
         	'img/client_logo_bg.png',
+            'img/clinet_logo_text.png',
         	'img/door_closed.png',
         	'img/door_open_01.png',
         	'img/door_open_02.png',
@@ -31,7 +34,9 @@
             'img/grand_winnings_numbers.png',
             'img/key_panel_attempts_left_holder.png',
             'img/key_panel_bg.jpg',
+            'img/key_panel_btn_prize_list_dis.png',
             'img/key_panel_btn_prize_list_normal.png',
+            'img/key_panel_btn_prize_list_select.png',
             'img/key_panel_digit_0_dis.png',
             'img/key_panel_digit_0_normal.png',
             'img/key_panel_digit_0_select.png',
@@ -76,10 +81,14 @@
             'img/key_panel_logo.png',
             'img/key_panel_logo_bg.png',
             'img/key_panel_sound_display.png',
+            'img/key_panel_text_attempts_left.png',
+            'img/key_panel_text_enter_digit.png',
             'img/popup_close_btn.png',
             'img/popup_defult_bg.png',
             'img/popup_text_ancillary_prizes.png',
+            'img/popup_text_congratulations.png',
             'img/popup_text_grand_prize.png',
+            'img/popup_text_incorrect_code.png',
             'img/popup_text_prize.png',
             'img/popup_text_sorry.png',
             'img/popup_text_you_win.png',
@@ -87,10 +96,35 @@
         ];
         preloader.preloadImages($scope.imageLocations).then(function(){
         	console.log("success");
-        	$rootScope.isAllLoaded = true;
-        	$state.go('tab.home');
+            $scope.assetsLoaded = true;
+            if($scope.gameDetailLoaded){
+                $rootScope.isAllLoaded = true;
+                $state.go('tab.home');
+            }
+        	
         },function(){
         	console.log('error');
-        })
+        });
+
+        var gameLoginDetails = {
+            "game_number": $rootScope.GAME_CONFIG.game_number,
+            "password": $rootScope.GAME_CONFIG.game_password
+        }
+        $rootScope.loginResponse={};
+        $rootScope.loginResponse.attempts_left = 1658;
+       /* httpService.makecall($rootScope.baseUrl+ '/games/login', 'POST', gameLoginDetails).then(function(response){
+            console.log('++++++++++login++++++++');
+            console.log(response);
+            $scope.gameDetailLoaded = true;
+            if($scope.assetsLoaded){
+                $rootScope.isAllLoaded = true;
+                $state.go('tab.home');
+            }
+            $rootScope.loginResponse = response.data;
+        }, 
+        function(error){
+            alert("Connection Error. Please Check Network Connection.");
+            console.log(error);
+        });*/
     }
 })();

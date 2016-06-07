@@ -1,3 +1,8 @@
+@font-face {
+    font-family: digital_font;
+    src: url('fonts/Xolonium-Regular.otf');
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -52,6 +57,9 @@ body{
   /*-webkit-perspective: 1200;*/
   max-width: 775px;
   margin: 0 auto;    
+}
+.digitalFontText{
+  font-family: digital_font;
 }
 .mainBG{
   background: url("../img/vault_bg_ipad.png") no-repeat top center;
@@ -224,10 +232,13 @@ body{
   z-index: 10;
   position: absolute;
   bottom: 3%;
-  left: 11%;
+  left: 10%;
   text-align: center;
-  padding: 10px 15px;
-  width: 44%;
+  padding: 15px 15px 10px 15px;
+  width: 48%;
+}
+.clientDetails img{
+  width: 100%;
 }
 .clientDetails .clientName{
   font-size: 1.2em;
@@ -254,13 +265,13 @@ body{
   width: 82%;
   z-index: 10;
   margin: 0 auto;
-  margin-top: 3%;
+  margin-top: 2%;
 }
 .gameLogo{
   background: url("../img/key_panel_logo.png") no-repeat;
   background-size: 100% 100%;
   height: 100%;
-  width: 82%;
+  width: 62%;
   z-index: 10;
   margin: 0 auto;
 }
@@ -275,7 +286,7 @@ body{
 .keyPanel{
   background: url("../img/key_panel_digit_bg.png") no-repeat;
   background-size: 100% 100%;
-  height: 61%;
+  height: 63%;
   width: 82%;
   z-index: 10;
   margin: 0 auto;
@@ -284,18 +295,16 @@ body{
 .keyPanel .codeValue{
   border: 1px solid #002AC4;
   width: 80%;
-  text-align: center;
+  text-align: left;
   margin: 0 auto;
-  font-size: 2em;
+  font-size: 1.7em;
   color: #9FFB2D;
-  font-weight: bold;
-  padding: 1% 10px;
+  padding: 2% 10px;
+  font-family: digital_font;
+  text-shadow: 0px 0px 10px #8dfb06;
 }
-.infoText{
-  color: #FFF;
-  font-size: 1em;
-  text-align: center;
-  padding: 2% 0px;
+.infoText img{
+  width: 100%;
 }
 .digits{
   border: 1px solid #002AC4;
@@ -328,14 +337,13 @@ body{
 .enterBtn img{
   width: 100%;
 }
+.prizeList img{
+  width: 100%;
+}
 .prizeList{
-  background: url("../img/key_panel_btn_prize_list_normal.png") no-repeat;
-  background-size: 100% 100%;
-  height: 39%;
-  width: 77%;
-  z-index: 10;
-  padding: 0% 10px;
-  border: 0px;
+  width: 82%;
+  text-align: center;
+  margin: 0 auto;
 }
 .divider{
   background: url("../img/key_panel_divider.png") no-repeat;
@@ -347,30 +355,35 @@ body{
   margin: 0 auto;
 }
 .attemptsDiv{
-  position: absolute;
   width: 82%;
   margin: 0 auto;
+  /*position: absolute;
   height: 20%;
   bottom: 0;
   left: 9%;
-  text-align: center;
+  text-align: center;*/
 }
 .attemptsValue {
   background: url("../img/key_panel_attempts_left_holder.png") no-repeat;
   background-size: 100% 100%;
   width: 70%;
-  text-align: center;
+  text-align: left;
   margin: 0 auto;
-  font-size: 2em;
+  font-size: 1.7em;
   color: #FFF;
-  font-weight: bold;
-  padding: 2% 10px;
+  font-weight: normal;
+  padding: 3% 10px;
   margin-bottom: 2%;
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+  font-family: digital_font;
 }
 .attemptsText{
-  color: #000;
-  font-weight: bold;
-  font-size: 1.2em;
+  text-align: center;
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+.attemptsText img{
+  width: 82%;
 }
 
 /* animation css */
@@ -492,16 +505,25 @@ body{
     font-weight: 500;
     /* padding-left: 51px; */
     text-align: center;
+
+  }
+  .popupContainer .popupTitle img{
+    width: 64%;
   }
   .popupContainer .popupBody{
     text-align: center;
     margin-top: 74px;
+  }
+  .popupContainer .popupBody .popupText{
+    font-size: 2em;
   }
   .popupContainer .amount{
     color: #fff;
     font-size: 26px;
     margin-top: 15px;
     margin-bottom: 15px;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+    font-family: digital_font;
   }
   .youWonContainer .popupBody {
     margin-top: 65px;
@@ -509,10 +531,50 @@ body{
   .prizeDetailContainer .popupBody{
     margin-top: 13px;
   }
+  .requiredPopup .popupTitle img{
+    width: 120px;
+  }
+  .requiredPopup .popupBody{
+    padding: 31px;
+    margin-top: 20px;
+  }
+  .requiredPopup .popupBody .popupText{
+    color: #39fdfc;
+    text-shadow: 0px 0px 10px #0493ff;
+    line-height: 40px;
+  }
   .prizeDetailContainer .borderBlue{
     border-top: 1px solid #00F;
     width: 82%;
     margin: 0 auto;
     margin-bottom: 10px;
   }
+  .prizeDetailContainer .popupTitle img{
+    width: 180px;
+  }
 /* popup style end*/
+
+.footer{
+  color: #FFF;
+  font-size: 0.9em;
+  font-family: arial;
+  text-align: center;
+  margin-top: 8px;
+}
+.footer .bar{
+  display: inline-block;
+    height: 12px;
+    border-left: 1px solid #FFF;
+    margin: 0px 5px;
+}
+.footer .copyRights{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 0.89em;
+}
+.loading{
+  font-size: 30px;
+  color: #FFF;
+  text-align: center;
+  margin-top: 30%;
+}
