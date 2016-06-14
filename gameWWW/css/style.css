@@ -127,7 +127,14 @@ body{
 }
 .grandPrizeAmount{
   height: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  font-family: digital_font;
+  font-size: 2.5em;
+    font-weight: bold;
+   background: -webkit-linear-gradient(top, #FBE87A, #FEF9D8);
+	background: linear-gradient(top, #FBE87A, #FEF9D8);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 .amount_doller{
   background: url("../img/grand_winnings_numbers.png") no-repeat;
@@ -234,20 +241,26 @@ body{
   bottom: 3%;
   left: 10%;
   text-align: center;
-  padding: 15px 15px 10px 15px;
-  width: 48%;
+  padding: 15px 15px 15px 15px;
+  width: auto;
 }
 .clientDetails img{
   width: 100%;
 }
 .clientDetails .clientName{
   font-size: 1.2em;
+    font-weight: bold;
   color: #071D46;  
+  font-family: digital_font;
+    text-shadow: 0px 0px 0px rgba(255, 255, 255, 2)
 }
 .clientDetails .clientAmount{
   font-size: 2em;
   margin-top: 6px;
+    font-weight: bold;
   color: #A3010B;
+  font-family: digital_font;
+    text-shadow: 1px 0px 1px rgba(255, 255, 255, 2)
 }
 .gameInfo {
   background: url("../img/key_panel_bg.jpg") no-repeat;
@@ -269,11 +282,12 @@ body{
 }
 .gameLogo{
   background: url("../img/key_panel_logo.png") no-repeat;
-  background-size: 100% 100%;
+  background-size: 100% 80%;
   height: 100%;
-  width: 62%;
+  width: 52%;
   z-index: 10;
   margin: 0 auto;
+  background-position: center center;
 }
 .soundDisplay {
   background: url("../img/key_panel_sound_display.png") no-repeat center center;
@@ -308,10 +322,10 @@ body{
 }
 .digits{
   border: 1px solid #002AC4;
-  width: 80%;
+  width: 84%;
   margin: 0 auto;
   margin-top: 2%;
-  padding: 2% 10px;
+  padding: 2% 3%;
 }
 .digits .row{
     text-align: center;
@@ -319,7 +333,7 @@ body{
 }
 .digits .digit{
   display: inline-block;
-  width: 30%;
+  width: 31%;
 }
 .digits .digit img{
   width: 100%;
@@ -380,7 +394,7 @@ body{
 .attemptsText{
   text-align: center;
   margin-top: 4%;
-  margin-bottom: 4%;
+  margin-bottom: 2%;
 }
 .attemptsText img{
   width: 82%;
@@ -578,3 +592,157 @@ body{
   text-align: center;
   margin-top: 30%;
 }
+.youWonText{
+    font-family: digital_font;
+    font-size: 1.5em;
+    font-weight: bold;
+   background: -webkit-linear-gradient(top, #FBE87A, #FEF9D8);
+	background: linear-gradient(top, #FBE87A, #FEF9D8);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+.grandPrizeText{
+    font-family: digital_font;
+    font-size: 1em;
+    font-weight: bold;
+    background: -webkit-linear-gradient(top, #FBE87A, #FEF9D8);
+	background: linear-gradient(top, #FBE87A, #FEF9D8);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.infoText {
+    font-family: digital_font;
+    color: #fff;
+    padding: 3px 0;
+    text-shadow: 0px 0px 10px #fff;
+    font-size: 0.9em;
+}
+/*@media only screen and (max-width: 700px){*/
+   .max700 .clientDetails .clientName{
+        font-size: 1.2em;
+    }
+    .max700 .clientDetails .clientAmount{
+      font-size: 1.8em;
+    } 
+    .max700 .infoText {
+        font-size: 0.8em;
+    }
+    .max700 .youWonText{
+        font-size: 1.4em;
+        margin-bottom: 5px;
+    }
+    .max700 .grandPrizeAmount{
+        font-size: 2.4em;
+        margin-bottom: 15px;
+    }
+    .max700 .grandPrizeText{
+        font-size: 0.9em;
+    }
+/*    
+}
+@media only screen and (max-width: 620px) {*/
+   .max620 .keyPanel .codeValue{
+        font-size: 1.5em;
+    }
+    .max620 .digits .digit{
+        width: 28%;
+    }
+    .max620 .keyPanel{
+        width: 80%;
+        height: 60%;
+    }
+    .max620 .attemptsValue{
+        font-size: 1.5em;
+    }
+    .max620 .clientDetails .clientName{
+        font-size: 1em;
+    }
+    .max620 .clientDetails .clientAmount{
+      font-size: 1.4em;
+    }
+    .max620 .infoText {
+        font-size: 0.7em;
+    }
+    .max620 .youWonText{
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+    .max620 .grandPrizeAmount{
+        font-size: 2.1em;
+        margin-bottom: 5px;
+    }
+    .max620 .grandPrizeText{
+        font-size: 0.8em;
+    }
+    /*
+}
+@media only screen and (max-width: 520px) {*/
+    .max520 .keyPanel .codeValue{
+        font-size: 1.2em;
+    }
+    .max520 .attemptsValue{
+        font-size: 1.2em;
+    }
+    .max520 .clientDetails .clientName{
+        font-size: 0.8em;
+    }
+    .max520 .clientDetails .clientAmount{
+      font-size: 1.3em;
+    }
+    .max520 .infoText {
+        font-size: 0.6em;
+    }
+    .max520 .youWonText{
+        font-size: 0.9em;
+        margin-bottom: 5px;
+    }
+    .max520 .grandPrizeAmount{
+        font-size: 1.6em;
+        margin-bottom: 0px;
+    }
+    .max520 .grandPrizeText{
+        font-size: 0.6em;
+    }
+/*    
+}
+@media only screen and (max-width: 400px) {*/
+    .max400 .keyPanel .codeValue{
+        font-size: 0.9em;
+        padding: 2% 8px;
+    }
+    .max400 .attemptsValue{
+        font-size: 0.9em;
+    }
+    .max400 .keyPanel{
+        height: 58%;
+        
+    }
+    .max400 .digits{
+        padding: 2% 8px;
+    }
+    .max400 .clientDetails .clientName{
+        font-size: 0.4em;
+    }
+    .max400 .clientDetails .clientAmount{
+      font-size: 0.9em;
+    }
+    .max400 .infoText {
+        font-size: 0.45em;
+    }
+    
+    .max400 .youWonText{
+        font-size: 0.8em;
+        margin-bottom: 5px;
+    }
+    .max400 .grandPrizeAmount{
+        font-size: 1em;
+        margin-bottom: 0px;
+        height: 20px;
+    }
+    .max400 .grandPrizeText{
+        font-size: 0.6em;
+    }
+/*    
+}*/
+

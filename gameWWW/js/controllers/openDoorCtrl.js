@@ -15,6 +15,7 @@
 
         $scope.setHeight = function(){
             var ratio = $('.homeContainer').outerWidth()/1024;
+           
             $('.homeContainer').height(ratio* 768);
 
             var heightDiff = $(window).height() - $('.homeContainer').height() - 41;
