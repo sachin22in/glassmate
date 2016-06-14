@@ -19,7 +19,9 @@
     <div class="grandPrizeRing"></div>
     <!-- <div class="grandPrizeGlow"></div> -->
     <div class="doorClose">
-    	<div class="doorWheel"></div>
+    	<!--<div class="doorWheel"></div>-->
+        <img src="img/door_wheel.png"/ class="rotateDoorimg">
+        
     </div>
     <div class="clientDetails">
 <!--        <img src="img/clinet_logo_text.png">-->
@@ -30,7 +32,7 @@
     <div class="gameInfo">
     	<div class="gameLogoBG"><div class="gameLogo"></div></div>
     	<div class="soundDisplay"></div>
-    	<div class="keyPanel">
+    	<div class="keyPanel" ng-hide="myPanel">
     		<p class="infoText">
 <!--                <img src="img/key_panel_text_enter_digit.png">-->
                 ENTER A 6 DIGIT CODE
@@ -58,8 +60,38 @@
     				<div class="digit" ng-click="clearDigit()"><img src="img/key_panel_digit_back_normal.png" clickable-button></div>
     			</div>
     		</div>
-    		<div class="enterBtn" ng-click="validateCode()"><img src="img/key_panel_enter_btu_normal.png" clickable-button></div>
+            <div class="enterBtn" ng-click="validateCode()"><img src="img/key_panel_enter_btu_normal.png" clickable-button></div>
     	</div>
+          <div class="keyPanel" ng-show="myPanel">
+            <p class="infoText">
+<!--                <img src="img/key_panel_text_enter_digit.png">-->
+                ENTER A DIGIT CODE
+            </p>           
+            <div class="codeValue">_</div>
+            <div class="digits">
+                <div class="row">
+                    <div class="digit"><img src="img/key_panel_digit_1_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_2_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_3_dis.png" ></div>
+                </div>
+                <div class="row">
+                    <div class="digit" ><img src="img/key_panel_digit_4_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_5_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_6_dis.png" ></div>
+                </div>
+                <div class="row">
+                    <div class="digit" ><img src="img/key_panel_digit_7_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_8_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_9_dis.png" ></div>
+                </div>
+                <div class="row">
+                    <div class="digit" ><img src="img/key_panel_digit_delete_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_0_dis.png" ></div>
+                    <div class="digit" ><img src="img/key_panel_digit_back_dis.png" ></div>
+                </div>
+            </div>
+            <div class="enterBtn" ><img src="img/key_panel_enter_btn_dis.png" ></div>
+        </div>
     	<div class="attemptsDiv">
     		<p class="infoText attemptsText"><img src="img/key_panel_text_attempts_left.png"></p>
     		<div class="attemptsValue">{{attemptsValue}}</div>

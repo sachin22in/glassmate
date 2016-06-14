@@ -80,11 +80,21 @@ body{
 }
 .doorWheel {
   background: url("../img/door_wheel.png") no-repeat;
-  background-size: 32%;
-  height: 100%;
-  width: 100%;
+  background-size: 80%;
+  height: 33%;
+  width: 35%;
   z-index: 10;
-  background-position: 66.5% 34.5%;
+  /*background-position: 66.5% 34.5%;*/
+    position: relative;
+    top:21%;
+    left: 44%;
+    
+}
+.rotateDoorimg{
+        position: relative;
+    top: 25%;
+    left: 45%;
+    width: 33%;
 }
 .grandPrizeBG{
   background: url("../img/grand_prize_gold_bar_bg.jpg") no-repeat;

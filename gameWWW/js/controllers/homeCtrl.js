@@ -66,7 +66,23 @@
             value = value + digit + '_';
             $('.codeValue').html(value);
         }
+        $scope.animateRotate = function(d){
+            
+               var elem = $(".rotateDoorimg");
+
+            $({deg: 0}).animate({deg: d}, {
+                duration: 5000,
+                step: function(now){
+                    elem.css({
+                         transform: "rotate(" + now + "deg)"
+                    });
+                }
+            });
+        }
+        $scope.myPanel = false;
         $scope.validateCode = function(){
+            $scope.myPanel = true;
+            $scope.animateRotate(360);
             var value = $('.codeValue').html();
             value = value.slice(0, -1);
             
@@ -106,7 +122,7 @@
                 $state.go('tab.openDoor');
                 return false;
             }
-            $scope.openInvalidModel();
+           // $scope.openInvalidModel();
 
         }
         $scope.openPrizeDetailPopup = function(){
