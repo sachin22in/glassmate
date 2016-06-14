@@ -102,6 +102,7 @@
       };
       $scope.onHold = function(e, postModelDetail){
         if(postModelDetail.postBy == $scope.userDetails.userID){
+          navigator.vibrate(100);
           $(e.target).siblings('.ion-close').addClass('showDelete');  
         }
         
@@ -470,11 +471,14 @@
       }
       $scope.searchPlace = function(){
         //console.log($scope.newpost.place);
-
+        if(!$rootScope.GPSLocation){
+          alert("Sorry We can't get your position");
+          return false;
+        }
          var payload = {
             query : $scope.newpost.placeName,
-            entity_id : 5,
-            entity_type : 'city'
+            lat : $rootScope.GPSLocation.coords.latitude,
+            lon : $rootScope.GPSLocation.coords.longitude
          }
          //console.log($rootScope.baseUrl);
           httpService.makecall($rootScope.baseUrl+ '/searchPlace', 'POST', payload).then(function(response){
