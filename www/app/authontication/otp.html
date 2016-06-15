@@ -4,7 +4,7 @@
       VERIFY MOBILE NUMBER
       </ion-nav-title>
       <ion-nav-buttons side="left">
-       <button class="button close-button button-icon" ng-click="$windowGoBack();"><i class="icon ion-chevron-left"></i></button>
+       <button class="button close-button button-icon" ng-click="closeOtpModel()"><i class="icon ion-chevron-left"></i></button>
       </ion-nav-buttons>
     </ion-nav-bar>
 
@@ -26,8 +26,8 @@
           <div class="errorMsg">
             <p ng-show="chnagePassForm.otp.$error.required && chnagePassForm.otp.$touched">OTP is required.</p>
           </div>
-
-          <label class="item">
+          
+          <!-- <label class="item">
             Password
             <input type="password" name="password" ng-model='otpObj.password' ng-minlength="6" required>
           </label>
@@ -42,7 +42,7 @@
           </label>
           <div class="errorMsg">
             <p ng-show="chnagePassForm.confirmPassword.$error.required && chnagePassForm.confirmPassword.$touched">Confirm Password is required.</p>
-          </div>
+          </div> -->
           
 
           </div>

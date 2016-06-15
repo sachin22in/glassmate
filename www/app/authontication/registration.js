@@ -14,6 +14,7 @@
         };
 
      $scope.signup = function(){
+      $scope.initOTPModal();
           if ($scope.signupForm.$invalid) {
             angular.forEach($scope.signupForm.$error, function(field) {
               angular.forEach(field, function(errorField){
@@ -124,6 +125,9 @@
 
     // otp verification code
     $scope.otpValidate = false;
+    $scope.closeOtpModel = function(){
+      $scope.OTPModal.hide();
+    }
     $scope.initOTPModal = function(){
 
       $scope.otpObj={};
