@@ -91,10 +91,16 @@ body{
     
 }
 .rotateDoorimg{
-        position: relative;
+    position: relative;
     top: 25%;
     left: 45%;
     width: 33%;
+}
+.dialimg{
+    position: relative;
+    top: 29.34%;
+    left: 30%;
+    width: 9.1%;
 }
 .grandPrizeBG{
   background: url("../img/grand_prize_gold_bar_bg.jpg") no-repeat;

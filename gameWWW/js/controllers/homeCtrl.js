@@ -59,32 +59,44 @@
 
         $scope.addDigit = function(digit){
             var value = $('.codeValue').html();
-            value = value.slice(0, -1);
+            if(value.slice(value.length-1,value.length) == '_'){
+                value = value.slice(0, -1);    
+            }
             if(value.length >=6){
+                //value = value.slice(0, -1);
+                $('.codeValue').html(value);
                 return false;
             }
-            value = value + digit + '_';
+            if (value.length != 5) {
+                value = value + digit + '_';    
+            }else{
+                value = value + digit ;
+            }
+            
+
             $('.codeValue').html(value);
         }
-        $scope.animateRotate = function(d){
+        $scope.animateRotate = function(d, callback){
             
                var elem = $(".rotateDoorimg");
 
             $({deg: 0}).animate({deg: d}, {
-                duration: 5000,
+                duration: 3000,
                 step: function(now){
                     elem.css({
                          transform: "rotate(" + now + "deg)"
                     });
+                },
+                complete: function(){
+                    callback();
                 }
             });
         }
         $scope.myPanel = false;
         $scope.validateCode = function(){
-            $scope.myPanel = true;
-            $scope.animateRotate(360);
+            
             var value = $('.codeValue').html();
-            value = value.slice(0, -1);
+            //value = value.slice(0, -1);
             
             if(value.length < 6){
                 $scope.openRequiredCodeModel();
@@ -109,20 +121,28 @@
                 console.log(error);
             });*/
 
-            if(value.length < 6){
+            // if(value.length < 6){
+            //     $scope.openInvalidModel();
+            //     return false;
+            // }
+
+            $scope.myPanel = true;
+            $scope.animateRotate(360, function(){
+                $scope.myPanel = false;
+                if(value == '999999'){
+                    $scope.openYouWonModel();
+                    return false;
+                }
+                if(value == '888888'){
+                    $rootScope.correctCode = value;
+                    $state.go('tab.openDoor');
+                    return false;
+                }
                 $scope.openInvalidModel();
-                return false;
-            }
-            if(value == '999999'){
-                $scope.openYouWonModel();
-                return false;
-            }
-            if(value == '888888'){
-                $rootScope.correctCode = value;
-                $state.go('tab.openDoor');
-                return false;
-            }
-           // $scope.openInvalidModel();
+            });
+            
+
+            
 
         }
         $scope.openPrizeDetailPopup = function(){
@@ -176,7 +196,12 @@
                 return false;
             }
             var value = $('.codeValue').html();
-            value = value.slice(0, -2);
+            if(value.slice(value.length-1,value.length) == '_'){
+                value = value.slice(0, -2);    
+            }else{
+                value = value.slice(0, -1);
+            }
+            
             
             value = value + '_';
             $('.codeValue').html(value);
