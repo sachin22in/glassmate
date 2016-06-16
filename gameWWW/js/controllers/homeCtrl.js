@@ -130,6 +130,7 @@
             $scope.animateRotate(360, function(){
                 $scope.myPanel = false;
                 if(value == '999999'){
+                	$('.codeValue').html('_');
                     $scope.openYouWonModel();
                     return false;
                 }
@@ -138,6 +139,7 @@
                     $state.go('tab.openDoor');
                     return false;
                 }
+                $('.codeValue').html('_');
                 $scope.openInvalidModel();
             });
             
