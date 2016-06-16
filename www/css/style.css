@@ -1907,9 +1907,9 @@ ion-spinner svg{
   border-radius: 5px;
   width: 90%;
   position: relative;
-  -webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.69);
-  -moz-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.69);
-  box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.69);
+  -webkit-box-shadow: 0px 0px 11px px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 11px 1px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 11px 1px rgba(0,0,0,0.5);
 }
 .cheersModel .popup .popup-head{
   border: 0px;
@@ -1937,9 +1937,9 @@ ion-spinner svg{
   background-color: #f2ba01;
   border-radius: 5px;
   width: 90%;
-  -webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.69);
-  -moz-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.69);
-  box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.69);
+  -webkit-box-shadow: 0px 0px 11px px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 11px 1px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 11px 1px rgba(0,0,0,0.5);
 }
 .profilePopup .popup .popup-head{
   border: 0px;
@@ -2183,5 +2183,7 @@ ion-nav-bar .ion-plus-round:hover{
 .otpInput{
   text-align: center;
 }
-
+.backdrop.active{
+  opacity: 0.1;
+}
 

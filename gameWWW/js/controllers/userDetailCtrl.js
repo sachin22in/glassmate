@@ -42,6 +42,14 @@
                     $('.mainContainer').addClass('max400');
                 }
         }
+        $scope.submitForm = function(){
+           $('.submitImg').removeClass('submitButton');
+            $('.submitImg').addClass('submitButtonActive');
+            setTimeout(function(){
+                $state.go('tab.home');
+            },100)
+            
+        }
         
         $scope.setHeight(); 
 

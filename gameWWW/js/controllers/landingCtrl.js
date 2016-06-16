@@ -130,7 +130,11 @@
             console.log(error);
         });*/
         $scope.openForm = function(){
-            $state.go('userDetail');
+            $('.playImg').removeClass('playButton');
+            $('.playImg').addClass('playButtonActive');
+            setTimeout(function(){
+                $state.go('userDetail');
+            },1000)
         }
     
         $scope.setHeight = function(){

@@ -340,8 +340,9 @@ body{
   clear: both;
 }
 .clintDetailLogin .clientDetails{
-  position: static;
+  /*position: static;*/
   display: inline-block;
+  left: 26%;
 }
 
 .gameInfo {
@@ -463,7 +464,7 @@ body{
   background: url("../img/key_panel_attempts_left_holder.png") no-repeat;
   background-size: 100% 100%;
   width: 70%;
-  text-align: left;
+  text-align: center;
   margin: 0 auto;
   font-size: 1.7em;
   color: #FFF;
@@ -684,12 +685,45 @@ body{
 }
 .playButton{
     position: absolute;
-    bottom: 5%;
+    bottom: 20%;
     right: 10%;
     background: url("../img/intro_play_btn.png") no-repeat top center;
     background-size: 100%;
     width: 25%;
-    height: 25%;
+    height: 9%;
+    cursor: pointer;
+
+}
+.submitButton{
+    position: absolute;
+    bottom: 28%;
+    right: 39%;
+    background: url("../img/login_submit_btn.png") no-repeat top center;
+    background-size: 100%;
+    width: 25%;
+    height: 9%;
+    cursor: pointer;
+
+}
+.submitButtonActive{
+    position: absolute;
+    bottom: 28%;
+    right: 39%;
+    background: url("../img/login_submit_btn_press.png") no-repeat top center;
+    background-size: 100%;
+    width: 25%;
+    height: 9%;
+    cursor: pointer;
+
+}
+.playButtonActive{
+    position: absolute;
+    bottom: 20%;
+    right: 10%;
+    background: url("../img/intro_play_btn_press.png") no-repeat top center;
+    background-size: 100%;
+    width: 25%;
+    height: 9%;
     cursor: pointer;
 
 }
@@ -721,25 +755,27 @@ body{
 }
 
 .logoContainer{
-  width: 30%;
-  height: 20%;
+  width: 28%;
+  height: 14%;
   margin: 0 auto;
+  padding-top: 1%;
 }
 .logoContainer .gameLogoBG{
   height: 100%;
   width: 100%;
 }
 .loginDetails{
-  width: 70%;
+  width: 65%;
   margin: 0 auto;
   font-family: digital_font;
   font-size: 1em;
   padding: 2%;
+  margin-top: 3%;
 }
 .loginDetails .inputLabel{
   display: inline-block;
   margin-right: 3%;
-  width: 30%;
+  width: 29%;
   text-align: right;
   font-size: 1.2em;
 
@@ -756,6 +792,7 @@ padding: 7px;
 border: 0;
 font-size: 1.3em;
 color: #FFF;
+  font-family: digital_font;
 }
 
 /*@media only screen and (max-width: 700px){*/
@@ -778,6 +815,17 @@ color: #FFF;
     }
     .max700 .grandPrizeText{
         font-size: 0.9em;
+    }
+   .max700 .loginDetails .inputLabel {
+    font-size: 1em;
+    }
+    .max700 .loginDetails input {
+        font-size: 1.1em;
+        height: 28px;
+    }
+    .max700 .submitButton{
+        bottom: 26%;
+        width: 24%;
     }
 /*    
 }
@@ -815,6 +863,17 @@ color: #FFF;
     .max620 .grandPrizeText{
         font-size: 0.8em;
     }
+    .max620 .loginDetails .inputLabel {
+        font-size: 0.8em;
+    }
+    .max620 .loginDetails input {
+        font-size: 0.9em;
+        height: 25px;
+    }
+    .max620 .submitButton{
+        bottom: 24%;
+        width: 20%;
+    }
     /*
 }
 @media only screen and (max-width: 520px) {*/
@@ -831,7 +890,7 @@ color: #FFF;
         font-size: 0.6em;
     }
     .max520 .clientDetails .clientAmount{
-      font-size: 1.3em;
+      font-size: 1.25em;
     }
     .max520 .clientDetailslanding .clientAmount{
       font-size: 1.1em;
@@ -852,6 +911,20 @@ color: #FFF;
     }
     .max520 .loadingMsg{
         font-size: 1.3em;
+    }
+    .max520 .loginDetails .inputLabel {
+        font-size: 0.6em;
+    }
+    .max520 .loginDetails input {
+        font-size: 0.7em;
+        height: 18px;
+    }
+    .max520 .submitButton{
+        bottom: 24%;
+        width: 18%;
+    }
+    .max520 .clintDetailLogin .clientDetails {
+    left: 24%;
     }
 /*    
 }
@@ -897,6 +970,22 @@ color: #FFF;
     }
      .max400 .loadingMsg{
         font-size: 1.1em;
+    }
+     .max400 .loginDetails .inputLabel {
+        font-size: 0.4em;
+         width: 20%;
+    }
+    .max400 .loginDetails input {
+        font-size: 0.5em;
+        height: 12px;
+        background-size: 100% 80%;
+    }
+    .max400 .submitButton{
+        bottom: 24%;
+        width: 17%;
+    }
+    .max400 .clintDetailLogin .clientDetails {
+    left: 26%;
     }
 /*    
 }*/
