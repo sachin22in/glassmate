@@ -68,6 +68,35 @@ body{
   height: 100%;
 }
 
+.loading-screen-bg{
+  background: url("../img/Intro01.jpg") no-repeat top center;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+}
+.userDetail-bg{
+  background: url("../img/login_bg.jpg") no-repeat top center;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100%; 
+}
+.leftSideBar{
+  background: url("../img/left_side_bar.jpg") no-repeat top center;
+  background-size: 100% 100%;
+  width: 10px;
+  height: 100%; 
+  position: absolute;
+  left: 10%;
+}
+.rightSideBar{
+  background: url("../img/right_side_bar.jpg") no-repeat top center;
+  background-size: 100% 100%;
+  width: 10px;
+  height: 100%;
+  position: absolute;
+  right: 10%; 
+}
+
 .doorClose {
   background: url("../img/door_closed.png") no-repeat;
   background-size: 100%;
@@ -111,6 +140,7 @@ body{
   position: absolute;
   background-position: 20% 27%;
 }
+
 .grandPrizeTextBG{
   background: url("../img/grand_prize_bg.png") no-repeat;
   background-size: 100% 100%;
@@ -278,6 +308,42 @@ body{
   font-family: digital_font;
     text-shadow: 1px 0px 1px rgba(255, 255, 255, 2)
 }
+.clientDetailslanding{
+  background: url("../img/client_logo_bg.png") no-repeat;
+  background-size: 100% 100%;
+  z-index: 10;
+  position: absolute;
+  right: 1%;
+  top: 8%;
+  text-align: center;
+  padding: 15px 15px 15px 15px;
+  width: auto;
+}
+
+.clientDetailslanding .clientName{
+  font-size: 1.2em;
+    font-weight: bold;
+  color: #071D46;  
+  font-family: digital_font;
+    text-shadow: 0px 0px 0px rgba(255, 255, 255, 2)
+}
+.clientDetailslanding .clientAmount{
+  font-size: 2em;
+  margin-top: 6px;
+    font-weight: bold;
+  color: #A3010B;
+  font-family: digital_font;
+    text-shadow: 1px 0px 1px rgba(255, 255, 255, 2)
+}
+.clintDetailLogin{
+  text-align: center;
+  clear: both;
+}
+.clintDetailLogin .clientDetails{
+  position: static;
+  display: inline-block;
+}
+
 .gameInfo {
   background: url("../img/key_panel_bg.jpg") no-repeat;
   background-size: 100% 100%;
@@ -608,6 +674,25 @@ body{
   text-align: center;
   margin-top: 30%;
 }
+.loadingMsg{
+    font-size: 1.5em;
+    color: #FFF;
+    font-family: digital_font;
+    position: absolute;
+    bottom: 25%;
+    right: 25%;
+}
+.playButton{
+    position: absolute;
+    bottom: 5%;
+    right: 10%;
+    background: url("../img/intro_play_btn.png") no-repeat top center;
+    background-size: 100%;
+    width: 25%;
+    height: 25%;
+    cursor: pointer;
+
+}
 .youWonText{
     font-family: digital_font;
     font-size: 1.5em;
@@ -634,11 +719,50 @@ body{
     text-shadow: 0px 0px 10px #fff;
     font-size: 0.9em;
 }
+
+.logoContainer{
+  width: 30%;
+  height: 20%;
+  margin: 0 auto;
+}
+.logoContainer .gameLogoBG{
+  height: 100%;
+  width: 100%;
+}
+.loginDetails{
+  width: 70%;
+  margin: 0 auto;
+  font-family: digital_font;
+  font-size: 1em;
+  padding: 2%;
+}
+.loginDetails .inputLabel{
+  display: inline-block;
+  margin-right: 3%;
+  width: 30%;
+  text-align: right;
+  font-size: 1.2em;
+
+}
+.loginDetails input{
+  display: inline-block;
+  width: 60%;
+  background: url("../img/fild_box_login.png") no-repeat top center;
+    background-size: 100% 100%;
+    height: 30px;
+outline: none;
+padding: 7px;
+/* margin: 0; */
+border: 0;
+font-size: 1.3em;
+color: #FFF;
+}
+
 /*@media only screen and (max-width: 700px){*/
-   .max700 .clientDetails .clientName{
+   .max700 .clientDetails .clientName,.max700 .clientDetailslanding .clientName{
         font-size: 1.2em;
     }
-    .max700 .clientDetails .clientAmount{
+    .max700 .clientDetails .clientAmount,.max700 .clientDetailslanding .clientAmount{
       font-size: 1.8em;
     } 
     .max700 .infoText {
@@ -671,10 +795,10 @@ body{
     .max620 .attemptsValue{
         font-size: 1.5em;
     }
-    .max620 .clientDetails .clientName{
+    .max620 .clientDetails .clientName,.max620 .clientDetailslanding .clientName{
         font-size: 1em;
     }
-    .max620 .clientDetails .clientAmount{
+    .max620 .clientDetails .clientAmount,.max620 .clientDetailslanding .clientAmount{
       font-size: 1.4em;
     }
     .max620 .infoText {
@@ -703,8 +827,14 @@ body{
     .max520 .clientDetails .clientName{
         font-size: 0.8em;
     }
+    .max520 .clientDetailslanding .clientName{
+        font-size: 0.6em;
+    }
     .max520 .clientDetails .clientAmount{
       font-size: 1.3em;
+    }
+    .max520 .clientDetailslanding .clientAmount{
+      font-size: 1.1em;
     }
     .max520 .infoText {
         font-size: 0.6em;
@@ -719,6 +849,9 @@ body{
     }
     .max520 .grandPrizeText{
         font-size: 0.6em;
+    }
+    .max520 .loadingMsg{
+        font-size: 1.3em;
     }
 /*    
 }
@@ -737,11 +870,14 @@ body{
     .max400 .digits{
         padding: 2% 8px;
     }
-    .max400 .clientDetails .clientName{
+    .max400 .clientDetails .clientName,.max400 .clientDetailslanding .clientName{
         font-size: 0.4em;
     }
     .max400 .clientDetails .clientAmount{
       font-size: 0.9em;
+    }
+    .max400 .clientDetailslanding .clientAmount{
+      font-size: 0.8em;
     }
     .max400 .infoText {
         font-size: 0.45em;
@@ -758,6 +894,9 @@ body{
     }
     .max400 .grandPrizeText{
         font-size: 0.6em;
+    }
+     .max400 .loadingMsg{
+        font-size: 1.1em;
     }
 /*    
 }*/

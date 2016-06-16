@@ -16,7 +16,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
           templateUrl: "views/landing.html",
           controller: 'landingCtrl'
      })
-
+    .state('userDetail', {
+      url: "/userDetail",
+          templateUrl: "views/userDetail.html",
+          controller: 'userDetailCtrl'
+     })
     
     .state('tab.home', {
       url: "/home",
