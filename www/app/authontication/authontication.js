@@ -28,6 +28,7 @@
         console.log(response);
         if (response.data.statusCode == 'success') {
             $rootScope.userDetails = response.data;
+            localStorage.setItem("glassmatesUserDetails", JSON.stringify(response.data));
             $state.go('tabs.theWall');
         };
         if (response.data.statusCode == 'userNotFound') {

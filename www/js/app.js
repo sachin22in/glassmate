@@ -150,7 +150,7 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
    $urlRouterProvider.otherwise("landing");
 
 })
-.run(function($rootScope, $ionicHistory, $ionicViewService, $window) {
+.run(function($rootScope, $ionicHistory, $ionicViewService, $window, $state) {
     $rootScope.baseUrl = 'http://54.169.243.198/restAPI/app/service';
     $rootScope.baseUrlStatic = 'http://54.169.243.198/restAPI/app/glassmateStatic';
      // $rootScope.baseUrl = 'http://192.168.0.100:3000/glassmate';
@@ -160,9 +160,14 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
     $('#loaderDiv').hide();
 
     $rootScope.$windowGoBack = function(){
-      $window.history.back();
-      
+      $window.history.back();      
     }
+
+    if(localStorage.getItem("glassmatesUserDetails")){
+      $rootScope.userDetails = JSON.parse(localStorage.getItem("glassmatesUserDetails"));
+      $state.go('tabs.theWall');
+    }
+
 
     var onSuccess = function(position) {
       $rootScope.GPSLocation = position;

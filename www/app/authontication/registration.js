@@ -14,7 +14,7 @@
         };
 
      $scope.signup = function(){
-      $scope.initOTPModal();
+      //$scope.initOTPModal();
           if ($scope.signupForm.$invalid) {
             angular.forEach($scope.signupForm.$error, function(field) {
               angular.forEach(field, function(errorField){
@@ -143,6 +143,8 @@
 
       $scope.sendOTP = function(){
         $scope.OTP = $scope.generateOTP();
+console.log($scope.OTP);
+        alert($scope.OTP);
         var URL = 'http://login.smsgatewayhub.com/RestAPI/MT.svc/mt';
         var data = {"Account":{"User":"Glassmates","Password":"fiesta86","SenderId":"WEBSMS","Channel":"2","DCS":"0","SchedTi me":null,"GroupId":null},"Messages":[{"Number":"919558515827","Text":"Hello test message % ignore123 %"}]};
 
@@ -164,20 +166,34 @@
 
        }
        $scope.generateOTP = function(){
-          return Math.floor(Math.random()*90000) + 10000;
+          return Math.floor(Math.random()*900000) + 10000;
        }
        $scope.validateOTP = function(){
-          if($scope.OTP == $scope.otpObj.otp){
+          var otpValue = $('#otp').val().replace('-', '');
+          console.log(otpValue);
+          if($scope.OTP == otpValue){
             $scope.otpValidate = true;
             $scope.OTPModal.hide();
+            $scope.signup();
           }else{
             alert("Invalid OTP, Please Try again.");
           }
        }
     
-
+       $scope.sendOTP();
 
     }
+
+    $scope.$on('$locationChangeStart', function(event, toState, toParams, fromState, fromParams){
+        
+        if($scope.OTPModal){
+          if($scope.OTPModal.isShown()){
+            $scope.OTPModal.hide();
+            event.preventDefault();  
+          }  
+        }
+
+      });
 
   $scope.selectedCountry = {}
   

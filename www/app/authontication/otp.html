@@ -18,10 +18,12 @@
       </div>
       <form name="chnagePassForm" autocomplete="off">
         <div class="signupInput">
-
+        <div class="otpInfoText">
+          <p>We have send One Time Password on your mobile number.</p>
+        </div>
           <label class="item">
             OTP
-            <input type="tel" name="otp" ng-model='otpObj.otp' maxlength="6" ng-minlength="6" required autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ui-mask="999-999" class="otpInput">
+            <input type="tel" id="otp" name="otp" ng-model='otpObj.otp' maxlength="6" ng-minlength="6" required autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ui-mask="999-999" class="otpInput">
           </label>
           <div class="errorMsg">
             <p ng-show="chnagePassForm.otp.$error.required && chnagePassForm.otp.$touched">OTP is required.</p>
@@ -50,7 +52,7 @@
         
         </div>
       
-        <button type="submit" class="button button-block button-signup" ng-click="signup(chnagePassForm); startDobValidation = true;" ng-if="!disableEdit">
+        <button type="submit" class="button button-block button-signup" ng-click="validateOTP(); startDobValidation = true;" ng-if="!disableEdit">
           <span class="sign-up HelveticaHeading">Confirm</span>
           
         </button>
