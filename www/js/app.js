@@ -162,7 +162,7 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
     $rootScope.$windowGoBack = function(){
       $window.history.back();      
     }
-
+    //alert(localStorage.getItem("glassmatesUserDetails"));
     if(localStorage.getItem("glassmatesUserDetails")){
       $rootScope.userDetails = JSON.parse(localStorage.getItem("glassmatesUserDetails"));
       $state.go('tabs.theWall');

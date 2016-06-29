@@ -7,7 +7,10 @@
     function AuthCtrl($scope,$state,$rootScope,$ionicHistory,httpService ) {       
      $scope.showError = false;
       $scope.errorMsg = "";
-
+      if(localStorage.getItem("glassmatesUserDetails")){
+        $rootScope.userDetails = JSON.parse(localStorage.getItem("glassmatesUserDetails"));
+        $state.go('tabs.theWall');
+      }
      $scope.login = function(){
        // console.log($scope.data.username + '' + $scope.data.password);
        console.log($scope.loginForm);
