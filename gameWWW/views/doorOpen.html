@@ -28,12 +28,15 @@
     <div class="grandPrizeRing"></div>
     <!-- <div class="grandPrizeGlow"></div> -->
     <div class="doorClose">
-        <div class="doorWheel"></div>
+
+        <img src="img/door_wheel.png"/ class="rotateDoorimg">    
+        <img src="img/door_black_dail.png"/ class="dialimg">
+
     </div>
     <div class="clientDetails">
 <!--        <img src="img/clinet_logo_text.png">-->
-        <div class="clientName">JOHN SMITH'S CHEVROLET</div>
-        <div class="clientAmount">$25,000 GIVEAWAY</div>
+        <div class="clientName">{{loginResponse.name}}</div>
+        <div class="clientAmount">{{loginResponse.prize_description}}</div>
     </div>
     
     <div class="gameInfo">
@@ -42,7 +45,7 @@
         <div class="keyPanel">
             <p class="infoText">
 <!--                <img src="img/key_panel_text_enter_digit.png">-->
-                ENTER A DIGIT CODE
+                ENTER A {{loginResponse.digits}} DIGIT CODE
             </p>           
             <div class="codeValue">_</div>
             <div class="digits">

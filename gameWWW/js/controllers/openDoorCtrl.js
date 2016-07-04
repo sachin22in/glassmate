@@ -1,28 +1,61 @@
 (function () {
     'use strict';
 
-    app.controller('openDoorCtrl', ['$scope','httpService','$rootScope','$window','$timeout','$interval', openDoorCtrl]);
+    app.controller('openDoorCtrl', ['$scope','httpService','$rootScope','$window','$timeout','$interval','$state', openDoorCtrl]);
 
-    function openDoorCtrl($scope, httpService, $rootScope, $window, $timeout, $interval) {
+    function openDoorCtrl($scope, httpService, $rootScope, $window, $timeout, $interval,$state) {
         
         if($rootScope.correctCode){
-            $('.codeValue').html($rootScope.correctCode + '_');
+            $('.codeValue').html($rootScope.correctCode );
+        }
+        if($rootScope.isAllLoaded == false){
+            $state.go('landing');
         }
 
         if($rootScope.loginResponse){
            $scope.attemptsValue =  $rootScope.loginResponse.attempts_left;
+        }else{
+            $state.go('landing');   
         }
 
         $scope.setHeight = function(){
+            $('.homeContainer').width('100%');
             var ratio = $('.homeContainer').outerWidth()/1024;
-           
-            $('.homeContainer').height(ratio* 768);
+            
+            if(((ratio* 768) + $('.footer').height()) <  $(window).height() ){
+                $('.homeContainer').height(ratio* 768);
+                var heightDiff = $(window).height() - $('.homeContainer').height() - $('.footer').height();
+                var heightDiffTop = heightDiff/2;
+                if(heightDiff > 0){
+                    $('.homeContainer').css({'margin-top': heightDiffTop + 'px'});
+                }
+            }else{
+                var containerHeight = $(window).height() - $('.footer').height()-30;
+                var containerWidth = (containerHeight*1024)/768;
+                $('.homeContainer').height(containerHeight);
+                $('.homeContainer').outerWidth(containerWidth);
+                $('.homeContainer').css({'margin-top': '10px'});
 
-            var heightDiff = $(window).height() - $('.homeContainer').height() - 41;
-            var heightDiffTop = heightDiff/2;
-            if(heightDiff > 0){
-                $('.homeContainer').css({'margin-top': heightDiffTop + 'px'});
             }
+
+            $('.mainContainer').removeClass('max700');            
+            $('.mainContainer').removeClass('max620');            
+            $('.mainContainer').removeClass('max520');            
+            $('.mainContainer').removeClass('max400');            
+
+                var containerWidth =  $('.homeContainer').outerWidth();
+                if(containerWidth < 700){
+                    $('.mainContainer').addClass('max700');
+                }
+                if(containerWidth < 620){
+                    $('.mainContainer').addClass('max620');
+                }
+                if(containerWidth < 520){
+                    $('.mainContainer').addClass('max520');
+                }
+                if(containerWidth < 400){
+                    $('.mainContainer').addClass('max400');
+                }
         }
         $scope.setHeight();	
 
@@ -44,7 +77,8 @@
                         count++;
                         break;
                     case 1:
-                        $('.doorWheel').hide(); 
+                        $('.rotateDoorimg').hide(); 
+                        $('.dialimg').hide(); 
                         $('.doorClose').addClass('door1');
                         count++;
                         break;

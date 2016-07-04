@@ -115,20 +115,22 @@
         }
         $rootScope.loginResponse={};
         $rootScope.loginResponse.attempts_left = 1658;
-       /* httpService.makecall($rootScope.baseUrl+ '/games/login', 'POST', gameLoginDetails).then(function(response){
+        httpService.makecall($rootScope.baseUrl+ '/games/login', 'POST', gameLoginDetails).then(function(response){
             console.log('++++++++++login++++++++');
             console.log(response);
             $scope.gameDetailLoaded = true;
             if($scope.assetsLoaded){
                 $rootScope.isAllLoaded = true;
-                $state.go('tab.home');
+                //$state.go('tab.home');
+                $('.loadingMsg').hide();
+                $scope.playButtonPresent = true;
             }
             $rootScope.loginResponse = response.data;
         }, 
         function(error){
             alert("Connection Error. Please Check Network Connection.");
             console.log(error);
-        });*/
+        });
         $scope.openForm = function(){
             $('.playImg').removeClass('playButton');
             $('.playImg').addClass('playButtonActive');

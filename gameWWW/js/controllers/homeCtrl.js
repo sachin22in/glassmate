@@ -12,8 +12,10 @@
         if($rootScope.loginResponse){
            $scope.attemptsValue =  $rootScope.loginResponse.attempts_left;
         }else{
-            //$state.go('landing');   
+            $state.go('landing');   
         }
+        $('.rotateDoorimg').show(); 
+        $('.dialimg').show();
 
         $scope.setHeight = function(){
             $('.homeContainer').width('100%');
@@ -62,12 +64,12 @@
             if(value.slice(value.length-1,value.length) == '_'){
                 value = value.slice(0, -1);    
             }
-            if(value.length >=6){
+            if(value.length >= $rootScope.loginResponse.digits){
                 //value = value.slice(0, -1);
                 $('.codeValue').html(value);
                 return false;
             }
-            if (value.length != 5) {
+            if (value.length != ($rootScope.loginResponse.digits-1)) {
                 value = value + digit + '_';    
             }else{
                 value = value + digit ;
@@ -98,49 +100,66 @@
             var value = $('.codeValue').html();
             //value = value.slice(0, -1);
             
-            if(value.length < 6){
+            if(value.length < $rootScope.loginResponse.digits){
                 $scope.openRequiredCodeModel();
                 return false;
             }
+
             var obj = {
                 "guess": value,
             }
-            /*httpService.makecall($rootScope.baseUrl+ '/participants', 'POST', obj).then(function(response){
+
+            httpService.makecall($rootScope.baseUrl+ '/participants', 'POST', obj).then(function(response){
                 console.log('++++++++++participants++++++++');
                 console.log(response);
+                
+                $scope.myPanel = false;
                 $scope.attemptsValue--;
+                
+
                 if(response.data.is_winner){
                     $rootScope.correctCode = value;
                     $state.go('tab.openDoor');
                 }else{
+                    $('.codeValue').html('_');
                     $scope.openInvalidModel();
                 }
+                // if(value == '999999'){
+                //     $('.codeValue').html('_');
+                //     $scope.openYouWonModel();
+                //     return false;
+                // }
+                // if(value == '888888'){
+                //     $rootScope.correctCode = value;
+                //     $state.go('tab.openDoor');
+                //     return false;
+                // }
+                // $('.codeValue').html('_');
+                // $scope.openInvalidModel();
+
             }, 
             function(error){
                 alert("Connection Error. Please Check Network Connection.");
                 console.log(error);
-            });*/
+            });
 
-            // if(value.length < 6){
-            //     $scope.openInvalidModel();
-            //     return false;
-            // }
+            
 
             $scope.myPanel = true;
             $scope.animateRotate(360, function(){
-                $scope.myPanel = false;
-                if(value == '999999'){
-                	$('.codeValue').html('_');
-                    $scope.openYouWonModel();
-                    return false;
-                }
-                if(value == '888888'){
-                    $rootScope.correctCode = value;
-                    $state.go('tab.openDoor');
-                    return false;
-                }
-                $('.codeValue').html('_');
-                $scope.openInvalidModel();
+                // $scope.myPanel = false;
+                // if(value == '999999'){
+                // 	$('.codeValue').html('_');
+                //     $scope.openYouWonModel();
+                //     return false;
+                // }
+                // if(value == '888888'){
+                //     $rootScope.correctCode = value;
+                //     $state.go('tab.openDoor');
+                //     return false;
+                // }
+                // $('.codeValue').html('_');
+                // $scope.openInvalidModel();
             });
             
 
