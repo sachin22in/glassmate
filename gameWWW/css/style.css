@@ -289,6 +289,7 @@ body{
   text-align: center;
   padding: 15px 15px 15px 15px;
   width: auto;
+  
 }
 .clientDetails img{
   width: 100%;
@@ -340,9 +341,10 @@ body{
   clear: both;
 }
 .clintDetailLogin .clientDetails{
-  /*position: static;*/
+  position: static;
   display: inline-block;
   left: 26%;
+  margin-bottom: 30px;
 }
 
 .gameInfo {
@@ -652,8 +654,8 @@ body{
 /* popup style end*/
 
 .footer{
-  color: #FFF;
-  font-size: 0.9em;
+  color: #b7b7b7;
+  font-size: 0.8em;
   font-family: arial;
   text-align: center;
   margin-top: 8px;
@@ -695,26 +697,30 @@ body{
 
 }
 .submitButton{
-    position: absolute;
+   /* position: absolute;
     bottom: 28%;
-    right: 39%;
+    right: 39%;*/
     background: url("../img/login_submit_btn.png") no-repeat top center;
-    background-size: 100%;
+    background-size: 100% 100%;
     width: 25%;
-    height: 9%;
+    height: 30px;
     cursor: pointer;
-
+        margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 .submitButtonActive{
-    position: absolute;
+    /*position: absolute;
     bottom: 28%;
-    right: 39%;
+    right: 39%;*/
     background: url("../img/login_submit_btn_press.png") no-repeat top center;
-    background-size: 100%;
+    background-size: 100% 100%;
     width: 25%;
-    height: 9%;
+    height: 30px;
     cursor: pointer;
-
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 .playButtonActive{
     position: absolute;
@@ -756,7 +762,7 @@ body{
 
 .logoContainer{
   width: 28%;
-  height: 14%;
+  height: 65px;
   margin: 0 auto;
   padding-top: 1%;
 }
@@ -771,6 +777,8 @@ body{
   font-size: 1em;
   padding: 2%;
   margin-top: 3%;
+  height: 30%;
+  overflow-y: auto;
 }
 .loginDetails .inputLabel{
   display: inline-block;
@@ -794,7 +802,14 @@ font-size: 1.3em;
 color: #FFF;
   font-family: digital_font;
 }
-
+.userDetailContainer{
+  height: initial !important;
+}
+.requiredIcon{
+      font-size: 12px;
+    vertical-align: super;
+    color: #ca1515;
+}
 /*@media only screen and (max-width: 700px){*/
    .max700 .clientDetails .clientName,.max700 .clientDetailslanding .clientName{
         font-size: 1.2em;

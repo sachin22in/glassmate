@@ -104,10 +104,13 @@
                 $scope.openRequiredCodeModel();
                 return false;
             }
-
-            var obj = {
-                "guess": value,
+            var obj = {};
+            if($rootScope.userDetails){
+                obj = $rootScope.userDetails;
             }
+            
+            obj.guess = value;
+            console.log(obj);
 
             httpService.makecall($rootScope.baseUrl+ '/participants', 'POST', obj).then(function(response){
                 console.log('++++++++++participants++++++++');
@@ -141,6 +144,7 @@
             function(error){
                 alert("Connection Error. Please Check Network Connection.");
                 console.log(error);
+                $scope.myPanel = false;
             });
 
             

@@ -3,6 +3,14 @@
     app.controller('userDetailCtrl', ['$scope','httpService','$rootScope','preloader','$state','$window', userDetailCtrl]);
 
     function userDetailCtrl($scope, httpService, $rootScope, preloader, $state, $window) { 
+
+        $scope.user = {};
+        if($rootScope.loginResponse){
+           $scope.user =  $rootScope.userDetails;
+        }else{
+            $state.go('landing');
+        }
+
         $scope.setHeight = function(){
             $('.homeContainer').width('100%');
             var ratio = $('.homeContainer').outerWidth()/1024;
@@ -43,18 +51,29 @@
                 }
         }
         $scope.submitForm = function(){
-           $('.submitImg').removeClass('submitButton');
-            $('.submitImg').addClass('submitButtonActive');
-            setTimeout(function(){
+           
+            if($scope.loginDetailsForm.$valid){
+                $rootScope.userDetails = $scope.user;
+                $('.submitImg').removeClass('submitButton');
+                $('.submitImg').addClass('submitButtonActive');
+                console.log($scope);
                 $state.go('tab.home');
-            },100)
+                setTimeout(function(){
+                    //$state.go('tab.home');
+                },100)
+            }else{
+                alert("Please Enter Required Details");
+            }
+            
             
         }
-        
-        $scope.setHeight(); 
-
+               
+       //$scope.setHeight(); 
+        //$rootScope.loginResponse
+        $scope.loginFormField = $rootScope.loginResponse.registration_fields;
+        //console.log($scope.loginFormField);
         angular.element($window).bind('resize', function(){
-            $scope.setHeight(); 
+            //$scope.setHeight(); 
         })
     }
 })();

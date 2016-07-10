@@ -5,7 +5,7 @@
 
     function landingCtrl($scope, httpService, $rootScope, preloader, $state, $window) { 
         $scope.assetsLoaded = false;
-        $scope.gameDetailLoaded = true;
+        $scope.gameDetailLoaded = false;
         $scope.imageLocations= [
         	'img/client_logo_bg.png',
             'img/clinet_logo_text.png',
@@ -93,6 +93,15 @@
             'img/popup_text_sorry.png',
             'img/popup_text_you_win.png',
             'img/vault_bg_ipad.png',
+            'img/intro_play_btn.png',
+            'img/intro_play_btn_press.png',
+            'img/fild_box_login.png',
+            'img/left_side_bar.jpg',
+            'img/right_side_bar.jpg',
+            'img/login_bg.jpg',
+            'img/login_submit_btn.png',
+            'img/login_submit_btn_press.png',
+            'img/door_black_dail.png'
         ];
         preloader.preloadImages($scope.imageLocations).then(function(){
         	console.log("success");
@@ -118,6 +127,7 @@
         httpService.makecall($rootScope.baseUrl+ '/games/login', 'POST', gameLoginDetails).then(function(response){
             console.log('++++++++++login++++++++');
             console.log(response);
+            console.log(response.data.registration_fields);
             $scope.gameDetailLoaded = true;
             if($scope.assetsLoaded){
                 $rootScope.isAllLoaded = true;
