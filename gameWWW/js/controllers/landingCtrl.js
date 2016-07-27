@@ -1,11 +1,11 @@
 (function () {
     'use strict';
 
-    app.controller('landingCtrl', ['$scope','httpService','$rootScope','preloader','$state','$window', landingCtrl]);
+    app.controller('landingCtrl', ['$scope','httpService','$rootScope','preloader','$state','$window','$interval', landingCtrl]);
 
-    function landingCtrl($scope, httpService, $rootScope, preloader, $state, $window) { 
+    function landingCtrl($scope, httpService, $rootScope, preloader, $state, $window,$interval) { 
         $scope.assetsLoaded = false;
-        $scope.gameDetailLoaded = false;
+        $scope.gameDetailLoaded = true;
         $scope.imageLocations= [
         	'img/client_logo_bg.png',
             'img/clinet_logo_text.png',
@@ -101,46 +101,52 @@
             'img/login_bg.jpg',
             'img/login_submit_btn.png',
             'img/login_submit_btn_press.png',
-            'img/door_black_dail.png'
+            'img/door_black_dail.png',
+            'img/Intro02.jpg',
+            'img/Intro03.jpg',
+            'img/Intro04.jpg',
+            'img/Intro05.jpg',
+            'img/Intro06.jpg',
+            'img/Intro07.jpg'
         ];
         preloader.preloadImages($scope.imageLocations).then(function(){
-        	console.log("success");
+        	
             $scope.assetsLoaded = true;
             $scope.playButtonPresent = false;
             if($scope.gameDetailLoaded){
                 $rootScope.isAllLoaded = true;
                 //$state.go('tab.home');
-                $('.loadingMsg').hide();
-                $scope.playButtonPresent = true;
+                $scope.playBtnAnimation();
             }
         	
         },function(){
         	console.log('error');
         });
-
-        var gameLoginDetails = {
-            "game_number": $rootScope.GAME_CONFIG.game_number,
-            "password": $rootScope.GAME_CONFIG.game_password
+        if(!$rootScope.loginResponse){
+            $state.go('gameLogin');
         }
-        $rootScope.loginResponse={};
-        $rootScope.loginResponse.attempts_left = 1658;
-        httpService.makecall($rootScope.baseUrl+ '/games/login', 'POST', gameLoginDetails).then(function(response){
-            console.log('++++++++++login++++++++');
-            console.log(response);
-            console.log(response.data.registration_fields);
-            $scope.gameDetailLoaded = true;
-            if($scope.assetsLoaded){
-                $rootScope.isAllLoaded = true;
-                //$state.go('tab.home');
-                $('.loadingMsg').hide();
-                $scope.playButtonPresent = true;
-            }
-            $rootScope.loginResponse = response.data;
-        }, 
-        function(error){
-            alert("Connection Error. Please Check Network Connection.");
-            console.log(error);
-        });
+        // var gameLoginDetails = {
+        //     "game_number": $rootScope.GAME_CONFIG.game_number,
+        //     "password": $rootScope.GAME_CONFIG.game_password
+        // }
+        // $rootScope.loginResponse={};
+        // $rootScope.loginResponse.attempts_left = 1658;
+        // httpService.makecall($rootScope.baseUrl+ '/games/login', 'POST', gameLoginDetails).then(function(response){
+        //     // console.log('++++++++++login++++++++');
+        //     // console.log(response);
+        //     // console.log(response.data.registration_fields);
+        //     $scope.gameDetailLoaded = true;
+        //     if($scope.assetsLoaded){
+        //         $rootScope.isAllLoaded = true;
+        //         //$state.go('tab.home');
+        //         $scope.playBtnAnimation();
+        //     }
+        //     $rootScope.loginResponse = response.data;
+        // }, 
+        // function(error){
+        //     alert("Connection Error. Please Check Network Connection.");
+        //     console.log(error);
+        // });
         $scope.openForm = function(){
             $('.playImg').removeClass('playButton');
             $('.playImg').addClass('playButtonActive');
@@ -187,6 +193,45 @@
                 if(containerWidth < 400){
                     $('.mainContainer').addClass('max400');
                 }
+        }
+
+        $scope.playBtnAnimation = function(){
+            var count = 1;
+            $scope.openDoorInterval = $interval(function(){
+                switch(count) {
+                    case 0:
+                        count++;
+                        break;
+                    case 1:
+                        $('.loading-screen-bg').addClass('introBG02');
+                        count++;
+                        break;
+                    case 2:
+                        $('.loading-screen-bg').addClass('introBG03');
+                        count++;
+                        break;
+                    case 3:
+                        $('.loading-screen-bg').addClass('introBG04');
+                        count++;
+                        break;
+                    case 4:
+                        $('.loading-screen-bg').addClass('introBG05');
+                        count++;
+                        break;
+                    case 5:
+                        $('.loading-screen-bg').addClass('introBG06');
+                        count++;
+                        break;
+                    case 6:
+                        $('.loading-screen-bg').addClass('introBG07');
+                        count++;
+                        break;
+                    case 7:
+                        $('.loadingMsg').hide();
+                        $scope.playButtonPresent = true;
+                        break;
+                }
+            }, 500)
         }
         
         $scope.setHeight(); 

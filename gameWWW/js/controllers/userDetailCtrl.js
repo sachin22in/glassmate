@@ -56,7 +56,7 @@
                 $rootScope.userDetails = $scope.user;
                 $('.submitImg').removeClass('submitButton');
                 $('.submitImg').addClass('submitButtonActive');
-                console.log($scope);
+                
                 $state.go('tab.home');
                 setTimeout(function(){
                     //$state.go('tab.home');

@@ -74,6 +74,26 @@ body{
   width: 100%;
   height: 100%;
 }
+.introBG02{
+  background: url("../img/Intro02.jpg") no-repeat top center;
+  background-size: 100%;
+}
+.introBG03{
+  background: url("../img/Intro03.jpg") no-repeat top center;
+  background-size: 100%;
+}.introBG04{
+  background: url("../img/Intro04.jpg") no-repeat top center;
+  background-size: 100%;
+}.introBG05{
+  background: url("../img/Intro05.jpg") no-repeat top center;
+  background-size: 100%;
+}.introBG06{
+  background: url("../img/Intro06.jpg") no-repeat top center;
+  background-size: 100%;
+}.introBG07{
+  background: url("../img/Intro07.jpg") no-repeat top center;
+  background-size: 100%;
+}
 .userDetail-bg{
   background: url("../img/login_bg.jpg") no-repeat top center;
   background-size: 100% 100%;
@@ -683,7 +703,7 @@ body{
     font-family: digital_font;
     position: absolute;
     bottom: 25%;
-    right: 25%;
+    right: 14%;
 }
 .playButton{
     position: absolute;

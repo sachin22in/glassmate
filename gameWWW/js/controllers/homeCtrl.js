@@ -8,7 +8,6 @@
         if($rootScope.isAllLoaded == false){
             $state.go('landing');
         }
-        console.log($rootScope.loginResponse);
         if($rootScope.loginResponse){
            $scope.attemptsValue =  $rootScope.loginResponse.attempts_left;
         }else{
@@ -110,11 +109,11 @@
             }
             
             obj.guess = value;
-            console.log(obj);
+            
 
             httpService.makecall($rootScope.baseUrl+ '/participants', 'POST', obj).then(function(response){
-                console.log('++++++++++participants++++++++');
-                console.log(response);
+                // console.log('++++++++++participants++++++++');
+                // console.log(response);
                 
                 $scope.myPanel = false;
                 $scope.attemptsValue--;

@@ -11,6 +11,7 @@
                 method: method,
                 url: url,
                 crossDomain: true,
+                withCredentials: true,
                 headers: {
                   'Content-Type': 'application/json'
                 },

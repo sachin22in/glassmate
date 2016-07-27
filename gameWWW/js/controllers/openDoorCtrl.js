@@ -70,7 +70,7 @@
             //     $('.doorWheel').hide();    
             // }, 300);
             $scope.openDoorInterval = $interval(function(){
-                console.log(count);
+                
                    
                 switch(count) {
                     case 0:

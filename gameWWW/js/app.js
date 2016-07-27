@@ -21,7 +21,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
           templateUrl: "views/userDetail.html",
           controller: 'userDetailCtrl'
      })
-    
+    .state('gameLogin', {
+      url: "/gameLogin",
+          templateUrl: "views/gameLogin.html",
+          controller: 'gameLoginCtrl'
+     })
     .state('tab.home', {
       url: "/home",
       views: {
@@ -41,7 +45,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     })
     
-   $urlRouterProvider.otherwise("landing");
+   $urlRouterProvider.otherwise("gameLogin");
 
 })
 .run(function($rootScope, $window) {
