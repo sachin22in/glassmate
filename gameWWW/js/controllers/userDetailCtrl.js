@@ -56,13 +56,18 @@
                 $rootScope.userDetails = $scope.user;
                 $('.submitImg').removeClass('submitButton');
                 $('.submitImg').addClass('submitButtonActive');
-                
+                $rootScope.all_buttons.play();
                 $state.go('tab.home');
                 setTimeout(function(){
                     //$state.go('tab.home');
                 },100)
             }else{
-                alert("Please Enter Required Details");
+                if($scope.loginDetailsForm.email.$invalid){
+                    alert("Please Enter Valid Email");    
+                }else{
+                    alert("Please Enter Required Details");    
+                }
+                
             }
             
             

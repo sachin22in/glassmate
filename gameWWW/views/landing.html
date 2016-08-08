@@ -2,12 +2,15 @@
 
 <div class="homeContainer">
     <div class="loading-screen-bg">
-        <div class="clientDetailslanding">
+    	<div class="landingClientDetails">
+    		<div class="clientDetailslanding">
 <!--        <img src="img/clinet_logo_text.png">-->
-        <div class="clientName">{{loginResponse.name}}</div>
-        <div class="clientAmount">{{loginResponse.prize_description}}</div>
-        </div>
-        <div class="loadingMsg">LOADING...</div>
-        <div class="playButton playImg" ng-show="playButtonPresent" ng-click="openForm()"></div>
+	        <div class="clientName">{{loginResponse.name}}</div>
+	        <div class="clientAmount">{{loginResponse.prize_description}}</div>
+	        </div>
+	        <div class="loadingMsg">LOADING...</div>
+	        <div class="playButton playImg" ng-show="playButtonPresent" ng-click="openForm()"></div>
+    	</div>
+        
     </div>
 </div>

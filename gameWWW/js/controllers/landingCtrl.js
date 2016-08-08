@@ -4,6 +4,12 @@
     app.controller('landingCtrl', ['$scope','httpService','$rootScope','preloader','$state','$window','$interval', landingCtrl]);
 
     function landingCtrl($scope, httpService, $rootScope, preloader, $state, $window,$interval) { 
+        $rootScope.winning =  new Audio('audio/winning.mp3');
+        $rootScope.popup =  new Audio('audio/popup.mp3');
+        $rootScope.door_open =  new Audio('audio/door_open.mp3');
+        $rootScope.digit_enter =  new Audio('audio/digit_enter.mp3');
+        $rootScope.all_buttons =  new Audio('audio/all_buttons.mp3');
+
         $scope.assetsLoaded = false;
         $scope.gameDetailLoaded = true;
         $scope.imageLocations= [
@@ -148,6 +154,7 @@
         //     console.log(error);
         // });
         $scope.openForm = function(){
+            $rootScope.all_buttons.play();
             $('.playImg').removeClass('playButton');
             $('.playImg').addClass('playButtonActive');
             setTimeout(function(){
@@ -197,6 +204,7 @@
 
         $scope.playBtnAnimation = function(){
             var count = 1;
+            $rootScope.door_open.play();
             $scope.openDoorInterval = $interval(function(){
                 switch(count) {
                     case 0:

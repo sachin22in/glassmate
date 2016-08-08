@@ -141,7 +141,7 @@
 
 
         }
-
+        $rootScope.winning.play();
         $scope.initAnimation();
 
     }

@@ -23,14 +23,7 @@
 		   			<label class="inputLabel" >LAST NAME<span class="requiredIcon" ng-show='loginFormField.last_name.required'>*</span></label>
 		   			<input type="text" name="last_name" ng-model="user.last_name" ng-required ="loginFormField.last_name.required"></input>
 		   		</div>
-		   		<div class="inputDiv" ng-show='loginFormField.phone_number.include'>
-		   			<label class="inputLabel" >MOBILE<span class="requiredIcon" ng-show='loginFormField.phone_number.required'>*</span></label>
-		   			<input type="text" name="phone_number" ng-model="user.phone_number" ng-required ="loginFormField.phone_number.required" maxlength="10"></input>
-		   		</div>
-		   		<div class="inputDiv" ng-show='loginFormField.email.include'>
-		   			<label class="inputLabel" >EMAIL<span class="requiredIcon" ng-show='loginFormField.email.required'>*</span></label>
-		   			<input type="text" name="email" ng-model="user.email" ng-required ="loginFormField.email.required"></input>
-		   		</div>
+		   		
 		   		<div class="inputDiv" ng-show='loginFormField.address_1.include'>
 		   			<label class="inputLabel" >ADDRESS 1<span class="requiredIcon" ng-show='loginFormField.address_1.required'>*</span></label>
 		   			<input type="text" name="address_1" ng-model="user.address_1" ng-required ="loginFormField.address_1.required"></input>
@@ -49,14 +42,35 @@
 		   			<input type="text" name="state" ng-model="user.state" ng-required ="loginFormField.state.required"></input>
 		   		</div>
 	            <div class="inputDiv" ng-show='loginFormField.zip_code.include'>
-		   			<label class="inputLabel" >ZIPCODE<span class="requiredIcon" ng-show='loginFormField.zip_code.required'>*</span></label>
+		   			<label class="inputLabel" >ZIP CODE<span class="requiredIcon" ng-show='loginFormField.zip_code.required'>*</span></label>
 		   			<input type="text" name="zip_code" ng-model="user.zip_code" ng-required ="loginFormField.zip_code.required"></input>
+		   		</div>
+		   		<div class="inputDiv" ng-show='loginFormField.email.include'>
+		   			<label class="inputLabel" >EMAIL<span class="requiredIcon" ng-show='loginFormField.email.required'>*</span></label>
+		   			<input type="email" name="email" ng-model="user.email" ng-required ="loginFormField.email.required"></input>
+		   		</div>
+		   		<div class="inputDiv" ng-show='loginFormField.phone_number.include'>
+		   			<label class="inputLabel" >PHONE NUMBER<span class="requiredIcon" ng-show='loginFormField.phone_number.required'>*</span></label>
+		   			<input type="text" name="phone_number" ng-model="user.phone_number" ng-required ="loginFormField.phone_number.required" maxlength="10"></input>
 		   		</div>
 		   		<div class="inputDiv" ng-show='loginFormField.birth_date.include'>
 		   			<label class="inputLabel" >BIRTH DATE<span class="requiredIcon" ng-show='loginFormField.birth_date.required'>*</span></label>
-		   			<input type="text" name="birth_date" ng-model="user.birth_date" ng-required ="loginFormField.birth_date.required"></input>
+		   			<input type="date" name="birth_date" ng-model="user.birth_date" ng-required ="loginFormField.birth_date.required"></input>
 		   		</div> 
-		   		
+		   		<div class="inputDiv" ng-show='loginFormField.questions.length >= 1'>
+		   			<label class="inputLabel" >QUESTIONS</label>
+		   			<div class="questionsDiv">
+		   				<div ng-repeat = "que in loginFormField.questions">
+			   				<input type="checkbox" class="checkbox" ng-model="$index" ng-required ="que.required" ng-checked="que.checked"></input>
+			   				<div class="queText">
+			   					<span class="requiredIcon" ng-show='loginFormField.birth_date.required'>*</span>{{que.text}}	
+			   				</div>	
+			   			</div>
+			   			<div style="clear:both;"></div>
+			   				
+		   			</div>
+		   			<div style="clear:both;"></div>
+		   		</div> 
 	            <!-- <div class="inputDiv" ng-show='loginFormField.questions.include'>
 		   			<label class="inputLabel"> QUESTIONS</label>
 		   			<input type="text"></input>

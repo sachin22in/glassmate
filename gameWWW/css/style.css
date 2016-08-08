@@ -58,6 +58,16 @@ body{
   max-width: 775px;
   margin: 0 auto;    
 }
+.homeContainer .clintDetailDiv{
+  position: absolute;
+    bottom: 3%;
+    left: 5%;
+    width: 62%;
+    text-align: center;
+}
+.homeContainer .clientDetails{
+  position: static;
+}
 .digitalFontText{
   font-family: digital_font;
 }
@@ -309,7 +319,6 @@ body{
   text-align: center;
   padding: 15px 15px 15px 15px;
   width: auto;
-  
 }
 .clientDetails img{
   width: 100%;
@@ -329,13 +338,23 @@ body{
   font-family: digital_font;
     text-shadow: 1px 0px 1px rgba(255, 255, 255, 2)
 }
+.landingClientDetails{
+      width: 50%;
+    float: right;
+    height: 95%;
+    padding-top: 2%;
+    padding-right: 2%;
+    text-align: center;
+    position: relative;
+}
 .clientDetailslanding{
   background: url("../img/client_logo_bg.png") no-repeat;
   background-size: 100% 100%;
   z-index: 10;
-  position: absolute;
+  display: inline-block;
+  /*position: absolute;
   right: 1%;
-  top: 8%;
+  top: 8%;*/
   text-align: center;
   padding: 15px 15px 15px 15px;
   width: auto;
@@ -414,7 +433,7 @@ body{
 .keyPanel .codeValue{
   border: 1px solid #002AC4;
   width: 80%;
-  text-align: left;
+  text-align: center;
   margin: 0 auto;
   font-size: 1.7em;
   color: #9FFB2D;
@@ -680,6 +699,10 @@ body{
   text-align: center;
   margin-top: 8px;
 }
+.footer a{
+  color: #b7b7b7;
+    text-decoration: none;
+}
 .footer .bar{
   display: inline-block;
     height: 12px;
@@ -702,17 +725,17 @@ body{
     color: #FFF;
     font-family: digital_font;
     position: absolute;
-    bottom: 25%;
-    right: 14%;
+    bottom: 18%;
+    right: 32%;
 }
 .playButton{
     position: absolute;
-    bottom: 20%;
-    right: 10%;
+    bottom: 15%;
+    right: 32%;
     background: url("../img/intro_play_btn.png") no-repeat top center;
-    background-size: 100%;
-    width: 25%;
-    height: 9%;
+    background-size: 100% 100%;
+    width: 40%;
+    height: 8%;
     cursor: pointer;
 
 }
@@ -744,12 +767,12 @@ body{
 }
 .playButtonActive{
     position: absolute;
-    bottom: 20%;
-    right: 10%;
+    bottom: 15%;
+    right: 32%;
     background: url("../img/intro_play_btn_press.png") no-repeat top center;
-    background-size: 100%;
-    width: 25%;
-    height: 9%;
+    background-size: 100% 100%;
+    width: 40%;
+    height: 8%;
     cursor: pointer;
 
 }
@@ -800,12 +823,15 @@ body{
   height: 30%;
   overflow-y: auto;
 }
+.loginDetails .inputDiv{
+  padding: 5px;
+}
 .loginDetails .inputLabel{
   display: inline-block;
   margin-right: 3%;
-  width: 29%;
+  width: 32%;
   text-align: right;
-  font-size: 1.2em;
+  font-size: 1em;
 
 }
 .loginDetails input{
@@ -821,6 +847,18 @@ border: 0;
 font-size: 1.3em;
 color: #FFF;
   font-family: digital_font;
+}
+.loginDetails .checkbox{
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+.loginDetails .queText{
+  display: inline-block;
+}
+.questionsDiv{
+  float: right;
+  width: 64%;
 }
 .userDetailContainer{
   height: initial !important;

@@ -66,6 +66,7 @@
                     // console.log(response.data.registration_fields);
                     
                     if(response.data.is_ended == false && response.data.is_started == true && response.data.is_launched == true){
+                        console.log(response.data);
                         $rootScope.loginResponse = response.data;  
                         $state.go('landing');  
                     }else{

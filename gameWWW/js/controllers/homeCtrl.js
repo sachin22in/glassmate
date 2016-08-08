@@ -73,7 +73,7 @@
             }else{
                 value = value + digit ;
             }
-            
+            $rootScope.digit_enter.play();
 
             $('.codeValue').html(value);
         }
@@ -98,7 +98,6 @@
             
             var value = $('.codeValue').html();
             //value = value.slice(0, -1);
-            
             if(value.length < $rootScope.loginResponse.digits){
                 $scope.openRequiredCodeModel();
                 return false;
@@ -170,6 +169,7 @@
 
         }
         $scope.openPrizeDetailPopup = function(){
+            $rootScope.popup.play();
             $scope.prizeDetailModel = ngDialog.open({ template: 'views/prizeDetailModel.html',
                 className: 'ngdialog-theme-default',
                 scope: $scope,
@@ -178,6 +178,7 @@
             })
         }
         $scope.openInvalidModel = function(){
+            $rootScope.popup.play();
             $scope.invalidCodeModel = ngDialog.open({ template: 'views/invalidCodeModel.html',
                 className: 'ngdialog-theme-default',
                 scope: $scope,
@@ -206,9 +207,11 @@
         }
         $scope.closeInvalidModel = function(){
             $scope.invalidCodeModel.close();
+            $state.go('landing');   
         }
         $scope.closeYouWonModel = function(){
             $scope.youWonModel.close();
+            $state.go('landing');   
         }
         $scope.closePrizeDetailModel = function(){
             $scope.prizeDetailModel.close();
