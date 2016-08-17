@@ -61,7 +61,7 @@
 		   			<label class="inputLabel" >QUESTIONS</label>
 		   			<div class="questionsDiv">
 		   				<div ng-repeat = "que in loginFormField.questions">
-			   				<input type="checkbox" class="checkbox" ng-model="$index" ng-required ="que.required" ng-checked="que.checked"></input>
+			   				<input type="checkbox" class="checkbox" ng-model="$index" ng-checked="que.checked"></input>
 			   				<div class="queText">
 			   					<span class="requiredIcon" ng-show='loginFormField.birth_date.required'>*</span>{{que.text}}	
 			   				</div>	
