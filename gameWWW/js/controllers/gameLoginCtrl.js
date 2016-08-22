@@ -27,7 +27,13 @@
                 var containerWidth = (containerHeight*1024)/768;
                 $('.homeContainer').height(containerHeight);
                 $('.homeContainer').outerWidth(containerWidth);
-                $('.homeContainer').css({'margin-top': '10px'});
+
+                var heightDiff = $(window).height() - $('.homeContainer').height() - $('.footer').height();
+                var heightDiffTop = heightDiff/2;
+                if(heightDiff > 0){
+                    $('.homeContainer').css({'margin-top': heightDiffTop + 'px'});
+                }
+                //$('.homeContainer').css({'margin-top': '10px'});
 
             }
 

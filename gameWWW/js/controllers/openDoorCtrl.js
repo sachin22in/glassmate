@@ -56,6 +56,7 @@
                 if(containerWidth < 400){
                     $('.mainContainer').addClass('max400');
                 }
+            $('.footer').outerWidth($('.homeContainer').outerWidth());
         }
         $scope.setHeight();	
 

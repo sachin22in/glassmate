@@ -3,12 +3,14 @@
 <div class="popupBody">
 	<img src="img/popup_text_grand_prize.png" width="215">
 	<div class="amount">
-		$<span>25,000</span>
+		<!-- $<span>25,000</span> -->
+		{{loginResponse.prize_description}}
 	</div>
 	<div class="borderBlue"></div>
 	<img src="img/popup_text_ancillary_prizes.png" width="215">
 	<div class="amount">
-		$<span>1000</span>
+		<!-- $<span>1000</span> -->
+		<div ng-repeat = "prize in loginResponse.guarantee_prizes">{{prize.name}}</div>
 	</div>
 </div>
 

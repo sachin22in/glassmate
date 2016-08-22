@@ -49,12 +49,18 @@ table {
 html{
   background: url("../img/login_bg.jpg") no-repeat top center;
   background-size: 100% 100%;
+  width: 100%;
+  height: 100%;
 }
 body{
   font-size: 14px;
   background-color: #000;
   background: url("../img/login_bg.jpg") no-repeat top center;
   background-size: 100% 100%;
+}
+.fullContainer{
+  width: 100%;
+  height: 100%;
 }
 .mainContainer{
   background: url("../img/login_bg.jpg") no-repeat top center;
@@ -637,7 +643,7 @@ body{
   .ngdialog.ngdialog-theme-default .ngdialog-content{
       background: url("../img/popup_defult_bg.png") no-repeat top center;
   background-size: 100% 100%;
-  height: 250px;
+  min-height: 250px;
   }
   
   .popupContainer .closeBtn{

@@ -49,6 +49,7 @@
                 if(containerWidth < 400){
                     $('.mainContainer').addClass('max400');
                 }
+            $('.footer').outerWidth($('.homeContainer').outerWidth());
         }
         $scope.submitForm = function(){
            
@@ -57,6 +58,12 @@
                 $('.submitImg').removeClass('submitButton');
                 $('.submitImg').addClass('submitButtonActive');
                 $rootScope.all_buttons.play();
+                var questionsObj = {};
+                angular.forEach($scope.loginFormField.questions, function(value, key){
+                    questionsObj[value.text] = $('.questionsDiv input')[key].checked;
+                })
+                $rootScope.userDetails.questions = questionsObj;
+            
                 $state.go('tab.home');
                 setTimeout(function(){
                     //$state.go('tab.home');
@@ -73,12 +80,12 @@
             
         }
                
-       //$scope.setHeight(); 
+       $scope.setHeight(); 
         //$rootScope.loginResponse
         $scope.loginFormField = $rootScope.loginResponse.registration_fields;
         //console.log($scope.loginFormField);
         angular.element($window).bind('resize', function(){
-            //$scope.setHeight(); 
+            $scope.setHeight(); 
         })
     }
 })();
