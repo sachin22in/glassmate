@@ -30,6 +30,10 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
       url: "/signup",
           templateUrl: "app/authontication/signup.html"
      })
+    .state('socialDetails', {
+      url: "/socialDetails",
+          templateUrl: "app/authontication/socialDetails.html"
+     })
     .state('dp', {
       url: "/dp",
           templateUrl: "app/authontication/dpUpload.html",
@@ -147,16 +151,19 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
       }
     })
 
-   $urlRouterProvider.otherwise("landing");
+   $urlRouterProvider.otherwise("login");
 
 })
 .run(function($rootScope, $ionicHistory, $ionicViewService, $window, $state) {
-    $rootScope.baseUrl = 'http://54.169.243.198/restAPI/app/service';
-    $rootScope.baseUrlStatic = 'http://54.169.243.198/restAPI/app/glassmateStatic';
+    // $rootScope.baseUrl = 'http://54.169.243.198/restAPI/app/service';
+    // $rootScope.baseUrlStatic = 'http://54.169.243.198/restAPI/app/glassmateStatic';
      // $rootScope.baseUrl = 'http://192.168.0.100:3000/glassmate';
      // $rootScope.baseUrlStatic = 'http://192.168.0.100:3000/glassmateStatic';
      // $rootScope.baseUrl = 'http://localhost:3000/glassmate';
      // $rootScope.baseUrlStatic = 'http://localhost:3000/glassmateStatic';
+     $rootScope.baseUrl = 'http://the-glassmates2016.rhcloud.com/restAPI';
+     $rootScope.baseUrlStatic = 'http://the-glassmates2016.rhcloud.com/static';
+     
     $('#loaderDiv').hide();
 
     $rootScope.$windowGoBack = function(){
@@ -166,6 +173,8 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'rzModule', 'ion-gallery
     if(localStorage.getItem("glassmatesUserDetails")){
       $rootScope.userDetails = JSON.parse(localStorage.getItem("glassmatesUserDetails"));
       $state.go('tabs.theWall');
+    }else{
+      $state.go('landing');
     }
 
 

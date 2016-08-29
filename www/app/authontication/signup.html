@@ -5,7 +5,7 @@
       <div class="list list-solid padding">
       	<div>
           <div class="socialBtn">
-            <button type="submit" class="button button-block HelveticaHeading ion-social-facebook button-facebook">
+            <button type="submit" class="button button-block HelveticaHeading ion-social-facebook button-facebook" ng-click="fbLogin()">
               FACEBOOK
             </button>
           </div>
@@ -104,12 +104,13 @@
           </div>
         </form>
         
-        </div>
-      
         <button type="submit" class="button button-block button-signup" ng-click="signup(); startDobValidation = true;">
           <span class="sign-up HelveticaHeading">SIGNUP</span>
           
         </button>
+        </div>
+      
+        
       
    <!--    <ionic-datepicker input-obj="datepickerObject">
             <button class="button button-block button-positive"> </button>

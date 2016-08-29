@@ -180,13 +180,13 @@ body{
 .signup_header span.back_button {
     display: inline-block;
     width: 8%;
-    height: 50px;
+    height: 33px;
     vertical-align: middle;
     text-align: center;
 }
 .signup_header span.heading {
     width: 92%;
-    font-size: 20px;
+    font-size: 24px;
     text-align: center;
     display: inline-block;
 }
@@ -350,7 +350,7 @@ box-shadow: 0px 3px 5px 0px rgba(153,153,153,1);*/
 }
 .bar .title {
     color: #f2ba01;
-    margin-top: 3px;
+    margin-top: 6px;
 }
 
 /*------ Main Dashboard End -----*/
@@ -531,12 +531,18 @@ button.ion-social-google:before {
     line-height: 1.13;
     position: relative;
     text-align: center;
-    font-size: 20px;
-    width: 90%;
+    /*font-size: 20px;*/
+    width: 100%;
     text-align: center;
-    margin: 0 5%;
     background-color: #F2BA01;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border: 0px;
+    padding-top: 5px;
+}
+.button-signup .sign-up{
+  font-size: 22px;
+
 }
 .signup .bar-transparent{
 
@@ -1858,12 +1864,15 @@ float: right;
 }
 .button-bar{
   margin-bottom: 15px;
+  margin-top: 6px;
 }
 .button-bar .button{
   background-color: transparent;
+  padding-top: 5px;
 }
 .button-bar .genderSelected{
   background-color: #f2ba01;
+
 }
 .genderSelected{
   background-color: #f2ba01;
@@ -2194,6 +2203,7 @@ ion-nav-bar .ion-plus-round:hover{
 }
 .otpInput{
   text-align: center;
+  font-size: 20px;
 }
 .backdrop.active{
   opacity: 0.1;
@@ -2201,4 +2211,5 @@ ion-nav-bar .ion-plus-round:hover{
 .otpInfoText{
   font-size: 18px;
 }
+
 

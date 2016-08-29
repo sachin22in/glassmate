@@ -1,0 +1,54 @@
+<ion-view hide-nav-bar="true" class="signup view-container">
+    <ion-content class="signup_container HelveticaBody" ng-controller='registrationCtrl'>
+    <div class="signup_header padding" >
+      <span class="back_button" ng-click="$ionicGoBack()"></span><span class="heading HelveticaHeading">SOCIAL LOGIN</span>
+      <div class="list list-solid padding">
+      	
+      <div class="errorMsg">
+            <p ng-show="signupError" class="signupError">Email id or Mobile number already registered.</p>
+      </div>
+      <form name="signupForm" autocomplete="off" ng-init="checkSocialStatus()">
+        <div class="signupInput">
+          
+          <label class="item">
+            Mobile Number
+            <input type="tel" name="mobile" ng-model='user.mobile' maxlength="10" ng-minlength="10" required autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+          </label>
+          <div class="errorMsg">
+            <p ng-show="signupForm.mobile.$error.required && signupForm.mobile.$touched">Mobile Number is required.</p>
+            <p ng-show="signupForm.mobile.$error.minlength && signupForm.mobile.$touched">Mobile number must be 10 digit.</p>
+          </div>
+          
+          
+          
+          <label class="item">
+            About You
+            <input type="text" name="aboutYou" ng-model='user.aboutYou'>
+          </label>
+          <label class="item">
+            Occupation
+            <input type="text" name="occupation" ng-model='user.occupation'>
+          </label>
+          <div class="errorMsg">
+            <p ng-show="signupForm.occupation.$error.required && signupForm.occupation.$touched">Occupation is required.</p>
+          </div>
+          
+
+          </div>
+        </form>
+        
+        <button type="submit" class="button button-block button-signup" ng-click="socialSignUp(); startDobValidation = true;">
+          <span class="sign-up HelveticaHeading">SAVE DETAILS</span>
+          
+        </button>
+        </div>
+      
+        
+      
+   <!--    <ionic-datepicker input-obj="datepickerObject">
+            <button class="button button-block button-positive"> </button>
+      </ionic-datepicker> -->
+    </ion-content>
+   
+</ion-view>
+

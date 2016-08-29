@@ -15,6 +15,8 @@
         
       $scope.logout = function(){
             $rootScope.userDetails = '';
+            localStorage.clear();
+            facebookConnectPlugin.logout();
             $state.go('login');
      	};
       $scope.changeProfilePic = function(){
